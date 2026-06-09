@@ -203,10 +203,10 @@
     #features {
       background: linear-gradient(180deg,var(--forest-dk) 0%, #0D2232 100%);
       padding: 0 60px;
-      display: flex; gap: 0;
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 0;
     }
     .feat {
-      flex: 1; display: flex; flex-direction: column;
+      display: flex; flex-direction: column;
       align-items: center; text-align: center;
       padding: 56px 40px;
       position: relative; cursor: pointer;
@@ -225,8 +225,9 @@
     }
     .feat:hover .feat-icon { transform: scale(1.15) rotate(-5deg); }
     .feat-icon.res   { background: linear-gradient(135deg,var(--forest-lt),var(--teal)); }
-    .feat-icon.menu  { background: linear-gradient(135deg,var(--sky),#0D4C8A); }
-    .feat-icon.staff { background: linear-gradient(135deg,var(--red),#c1121f); }
+    .feat-icon.food  { background: linear-gradient(135deg,var(--orange),var(--red)); }
+    .feat-icon.stay  { background: linear-gradient(135deg,var(--sky),#0D4C8A); }
+    .feat-icon.city  { background: linear-gradient(135deg,var(--gold),#c9a227); }
     .feat h3 { font-size: 1.15rem; font-weight: 700; color: #e8f5ee; margin-bottom: 10px; }
     .feat p  { font-size: .87rem; color: rgba(200,240,220,.5); line-height: 1.65; max-width: 220px; }
     .feat-btn {
@@ -236,8 +237,9 @@
     }
     .feat-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,.4); }
     .feat-btn.res   { background: linear-gradient(135deg,var(--forest-lt),var(--teal)); color: #fff; }
-    .feat-btn.menu  { background: linear-gradient(135deg,var(--sky),#0D4C8A); color: #fff; }
-    .feat-btn.staff { background: linear-gradient(135deg,var(--red),var(--orange)); color: #fff; }
+    .feat-btn.food  { background: linear-gradient(135deg,var(--orange),var(--red)); color: #fff; }
+    .feat-btn.stay  { background: linear-gradient(135deg,var(--sky),#0D4C8A); color: #fff; }
+    .feat-btn.city  { background: linear-gradient(135deg,var(--gold),#c9a227); color: var(--text); }
 
     /* ─── MOUNTAIN DIVIDER ─── */
     .divider-mountains {
@@ -353,65 +355,6 @@
       position: absolute; bottom: 0; left: 0; right: 0; pointer-events: none; opacity: .15;
     }
 
-    /* ─── MODALS ─── */
-    .modal-overlay {
-      position: fixed; inset: 0; z-index: 1000;
-      background: rgba(6,14,26,.8); backdrop-filter: blur(8px);
-      display: none; align-items: center; justify-content: center; padding: 20px;
-    }
-    .modal-overlay.open { display: flex; animation: fadeIn .25s ease; }
-    @keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
-    .modal {
-      background: #fff; border-radius: 24px; max-width: 520px; width: 100%;
-      padding: 48px; position: relative;
-      animation: slideUp .35s cubic-bezier(.34,1.56,.64,1) both;
-    }
-    @keyframes slideUp { from { transform:translateY(40px);opacity:0; } to { transform:translateY(0);opacity:1; } }
-    .modal-close {
-      position: absolute; top: 18px; right: 18px;
-      width: 36px; height: 36px; border-radius: 50%;
-      background: #E8F5EE; border: none; cursor: pointer;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.1rem; color: var(--text); transition: background .2s;
-    }
-    .modal-close:hover { background: #C8E6D0; }
-    .modal-icon {
-      width: 60px; height: 60px; border-radius: 16px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.8rem; margin-bottom: 20px;
-    }
-    .modal-icon.res   { background: linear-gradient(135deg,var(--forest-lt),var(--teal)); }
-    .modal-icon.menu  { background: linear-gradient(135deg,var(--sky),#0D4C8A); }
-    .modal-icon.staff { background: linear-gradient(135deg,var(--red),var(--orange)); }
-    .modal h2 {
-      font-family:'Playfair Display',serif; font-size:1.7rem;
-      color:var(--text); margin-bottom:8px;
-    }
-    .modal p { color:#4A6A55; line-height:1.65; margin-bottom:26px; font-size:.9rem; }
-    .modal-form { display:flex; flex-direction:column; gap:13px; }
-    .modal-form input, .modal-form select, .modal-form textarea {
-      padding:13px 16px; border:2px solid #D0E8D8; border-radius:12px;
-      font-size:.9rem; font-family:inherit; color:var(--text);
-      background:#F5FBF7; transition:border .2s;
-    }
-    .modal-form input:focus,
-    .modal-form select:focus,
-    .modal-form textarea:focus { outline:none; border-color:var(--forest-lt); }
-    .modal-form textarea { resize:vertical; min-height:90px; }
-    .modal-submit {
-      padding:14px; border-radius:12px; border:none; cursor:pointer;
-      font-size:1rem; font-weight:700; transition:transform .2s,box-shadow .2s;
-    }
-    .modal-submit.res   { background:linear-gradient(135deg,var(--forest-lt),var(--teal)); color:#fff; }
-    .modal-submit.menu  { background:linear-gradient(135deg,var(--sky),#0D4C8A); color:#fff; }
-    .modal-submit.staff { background:linear-gradient(135deg,var(--red),var(--orange)); color:#fff; }
-    .modal-submit:hover { transform:translateY(-2px); box-shadow:0 8px 24px rgba(0,0,0,.2); }
-    .coming-soon-tag {
-      display:inline-block; background:#E8F5EE; border:1px dashed var(--forest-lt);
-      color:var(--forest); font-size:.75rem; font-weight:700;
-      padding:4px 12px; border-radius:50px; margin-bottom:14px;
-    }
-
     /* ─── FOOTER ─── */
     footer {
       background: var(--night);
@@ -438,8 +381,8 @@
     @media(max-width:900px){
       nav { padding:16px 22px; }
       .nav-links { gap:18px; }
-      #features { flex-direction:column; padding:0 22px; }
-      .feat:not(:last-child)::after { right:20%; left:20%; top:auto; bottom:0; width:auto; height:1px; }
+      #features { grid-template-columns: repeat(2,1fr); padding:0 22px; }
+      .feat:not(:last-child)::after { display:none; }
       #restaurants { padding:70px 22px; }
       .rest-grid { grid-template-columns:1fr 1fr; }
       .rest-row2 { max-width:100%; }
@@ -448,6 +391,7 @@
       footer { padding:40px 22px 24px; }
     }
     @media(max-width:600px){
+      #features { grid-template-columns:1fr; }
       .rest-grid { grid-template-columns:1fr; }
       .rest-row2 { grid-template-columns:1fr; }
       .hero-cta { flex-direction:column; align-items:center; }
@@ -461,7 +405,6 @@
 <nav>
   <div class="nav-logo"><span>🏔️</span> Rožaje Food</div>
   <ul class="nav-links">
-    <li><a href="#restaurants">Restorani</a></li>
     <li><a href="#features">Usluge</a></li>
     <li><a href="#nature-strip">O nama</a></li>
   </ul>
@@ -474,7 +417,7 @@
   <div class="particles" id="particles"></div>
 
   <div class="hero-content">
-    <div class="hero-badge">🏔️ Rožaje, Crna Gora · Prokletije</div>
+    <div class="hero-badge">🏔️ Rožaje, Crna Gora</div>
     <h1 class="hero-title">
       Ukusi<br>
       <span class="accent">Rožaja</span>
@@ -484,7 +427,7 @@
     </p>
     <div class="hero-cta">
       <a href="#restaurants" class="btn btn-primary"><i class="fa-solid fa-utensils"></i> Istraži Restorane</a>
-      <a href="#features" class="btn btn-outline"><i class="fa-regular fa-calendar"></i> Napravi Rezervaciju</a>
+      <a href="#features" class="btn btn-outline"><i class="fa-solid fa-compass"></i> Istraži Rožaje</a>
     </div>
   </div>
 
@@ -512,25 +455,31 @@
   </div>
 </section>
 
-<!-- FEATURES -->
+<!-- FEATURES / NAVIGATION CARDS -->
 <div id="features">
-  <div class="feat" onclick="openModal('reservation')">
-    <div class="feat-icon res">🗓️</div>
-    <h3>Rezervacije</h3>
-    <p>Rezerviši sto u omiljenom restoranu za par sekundi — bez čekanja, bez gužve.</p>
-    <button class="feat-btn res">Rezerviši Sto</button>
+  <div class="feat">
+    <div class="feat-icon res">🍽️</div>
+    <h3>Restorani</h3>
+    <p>Otkrijte najbolje restorane Rožaja — od legendarnih ćevabdžinica do modernih lounge barova.</p>
+    <button class="feat-btn res">Istraži Restorane</button>
   </div>
-  <div class="feat" onclick="openModal('menu')">
-    <div class="feat-icon menu">📋</div>
-    <h3>Pregled Menija</h3>
-    <p>Pregledaj ponudu svakog restorana — od predjela do deserta — prije nego što kreneš.</p>
-    <button class="feat-btn menu">Vidi Menije</button>
+  <div class="feat">
+    <div class="feat-icon food">🫕</div>
+    <h3>Tradicionalna Jela</h3>
+    <p>Upoznajte autentičnu kuhinju Rožaja — pite, tarhana, bosanski lonac i druge planinske specijalitete.</p>
+    <button class="feat-btn food">Vidi Jela</button>
   </div>
-  <div class="feat" onclick="openModal('staff')">
-    <div class="feat-icon staff">🔐</div>
-    <h3>Staff Portal</h3>
-    <p>Radnici restorana se mogu prijaviti i upravljati rezervacijama u realnom vremenu.</p>
-    <button class="feat-btn staff">Prijavi Se</button>
+  <div class="feat">
+    <div class="feat-icon stay">🏨</div>
+    <h3>Smještaj</h3>
+    <p>Pronađite savršeno mjesto za odmor — od planinskih kuća do modernih hotela u srcu Rožaja.</p>
+    <button class="feat-btn stay">Nađi Smještaj</button>
+  </div>
+  <div class="feat">
+    <div class="feat-icon city">🏔️</div>
+    <h3>O Rožajama</h3>
+    <p>Saznajte više o gradu pod Prokletijama — historija, kultura, priroda i sve što Rožaje čini posebnim.</p>
+    <button class="feat-btn city">Upoznaj Grad</button>
   </div>
 </div>
 
@@ -704,16 +653,17 @@
       <ul>
         <li><a href="#hero">Početna</a></li>
         <li><a href="#restaurants">Restorani</a></li>
-        <li><a href="#features">Rezervacije</a></li>
+        <li><a href="#features">Usluge</a></li>
         <li><a href="#nature-strip">O Nama</a></li>
       </ul>
     </div>
     <div class="footer-links">
-      <h4>Usluge</h4>
+      <h4>Istraži</h4>
       <ul>
-        <li><a href="#" onclick="openModal('reservation');return false;">Napravi Rezervaciju</a></li>
-        <li><a href="#" onclick="openModal('menu');return false;">Pregled Menija</a></li>
-        <li><a href="#" onclick="openModal('staff');return false;">Staff Login</a></li>
+        <li><a href="#">Restorani</a></li>
+        <li><a href="#">Tradicionalna Jela</a></li>
+        <li><a href="#">Smještaj</a></li>
+        <li><a href="#">O Rožajama</a></li>
       </ul>
     </div>
     <div class="footer-links">
@@ -730,56 +680,6 @@
   </div>
 </footer>
 
-<!-- MODALS -->
-<div class="modal-overlay" id="modal-reservation">
-  <div class="modal">
-    <button class="modal-close" onclick="closeModal('reservation')"><i class="fa-solid fa-xmark"></i></button>
-    <div class="modal-icon res">🗓️</div>
-    <span class="coming-soon-tag">Uskoro dostupno</span>
-    <h2>Rezerviši Sto</h2>
-    <p>Izaberi restoran, datum i broj gostiju — potvrda stiže za nekoliko minuta. <br><em style="opacity:.6">Ova funkcija je trenutno u razvoju.</em></p>
-    <div class="modal-form">
-      <select disabled><option>Izaberi Restoran</option><option>Restoran Kero</option><option>Alcazar Lounge Bar</option><option>Restoran Duga</option><option>Etno Restoran Ognjište</option><option>Saraj Pod Hajlom</option></select>
-      <input type="date" disabled>
-      <input type="time" disabled>
-      <input type="number" disabled min="1" placeholder="Broj gostiju">
-      <input type="text"  disabled placeholder="Vaše ime i prezime">
-      <input type="tel"   disabled placeholder="Broj telefona">
-      <button class="modal-submit res" disabled>Pošalji Rezervaciju</button>
-    </div>
-  </div>
-</div>
-
-<div class="modal-overlay" id="modal-menu">
-  <div class="modal">
-    <button class="modal-close" onclick="closeModal('menu')"><i class="fa-solid fa-xmark"></i></button>
-    <div class="modal-icon menu">📋</div>
-    <span class="coming-soon-tag">Uskoro dostupno</span>
-    <h2>Pregled Menija</h2>
-    <p>Pregledaj kompletnu ponudu svakog restorana — od predjela do deserta, s cijenama i opisima. <br><em style="opacity:.6">Ova funkcija je trenutno u razvoju.</em></p>
-    <div class="modal-form">
-      <select disabled><option>Izaberi Restoran</option><option>Restoran Kero</option><option>Alcazar Lounge Bar</option><option>Restoran Duga</option><option>Etno Restoran Ognjište</option><option>Saraj Pod Hajlom</option></select>
-      <select disabled><option>Kategorija jela</option><option>Predjela</option><option>Glavna jela</option><option>Dezert</option><option>Piće</option></select>
-      <button class="modal-submit menu" disabled>Pregledaj Meni</button>
-    </div>
-  </div>
-</div>
-
-<div class="modal-overlay" id="modal-staff">
-  <div class="modal">
-    <button class="modal-close" onclick="closeModal('staff')"><i class="fa-solid fa-xmark"></i></button>
-    <div class="modal-icon staff">🔐</div>
-    <span class="coming-soon-tag">Uskoro dostupno</span>
-    <h2>Staff Portal</h2>
-    <p>Prijavite se kao radnik restorana kako biste upravljali rezervacijama u realnom vremenu. <br><em style="opacity:.6">Ova funkcija je trenutno u razvoju.</em></p>
-    <div class="modal-form">
-      <input type="text"     disabled placeholder="Korisničko ime / Email">
-      <input type="password" disabled placeholder="Lozinka">
-      <select disabled><option>Moj Restoran</option><option>Restoran Kero</option><option>Alcazar Lounge Bar</option><option>Restoran Duga</option><option>Etno Restoran Ognjište</option><option>Saraj Pod Hajlom</option></select>
-      <button class="modal-submit staff" disabled>Prijavi Se</button>
-    </div>
-  </div>
-</div>
 
 <script>
   /* floating food particles */
@@ -793,16 +693,6 @@
       animation-duration:${13+Math.random()*14}s;animation-delay:-${Math.random()*22}s`;
     container.appendChild(p);
   }
-
-  /* modals */
-  function openModal(t){ document.getElementById('modal-'+t).classList.add('open'); document.body.style.overflow='hidden'; }
-  function closeModal(t){ document.getElementById('modal-'+t).classList.remove('open'); document.body.style.overflow=''; }
-  document.querySelectorAll('.modal-overlay').forEach(o=>{
-    o.addEventListener('click',e=>{ if(e.target===o){ o.classList.remove('open'); document.body.style.overflow=''; } });
-  });
-  document.addEventListener('keydown',e=>{
-    if(e.key==='Escape') document.querySelectorAll('.modal-overlay.open').forEach(o=>{ o.classList.remove('open'); document.body.style.overflow=''; });
-  });
 
   /* scroll-reveal */
   const observer = new IntersectionObserver(entries=>{
