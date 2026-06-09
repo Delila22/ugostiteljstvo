@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="bs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jela Natural Resort — Bungalovi i planinski resort Rožaje</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --night:#060E1A; --deep:#0D2845; --sky:#0F6BAD; --teal:#0B7B6D;
+      --forest-dk:#1B3A28; --forest:#2D6A4F; --forest-lt:#40916C;
+      --meadow:#52B788; --red:#E63946; --orange:#F4A261; --gold:#E9C46A;
+      --cream:#F2FAF6; --text:#10291C;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family:'Poppins',sans-serif; background:var(--cream); color:var(--text); overflow-x:hidden; }
+
+    nav {
+      position:fixed; top:0; left:0; width:100%; z-index:999;
+      display:flex; align-items:center; justify-content:space-between;
+      padding:18px 60px;
+      background:rgba(6,14,26,0.92); backdrop-filter:blur(14px);
+      border-bottom:1px solid rgba(64,145,108,0.25);
+    }
+    .nav-logo {
+      font-family:'Playfair Display',serif; font-size:1.5rem; color:var(--meadow);
+      display:flex; align-items:center; gap:10px; text-decoration:none;
+    }
+    .nav-logo span { font-size:1.7rem; }
+    .nav-links { display:flex; gap:28px; list-style:none; }
+    .nav-links a {
+      color:#ddeedd; text-decoration:none; font-size:.85rem;
+      font-weight:600; letter-spacing:.05em; text-transform:uppercase;
+      position:relative; padding-bottom:4px; transition:color .3s;
+    }
+    .nav-links a::after {
+      content:''; position:absolute; bottom:0; left:0;
+      width:0; height:2px; background:var(--meadow); transition:width .3s;
+    }
+    .nav-links a:hover { color:var(--meadow); }
+    .nav-links a:hover::after { width:100%; }
+
+    .page-hero {
+      height:500px; position:relative;
+      background:url('https://www.jelaresort.me/wp-content/uploads/2023/10/IMG_5797.jpg') center/cover no-repeat;
+      display:flex; align-items:center; justify-content:center; padding-top:80px;
+    }
+    .page-hero::after {
+      content:''; position:absolute; inset:0;
+      background:linear-gradient(180deg,rgba(6,14,26,.45) 0%,rgba(6,14,26,.68) 100%);
+    }
+    .page-hero-content {
+      position:relative; z-index:2; text-align:center; color:#fff; padding:0 20px;
+    }
+    .breadcrumb {
+      font-size:.78rem; color:rgba(200,240,220,.65); margin-bottom:16px;
+      display:flex; gap:8px; justify-content:center; align-items:center;
+    }
+    .breadcrumb a { color:var(--meadow); text-decoration:none; }
+    .breadcrumb a:hover { text-decoration:underline; }
+    .breadcrumb-sep { opacity:.4; }
+    .page-hero h1 {
+      font-family:'Playfair Display',serif; font-size:clamp(2.4rem,6vw,4rem);
+      font-weight:900; line-height:1.1; margin-bottom:12px;
+    }
+    .page-hero p { font-size:1.05rem; color:rgba(200,240,220,.8); margin-bottom:22px; }
+    .hero-tags { display:flex; gap:12px; justify-content:center; flex-wrap:wrap; }
+    .hero-tag {
+      background:rgba(64,145,108,.2); border:1px solid rgba(82,183,136,.4);
+      color:var(--meadow); padding:6px 16px; border-radius:50px;
+      font-size:.8rem; font-weight:600;
+    }
+
+    .info-bar {
+      background:var(--night); padding:28px 60px;
+      display:flex; gap:20px; justify-content:space-around; flex-wrap:wrap;
+      border-bottom:1px solid rgba(82,183,136,.1);
+    }
+    .info-item { display:flex; align-items:center; gap:14px; }
+    .info-item i { font-size:1.5rem; color:var(--meadow); width:24px; text-align:center; }
+    .info-item strong { display:block; color:#ddeedd; font-size:.82rem; text-transform:uppercase; letter-spacing:.06em; margin-bottom:3px; }
+    .info-item span { color:rgba(200,240,220,.6); font-size:.88rem; }
+
+    .gallery-section { padding:60px 60px 0; }
+    .gallery-grid {
+      display:grid;
+      grid-template-columns:2fr 1fr 1fr;
+      grid-template-rows:220px 220px;
+      gap:10px;
+    }
+    .gallery-grid img {
+      width:100%; height:100%; object-fit:cover; border-radius:14px;
+      transition:transform .4s; cursor:pointer;
+    }
+    .gallery-grid img:hover { transform:scale(1.02); }
+    .gallery-grid img:first-child { grid-row:span 2; }
+
+    /* ACCOMMODATION TYPES */
+    .accom-types { padding:60px 60px; background:var(--cream); }
+    .section-label {
+      font-size:.78rem; font-weight:700; letter-spacing:.2em;
+      text-transform:uppercase; color:var(--forest-lt); margin-bottom:10px;
+    }
+    .section-title {
+      font-family:'Playfair Display',serif;
+      font-size:clamp(1.8rem,3.5vw,2.5rem); font-weight:900;
+      color:var(--text); margin-bottom:36px; line-height:1.2;
+    }
+    .types-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:22px; }
+    .type-card {
+      background:#fff; border-radius:18px; overflow:hidden;
+      box-shadow:0 4px 24px rgba(27,58,40,.09);
+      transition:transform .3s,box-shadow .3s;
+    }
+    .type-card:hover { transform:translateY(-6px); box-shadow:0 16px 40px rgba(27,58,40,.15); }
+    .type-card img { width:100%; height:180px; object-fit:cover; }
+    .type-card-body { padding:20px; }
+    .type-badge {
+      display:inline-block; background:var(--forest); color:#fff;
+      font-size:.7rem; font-weight:700; letter-spacing:.08em;
+      padding:4px 12px; border-radius:50px; text-transform:uppercase; margin-bottom:10px;
+    }
+    .type-card h3 { font-family:'Playfair Display',serif; font-size:1.15rem; color:var(--text); margin-bottom:8px; }
+    .type-card p { font-size:.82rem; color:#4A6A55; line-height:1.55; margin-bottom:14px; }
+    .type-meta { font-size:.78rem; color:var(--forest-lt); font-weight:600; display:flex; gap:12px; flex-wrap:wrap; }
+
+    /* CONTENT SECTION */
+    .content-section { padding:60px 60px; display:flex; gap:60px; flex-wrap:wrap; background:#f0faf5; }
+    .about-text { flex:1.2; min-width:280px; }
+    .about-text p { font-size:.93rem; color:#4A6A55; line-height:1.75; margin-bottom:14px; }
+    .amenities-block { flex:1; min-width:260px; }
+    .amenities-block h3 { font-family:'Playfair Display',serif; font-size:1.4rem; color:var(--text); margin-bottom:18px; }
+    .amenity-grid { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+    .amenity {
+      display:flex; align-items:center; gap:10px;
+      background:#fff; padding:12px 14px; border-radius:10px;
+      font-size:.84rem; color:var(--text);
+      box-shadow:0 2px 10px rgba(27,58,40,.06);
+    }
+    .amenity i { color:var(--forest-lt); width:16px; text-align:center; }
+
+    /* RESTAURANTS STRIP */
+    .restaurants-strip {
+      background:linear-gradient(135deg,var(--forest-dk),var(--forest));
+      padding:60px 60px; color:#fff;
+    }
+    .restaurants-strip .section-title { color:#fff; margin-bottom:28px; }
+    .restaurants-strip .section-title span { color:var(--meadow); }
+    .rest-cards { display:grid; grid-template-columns:1fr 1fr; gap:22px; }
+    .rest-mini {
+      background:rgba(255,255,255,.07); border:1px solid rgba(82,183,136,.2);
+      border-radius:16px; padding:24px;
+    }
+    .rest-mini h3 { font-family:'Playfair Display',serif; font-size:1.2rem; color:#fff; margin-bottom:8px; }
+    .rest-mini p { font-size:.85rem; color:rgba(200,240,220,.65); line-height:1.6; margin-bottom:14px; }
+    .rest-mini-meta { font-size:.78rem; color:var(--meadow); display:flex; gap:14px; flex-wrap:wrap; }
+
+    .reviews-section { background:#fff; padding:60px 60px; }
+    .reviews-meta { font-size:.88rem; color:var(--forest-lt); margin-bottom:36px; font-weight:600; }
+    .reviews-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:22px; }
+    .review-card {
+      background:var(--cream); border-radius:16px; padding:24px;
+      border-left:3px solid var(--meadow);
+    }
+    .review-stars { color:var(--gold); font-size:.95rem; margin-bottom:10px; }
+    .review-text { font-size:.87rem; color:#4A6A55; line-height:1.65; font-style:italic; margin-bottom:14px; }
+    .reviewer { font-size:.75rem; font-weight:700; color:var(--forest-lt); text-transform:uppercase; letter-spacing:.06em; }
+    .reviewer span { color:rgba(100,150,110,.55); font-weight:400; text-transform:none; letter-spacing:0; }
+
+    .cta-section {
+      background:linear-gradient(135deg,var(--forest-dk),var(--deep));
+      padding:70px 60px; text-align:center; color:#fff;
+    }
+    .cta-section h2 { font-family:'Playfair Display',serif; font-size:2.2rem; margin-bottom:12px; }
+    .cta-section p { color:rgba(200,240,220,.7); max-width:480px; margin:0 auto 32px; font-size:.95rem; }
+    .cta-buttons { display:flex; gap:14px; justify-content:center; flex-wrap:wrap; }
+    .btn {
+      padding:14px 32px; border-radius:50px; font-size:.92rem; font-weight:700;
+      text-decoration:none; display:inline-flex; align-items:center; gap:8px;
+      transition:transform .25s,box-shadow .25s; border:none; cursor:pointer;
+    }
+    .btn:hover { transform:translateY(-3px); box-shadow:0 12px 32px rgba(0,0,0,.4); }
+    .btn-primary { background:linear-gradient(135deg,var(--forest-lt),var(--teal)); color:#fff; }
+    .btn-outline { background:transparent; border:2px solid rgba(82,183,136,.45); color:#ddeedd; }
+    .btn-gold { background:linear-gradient(135deg,var(--gold),var(--orange)); color:var(--text); }
+
+    footer { background:var(--night); padding:50px 60px 24px; color:rgba(200,240,220,.4); }
+    .footer-top { display:flex; justify-content:space-between; flex-wrap:wrap; gap:32px; margin-bottom:36px; }
+    .footer-brand .nav-logo { margin-bottom:12px; }
+    .footer-brand p { font-size:.83rem; line-height:1.7; max-width:240px; }
+    .footer-links h4 { color:rgba(200,240,220,.8); font-size:.85rem; margin-bottom:12px; }
+    .footer-links ul { list-style:none; display:flex; flex-direction:column; gap:8px; }
+    .footer-links a { color:rgba(200,240,220,.4); font-size:.82rem; text-decoration:none; transition:color .2s; }
+    .footer-links a:hover { color:var(--meadow); }
+    .footer-bottom { border-top:1px solid rgba(82,183,136,.08); padding-top:22px; text-align:center; font-size:.76rem; }
+
+    @media(max-width:900px){
+      nav { padding:14px 20px; }
+      .nav-links { gap:14px; }
+      .info-bar { padding:22px; }
+      .gallery-section { padding:40px 20px 0; }
+      .gallery-grid { grid-template-columns:1fr 1fr; grid-template-rows:180px 180px 180px; }
+      .gallery-grid img:first-child { grid-row:span 1; grid-column:span 2; }
+      .accom-types { padding:40px 20px; }
+      .types-grid { grid-template-columns:1fr; }
+      .content-section { padding:40px 20px; flex-direction:column; gap:32px; }
+      .restaurants-strip { padding:40px 20px; }
+      .rest-cards { grid-template-columns:1fr; }
+      .reviews-section { padding:50px 20px; }
+      .reviews-grid { grid-template-columns:1fr; }
+      .cta-section { padding:50px 20px; }
+      footer { padding:36px 20px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="index.html"><span>🏔️</span> Rožaje Food</a>
+  <ul class="nav-links">
+    <li><a href="index.html#smjestaji">Smještaji</a></li>
+    <li><a href="index.html#restaurants">Restorani</a></li>
+    <li><a href="index.html#features">Usluge</a></li>
+    <li><a href="index.html#nature-strip">O nama</a></li>
+    <li><a href="kontakt.html">Kontakt</a></li>
+  </ul>
+</nav>
+
+<div class="page-hero">
+  <div class="page-hero-content">
+    <div class="breadcrumb">
+      <a href="index.html">Početna</a>
+      <span class="breadcrumb-sep">/</span>
+      <a href="index.html#smjestaji">Smještaji</a>
+      <span class="breadcrumb-sep">/</span>
+      <span>Jela Natural Resort</span>
+    </div>
+    <h1>Jela Natural Resort</h1>
+    <p>Planinski bungalovi i kolibe usred šume na 1.070 m nadmorske visine</p>
+    <div class="hero-tags">
+      <span class="hero-tag">⭐ 7.8 / 10 Booking.com</span>
+      <span class="hero-tag">🏕️ 36 smještajnih jedinica</span>
+      <span class="hero-tag">🍽️ 2 restorana u kompleksu</span>
+      <span class="hero-tag">🚲 Besplatni bicikli</span>
+    </div>
+  </div>
+</div>
+
+<div class="info-bar">
+  <div class="info-item">
+    <i class="fa-solid fa-location-dot"></i>
+    <div>
+      <strong>Adresa</strong>
+      <span>Crnja bb, 84310 Rožaje (2 km od centra)</span>
+    </div>
+  </div>
+  <div class="info-item">
+    <i class="fa-solid fa-mountain-sun"></i>
+    <div>
+      <strong>Nadmorska visina</strong>
+      <span>1.070 metara — planinska svježina</span>
+    </div>
+  </div>
+  <div class="info-item">
+    <i class="fa-solid fa-house"></i>
+    <div>
+      <strong>Kapacitet</strong>
+      <span>36 jedinica — bungalovi, kuće, kolibe</span>
+    </div>
+  </div>
+  <div class="info-item">
+    <i class="fa-solid fa-globe"></i>
+    <div>
+      <strong>Web</strong>
+      <span><a href="http://jelaresort.me" target="_blank" rel="noopener" style="color:var(--meadow);">jelaresort.me</a></span>
+    </div>
+  </div>
+</div>
+
+<div class="gallery-section">
+  <div class="gallery-grid">
+    <img src="https://www.jelaresort.me/wp-content/uploads/2023/10/IMG_6467.jpg" alt="Jela Natural Resort — bungalovi u šumi">
+    <img src="https://www.jelaresort.me/wp-content/uploads/2023/10/IMG_6639.jpg" alt="Jela Resort — kompleks u prirodi">
+    <img src="https://www.jelaresort.me/wp-content/uploads/2023/10/rooms_35485_ee701c50.jpg" alt="Jela Resort — soba">
+    <img src="https://www.jelaresort.me/wp-content/uploads/2023/10/206220574.jpg" alt="Jela Resort — restoran">
+    <img src="https://www.jelaresort.me/wp-content/uploads/2023/10/rooms_35486_3883530b-scaled.jpg" alt="Jela Resort — bungalov s terasom">
+  </div>
+</div>
+
+<div class="accom-types">
+  <div class="section-label">Tipovi smještaja</div>
+  <h2 class="section-title">Izaberi smještaj<br><span style="color:var(--forest);">koji ti odgovara</span></h2>
+  <div class="types-grid">
+
+    <div class="type-card">
+      <img src="https://www.jelaresort.me/wp-content/uploads/2023/10/rooms_35487_ee66f2d3-scaled.jpg" alt="Bungalov za 4 osobe">
+      <div class="type-card-body">
+        <span class="type-badge">Najpopularnije</span>
+        <h3>Bungalovi za 4 osobe</h3>
+        <p>Drveni bungalovi s privatnom terasom i kupatilom — idealni za porodice i manje grupe. Okruženi šumom, u potpunoj tišini prirode.</p>
+        <div class="type-meta">
+          <span><i class="fa-solid fa-users"></i> Do 4 osobe</span>
+          <span><i class="fa-solid fa-house"></i> 10 bungalova</span>
+          <span><i class="fa-solid fa-bath"></i> Privatno kupatilo</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="type-card">
+      <img src="https://www.jelaresort.me/wp-content/uploads/2023/10/rooms_35488_70511029-scaled.jpg" alt="Kuća za 6 osoba">
+      <div class="type-card-body">
+        <span class="type-badge" style="background:var(--teal);">Za veće grupe</span>
+        <h3>Kuće za 6 osoba</h3>
+        <p>Prostrane drvene kuće s više soba — savršene za veće porodice, grupe prijatelja ili produžena planinska putovanja.</p>
+        <div class="type-meta">
+          <span><i class="fa-solid fa-users"></i> Do 6 osoba</span>
+          <span><i class="fa-solid fa-house"></i> 2 kuće</span>
+          <span><i class="fa-solid fa-bath"></i> Privatno kupatilo</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="type-card">
+      <img src="https://www.jelaresort.me/wp-content/uploads/2023/10/207082371.jpg" alt="Planinska koliba za 2">
+      <div class="type-card-body">
+        <span class="type-badge" style="background:var(--forest-dk);">Planinarski duh</span>
+        <h3>Planinarke kolibe za 2</h3>
+        <p>Male autentične drvene kolibe za dvoje s dijeljenim kupatilima — za one koji traže jednostavan povratak prirodi i planinarskim tradicijama.</p>
+        <div class="type-meta">
+          <span><i class="fa-solid fa-users"></i> 2 osobe</span>
+          <span><i class="fa-solid fa-house"></i> 10 koliba</span>
+          <span><i class="fa-solid fa-bath"></i> Dijeljeno kupatilo</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="content-section">
+  <div class="about-text">
+    <div class="section-label">O resortu</div>
+    <h2 class="section-title">Priroda na<br>dohvat ruke</h2>
+    <p>
+      Jela Natural Resort izgrađen je 2018. godine na planini Hajla, svega 2 km od centra Rožaja, na nadmorskoj visini od 1.070 metara. Resort je smješten u gustoj šumi i nudi potpuno iskustvo planinarenja i odmora u netaknutoj prirodi.
+    </p>
+    <p>
+      U kompleksu se nalaze 24-satna recepcija, dječije igralište, otvorena terasa, bašta i bar. Za goste koji žele aktivno provesti odmor, besplatni bicikli su na raspolaganju, a obilje planinarskih i biciklističkih staza u okruženju pruža bezbrojne mogućnosti za istraživanje.
+    </p>
+    <p>
+      Posebnu vrijednost resortu daju dva restorana unutar kompleksa — <strong>Stari Han</strong> s otvorenim kaminom i <strong>Saraj pod Hajlom</strong> s kapacitetom od 350 mjesta i živom muzikom vikendom.
+    </p>
+  </div>
+  <div class="amenities-block">
+    <h3>Usluge i sadržaj</h3>
+    <div class="amenity-grid">
+      <div class="amenity"><i class="fa-solid fa-wifi"></i> Besplatni WiFi (javne zone)</div>
+      <div class="amenity"><i class="fa-solid fa-car"></i> Besplatni parking</div>
+      <div class="amenity"><i class="fa-solid fa-utensils"></i> 2 restorana u kompleksu</div>
+      <div class="amenity"><i class="fa-solid fa-bicycle"></i> Besplatni bicikli</div>
+      <div class="amenity"><i class="fa-solid fa-mountain-sun"></i> Planinarenje i nature trail</div>
+      <div class="amenity"><i class="fa-solid fa-children"></i> Dječije igralište</div>
+      <div class="amenity"><i class="fa-solid fa-clock"></i> Recepcija 24h/7</div>
+      <div class="amenity"><i class="fa-solid fa-tree"></i> Šuma i čist planinski vazduh</div>
+      <div class="amenity"><i class="fa-solid fa-fire"></i> Kamin (Stari Han)</div>
+      <div class="amenity"><i class="fa-solid fa-music"></i> Živa muzika vikendom</div>
+    </div>
+  </div>
+</div>
+
+<div class="restaurants-strip">
+  <div class="section-label" style="color:var(--meadow);">Unutar kompleksa</div>
+  <h2 class="section-title">Dva restorana<br><span>na jednom mjestu</span></h2>
+  <div class="rest-cards">
+    <div class="rest-mini">
+      <h3>🔥 Stari Han</h3>
+      <p>Otvoreni kamin, tradicionalna lokalna kuhinja od domaćih namirnica, mirna atmosfera i ~150 mjesta. Idealan za večeru uz šumu i kamin.</p>
+      <div class="rest-mini-meta">
+        <span><i class="fa-solid fa-users"></i> 150 mjesta</span>
+        <span><i class="fa-solid fa-fire"></i> Otvoreni kamin</span>
+        <span><i class="fa-solid fa-leaf"></i> Lokalni proizvodi</span>
+      </div>
+    </div>
+    <div class="rest-mini">
+      <h3>🏔️ Saraj pod Hajlom</h3>
+      <p>Glavni restoran resorts s 350 mjesta, živom muzikom vikendom i pogledom na Hajlu. Tradicionalna i internacionalna kuhinja.</p>
+      <div class="rest-mini-meta">
+        <span><i class="fa-solid fa-users"></i> 350 mjesta</span>
+        <span><i class="fa-solid fa-music"></i> Živa muzika vikend</span>
+        <span><i class="fa-solid fa-mountain"></i> Pogled na Hajlu</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="reviews-section">
+  <div class="section-label">Recenzije gostiju</div>
+  <h2 class="section-title">Šta kažu gosti</h2>
+  <div class="reviews-meta">⭐ 7.8 / 10 na Booking.com · 311 verificiranih recenzija</div>
+  <div class="reviews-grid">
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"Sjajana večera i doručak u trpezariji s kaminom na drva. Veoma dobra hrana i servis. Osjetili smo pravi planinski ugođaj, nešto što se ne može naći u gradskim hotelima."</p>
+      <div class="reviewer">Booking.com gost <span>· Porodični odmor</span></div>
+    </div>
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"Jedinstvena lokacija i nevjerovatno osoblje. Planinska svježina, ugodne ljetne temperature i čist planinski zrak su ono što ovaj resort čini posebnim. Definitivno se vraćamo!"</p>
+      <div class="reviewer">Booking.com gost <span>· Ljeto 2024</span></div>
+    </div>
+    <div class="review-card">
+      <div class="review-stars">★★★★☆</div>
+      <p class="review-text">"Sjajna priroda i dobra hrana. Bungalovi su ok, nekima nedostaje malo renoviranja u kupatilima, ali ukupno iskustvo prirode i restorana apsolutno vrijedi dolaska."</p>
+      <div class="reviewer">TripAdvisor gost <span>· Vikend bijeg</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="cta-section">
+  <h2>Rezervišite bungalov</h2>
+  <p>Provjerite dostupnost i rezervišite smještaj u Jela Natural Resortu direktno putem Booking.com ili službene web stranice.</p>
+  <div class="cta-buttons">
+    <a href="https://www.booking.com/hotel/me/jela-natural-resort-rozaje.html" class="btn btn-primary" target="_blank" rel="noopener"><i class="fa-solid fa-globe"></i> Booking.com</a>
+    <a href="http://jelaresort.me" class="btn btn-gold" target="_blank" rel="noopener"><i class="fa-solid fa-tree"></i> jelaresort.me</a>
+    <a href="kontakt.html" class="btn btn-outline"><i class="fa-solid fa-envelope"></i> Kontaktiraj nas</a>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <a class="nav-logo" href="index.html"><span>🏔️</span> Rožaje Food</a>
+      <p>Tvoj vodič kroz best ugostiteljske i smještajne objekte Rožaja.</p>
+    </div>
+    <div class="footer-links">
+      <h4>Smještaji</h4>
+      <ul>
+        <li><a href="hotel-rozaje.html">Hotel Rožaje</a></li>
+        <li><a href="hotel-aldi.html">Hotel Aldi</a></li>
+        <li><a href="jela-resort.html">Jela Natural Resort</a></li>
+      </ul>
+    </div>
+    <div class="footer-links">
+      <h4>Navigacija</h4>
+      <ul>
+        <li><a href="index.html">Početna</a></li>
+        <li><a href="index.html#restaurants">Restorani</a></li>
+        <li><a href="index.html#nature-strip">O Nama</a></li>
+        <li><a href="kontakt.html">Kontakt</a></li>
+      </ul>
+    </div>
+    <div class="footer-links">
+      <h4>Jela Resort</h4>
+      <ul>
+        <li><a href="http://jelaresort.me" target="_blank" rel="noopener">🌿 jelaresort.me</a></li>
+        <li><a href="#">📍 Crnja bb, Rožaje</a></li>
+        <li><a href="kontakt.html">Kontakt forma</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 Rožaje Food. Sva prava zadržana.</p>
+  </div>
+</footer>
+
+</body>
+</html>

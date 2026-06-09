@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="bs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hotel Rožaje — Smještaj u Rožajama</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --night:#060E1A; --deep:#0D2845; --sky:#0F6BAD; --teal:#0B7B6D;
+      --forest-dk:#1B3A28; --forest:#2D6A4F; --forest-lt:#40916C;
+      --meadow:#52B788; --red:#E63946; --orange:#F4A261; --gold:#E9C46A;
+      --cream:#F2FAF6; --text:#10291C;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family:'Poppins',sans-serif; background:var(--cream); color:var(--text); overflow-x:hidden; }
+
+    nav {
+      position:fixed; top:0; left:0; width:100%; z-index:999;
+      display:flex; align-items:center; justify-content:space-between;
+      padding:18px 60px;
+      background:rgba(6,14,26,0.92); backdrop-filter:blur(14px);
+      border-bottom:1px solid rgba(64,145,108,0.25);
+    }
+    .nav-logo {
+      font-family:'Playfair Display',serif; font-size:1.5rem; color:var(--meadow);
+      display:flex; align-items:center; gap:10px; text-decoration:none;
+    }
+    .nav-logo span { font-size:1.7rem; }
+    .nav-links { display:flex; gap:28px; list-style:none; }
+    .nav-links a {
+      color:#ddeedd; text-decoration:none; font-size:.85rem;
+      font-weight:600; letter-spacing:.05em; text-transform:uppercase;
+      position:relative; padding-bottom:4px; transition:color .3s;
+    }
+    .nav-links a::after {
+      content:''; position:absolute; bottom:0; left:0;
+      width:0; height:2px; background:var(--meadow); transition:width .3s;
+    }
+    .nav-links a:hover { color:var(--meadow); }
+    .nav-links a:hover::after { width:100%; }
+
+    /* PAGE HERO */
+    .page-hero {
+      height:480px; position:relative;
+      background:url('https://upload.wikimedia.org/wikipedia/commons/9/9d/Rozaje_Hotel.JPG') center/cover no-repeat;
+      display:flex; align-items:center; justify-content:center; padding-top:80px;
+    }
+    .page-hero::after {
+      content:''; position:absolute; inset:0;
+      background:linear-gradient(180deg,rgba(6,14,26,.55) 0%,rgba(6,14,26,.75) 100%);
+    }
+    .page-hero-content {
+      position:relative; z-index:2; text-align:center; color:#fff; padding:0 20px;
+    }
+    .breadcrumb {
+      font-size:.78rem; color:rgba(200,240,220,.65); margin-bottom:16px;
+      display:flex; gap:8px; justify-content:center; align-items:center;
+    }
+    .breadcrumb a { color:var(--meadow); text-decoration:none; }
+    .breadcrumb a:hover { text-decoration:underline; }
+    .breadcrumb-sep { opacity:.4; }
+    .page-hero h1 {
+      font-family:'Playfair Display',serif; font-size:clamp(2.4rem,6vw,4rem);
+      font-weight:900; line-height:1.1; margin-bottom:12px;
+    }
+    .page-hero p { font-size:1.05rem; color:rgba(200,240,220,.8); margin-bottom:22px; }
+    .hero-tags { display:flex; gap:12px; justify-content:center; flex-wrap:wrap; }
+    .hero-tag {
+      background:rgba(64,145,108,.2); border:1px solid rgba(82,183,136,.4);
+      color:var(--meadow); padding:6px 16px; border-radius:50px;
+      font-size:.8rem; font-weight:600;
+    }
+
+    /* INFO BAR */
+    .info-bar {
+      background:var(--night); padding:28px 60px;
+      display:flex; gap:20px; justify-content:space-around; flex-wrap:wrap;
+      border-bottom:1px solid rgba(82,183,136,.1);
+    }
+    .info-item { display:flex; align-items:center; gap:14px; }
+    .info-item i { font-size:1.5rem; color:var(--meadow); width:24px; text-align:center; }
+    .info-item strong { display:block; color:#ddeedd; font-size:.82rem; text-transform:uppercase; letter-spacing:.06em; margin-bottom:3px; }
+    .info-item span { color:rgba(200,240,220,.6); font-size:.88rem; }
+
+    /* GALLERY */
+    .gallery-section { padding:60px 60px 0; }
+    .gallery-grid {
+      display:grid;
+      grid-template-columns:2fr 1fr 1fr;
+      grid-template-rows:220px 220px;
+      gap:10px;
+    }
+    .gallery-grid img {
+      width:100%; height:100%; object-fit:cover; border-radius:14px;
+      transition:transform .4s; cursor:pointer;
+    }
+    .gallery-grid img:hover { transform:scale(1.02); }
+    .gallery-grid img:first-child { grid-row:span 2; }
+
+    /* ABOUT + AMENITIES */
+    .content-section { padding:60px 60px; display:flex; gap:60px; flex-wrap:wrap; }
+    .about-text { flex:1.2; min-width:280px; }
+    .section-label {
+      font-size:.78rem; font-weight:700; letter-spacing:.2em;
+      text-transform:uppercase; color:var(--forest-lt); margin-bottom:10px;
+    }
+    .section-title {
+      font-family:'Playfair Display',serif;
+      font-size:clamp(1.8rem,3.5vw,2.5rem); font-weight:900;
+      color:var(--text); margin-bottom:20px; line-height:1.2;
+    }
+    .about-text p { font-size:.93rem; color:#4A6A55; line-height:1.75; margin-bottom:14px; }
+    .amenities-block { flex:1; min-width:260px; }
+    .amenities-block h3 {
+      font-family:'Playfair Display',serif; font-size:1.4rem;
+      color:var(--text); margin-bottom:18px;
+    }
+    .amenity-grid { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+    .amenity {
+      display:flex; align-items:center; gap:10px;
+      background:#fff; padding:12px 14px; border-radius:10px;
+      font-size:.84rem; color:var(--text);
+      box-shadow:0 2px 10px rgba(27,58,40,.06);
+    }
+    .amenity i { color:var(--forest-lt); width:16px; text-align:center; }
+
+    /* REVIEWS */
+    .reviews-section { background:#fff; padding:60px 60px; }
+    .reviews-section .section-title { margin-bottom:8px; }
+    .reviews-meta { font-size:.88rem; color:var(--forest-lt); margin-bottom:36px; font-weight:600; }
+    .reviews-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:22px; }
+    .review-card {
+      background:var(--cream); border-radius:16px; padding:24px;
+      border-left:3px solid var(--meadow);
+    }
+    .review-stars { color:var(--gold); font-size:.95rem; margin-bottom:10px; }
+    .review-text {
+      font-size:.87rem; color:#4A6A55; line-height:1.65;
+      font-style:italic; margin-bottom:14px;
+    }
+    .reviewer { font-size:.75rem; font-weight:700; color:var(--forest-lt); text-transform:uppercase; letter-spacing:.06em; }
+    .reviewer span { color:rgba(100,150,110,.55); font-weight:400; text-transform:none; letter-spacing:0; }
+
+    /* CTA */
+    .cta-section {
+      background:linear-gradient(135deg,var(--forest-dk),var(--deep));
+      padding:70px 60px; text-align:center; color:#fff;
+    }
+    .cta-section h2 { font-family:'Playfair Display',serif; font-size:2.2rem; margin-bottom:12px; }
+    .cta-section p { color:rgba(200,240,220,.7); max-width:480px; margin:0 auto 32px; font-size:.95rem; }
+    .cta-buttons { display:flex; gap:14px; justify-content:center; flex-wrap:wrap; }
+    .btn {
+      padding:14px 32px; border-radius:50px; font-size:.92rem; font-weight:700;
+      text-decoration:none; display:inline-flex; align-items:center; gap:8px;
+      transition:transform .25s,box-shadow .25s; border:none; cursor:pointer;
+    }
+    .btn:hover { transform:translateY(-3px); box-shadow:0 12px 32px rgba(0,0,0,.4); }
+    .btn-primary { background:linear-gradient(135deg,var(--forest-lt),var(--teal)); color:#fff; }
+    .btn-outline { background:transparent; border:2px solid rgba(82,183,136,.45); color:#ddeedd; }
+
+    /* FOOTER */
+    footer { background:var(--night); padding:50px 60px 24px; color:rgba(200,240,220,.4); }
+    .footer-top { display:flex; justify-content:space-between; flex-wrap:wrap; gap:32px; margin-bottom:36px; }
+    .footer-brand .nav-logo { margin-bottom:12px; }
+    .footer-brand p { font-size:.83rem; line-height:1.7; max-width:240px; }
+    .footer-links h4 { color:rgba(200,240,220,.8); font-size:.85rem; margin-bottom:12px; }
+    .footer-links ul { list-style:none; display:flex; flex-direction:column; gap:8px; }
+    .footer-links a { color:rgba(200,240,220,.4); font-size:.82rem; text-decoration:none; transition:color .2s; }
+    .footer-links a:hover { color:var(--meadow); }
+    .footer-bottom { border-top:1px solid rgba(82,183,136,.08); padding-top:22px; text-align:center; font-size:.76rem; }
+
+    @media(max-width:900px){
+      nav { padding:14px 20px; }
+      .nav-links { gap:14px; }
+      .info-bar { padding:22px; }
+      .gallery-section { padding:40px 20px 0; }
+      .gallery-grid { grid-template-columns:1fr 1fr; grid-template-rows:180px 180px 180px; }
+      .gallery-grid img:first-child { grid-row:span 1; grid-column:span 2; }
+      .content-section { padding:40px 20px; flex-direction:column; gap:32px; }
+      .reviews-section { padding:50px 20px; }
+      .reviews-grid { grid-template-columns:1fr; }
+      .cta-section { padding:50px 20px; }
+      footer { padding:36px 20px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="index.html"><span>🏔️</span> Rožaje Food</a>
+  <ul class="nav-links">
+    <li><a href="index.html#smjestaji">Smještaji</a></li>
+    <li><a href="index.html#restaurants">Restorani</a></li>
+    <li><a href="index.html#features">Usluge</a></li>
+    <li><a href="index.html#nature-strip">O nama</a></li>
+    <li><a href="kontakt.html">Kontakt</a></li>
+  </ul>
+</nav>
+
+<div class="page-hero">
+  <div class="page-hero-content">
+    <div class="breadcrumb">
+      <a href="index.html">Početna</a>
+      <span class="breadcrumb-sep">/</span>
+      <a href="index.html#smjestaji">Smještaji</a>
+      <span class="breadcrumb-sep">/</span>
+      <span>Hotel Rožaje</span>
+    </div>
+    <h1>Hotel Rožaje</h1>
+    <p>Moderan hotel u srcu Rožaja — komfort, wellness i domaća kuhinja</p>
+    <div class="hero-tags">
+      <span class="hero-tag">⭐ 9.3 / 10 Booking.com</span>
+      <span class="hero-tag">📍 Centar Rožaja</span>
+      <span class="hero-tag">🏊 Bazen & Wellness</span>
+      <span class="hero-tag">🍽️ Vlastiti restoran</span>
+    </div>
+  </div>
+</div>
+
+<div class="info-bar">
+  <div class="info-item">
+    <i class="fa-solid fa-location-dot"></i>
+    <div>
+      <strong>Adresa</strong>
+      <span>Rožaje bb, 84310 Rožaje, CG</span>
+    </div>
+  </div>
+  <div class="info-item">
+    <i class="fa-solid fa-star"></i>
+    <div>
+      <strong>Ocjena gostiju</strong>
+      <span>9.3 / 10 — Booking.com</span>
+    </div>
+  </div>
+  <div class="info-item">
+    <i class="fa-solid fa-bed"></i>
+    <div>
+      <strong>Kapacitet</strong>
+      <span>8 jednokrevetnih, 22 dvokrevetne, 2 apartmana</span>
+    </div>
+  </div>
+  <div class="info-item">
+    <i class="fa-regular fa-clock"></i>
+    <div>
+      <strong>Check-in / Check-out</strong>
+      <span>14:00 — 12:00</span>
+    </div>
+  </div>
+</div>
+
+<div class="gallery-section">
+  <div class="gallery-grid">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/9/9d/Rozaje_Hotel.JPG" alt="Hotel Rožaje — eksterier">
+    <img src="https://www.rozaje.me/wp-content/uploads/2012/04/IMG_21761.jpg" alt="Hotel Rožaje — pogled">
+    <img src="https://www.montenegro.com/w_500/images/components/com_property_management/img/std/755/755_Noname10.jpg" alt="Hotel Rožaje — restoran">
+    <img src="https://www.montenegro.com/w_500/images/components/com_property_management/img/std/755/755_Noname11.jpg" alt="Hotel Rožaje — soba">
+    <img src="https://www.montenegro.com/w_500/images/components/com_property_management/img/std/755/755_Noname14.jpg" alt="Hotel Rožaje — detalji">
+  </div>
+</div>
+
+<div class="content-section">
+  <div class="about-text">
+    <div class="section-label">O hotelu</div>
+    <h2 class="section-title">Vaš dom<br>u Rožajama</h2>
+    <p>
+      Hotel Rožaje smješten je u samom centru Rožaja i nudi moderan komfort u kombinaciji s planinskim ambijentom. Hotel raspolaže s ukupno 33 smještajne jedinice — od jednokrevetnih soba do prostornih apartmana — opremljenih klimatizacijom, besplatnim WiFi-jem i ravnim TV-om.
+    </p>
+    <p>
+      Posebna atrakcija hotela je wellness centar s unutrašnjim bazenom, saunom i jacuzzijem — idealan za opuštanje nakon izleta u planine. Hotelski restoran nudi odličnu lokalnu i internacionalnu kuhinju, a posebno se hvali domaćim jelima i svježim planinarskim specijalitetima.
+    </p>
+    <p>
+      Centralna lokacija hotela omogućava pješački pristup svim ključnim sadržajima Rožaja — restoranima, kafanama, tržnici i gradskim šetnicama. Besplatni privatni parking je dostupan za sve goste.
+    </p>
+  </div>
+  <div class="amenities-block">
+    <h3>Usluge i sadržaj</h3>
+    <div class="amenity-grid">
+      <div class="amenity"><i class="fa-solid fa-wifi"></i> Besplatni WiFi</div>
+      <div class="amenity"><i class="fa-solid fa-water"></i> Unutrašnji bazen</div>
+      <div class="amenity"><i class="fa-solid fa-fire"></i> Sauna & Jacuzzi</div>
+      <div class="amenity"><i class="fa-solid fa-car"></i> Besplatni parking</div>
+      <div class="amenity"><i class="fa-solid fa-utensils"></i> Hotelski restoran</div>
+      <div class="amenity"><i class="fa-solid fa-mug-hot"></i> Doručak uključen</div>
+      <div class="amenity"><i class="fa-solid fa-wind"></i> Klimatizacija</div>
+      <div class="amenity"><i class="fa-solid fa-tv"></i> Ravni TV ekran</div>
+      <div class="amenity"><i class="fa-solid fa-tree"></i> Terasa & bašta</div>
+      <div class="amenity"><i class="fa-solid fa-location-dot"></i> Centar Rožaja</div>
+    </div>
+  </div>
+</div>
+
+<div class="reviews-section">
+  <div class="section-label">Recenzije gostiju</div>
+  <h2 class="section-title">Šta kažu gosti</h2>
+  <div class="reviews-meta">⭐ 9.3 / 10 na Booking.com · Ocijenjeno od strane 27 gostiju</div>
+  <div class="reviews-grid">
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"Odlična lokalna hrana, sjajan servis — konobar je odlično govorio engleski. Veoma razumne cijene. Jedan od najboljih obroka koje smo imali na putovanju po Balkanu. Toplo preporučujem restoran."</p>
+      <div class="reviewer">Booking.com gost <span>· Inostrani putnik</span></div>
+    </div>
+    <div class="review-card">
+      <div class="review-stars">★★★★☆</div>
+      <p class="review-text">"Sobe su čiste s klimatizacijom i TV-om. Hotel se nalazi u centru Rožaja s puno kafana i kafića u okruženju. Doručak je bio solidan. Lokacija je odlična za istraživanje grada."</p>
+      <div class="reviewer">Booking.com gost <span>· Vikend putovanje</span></div>
+    </div>
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"Wellness centar i bazen su pravo osvježenje. Osoblje ljubazno i uslužno. Idealan smještaj za porodice koje žele komfor i blizinu svih gradskih sadržaja Rožaja."</p>
+      <div class="reviewer">TripAdvisor gost <span>· Porodično putovanje</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="cta-section">
+  <h2>Rezervišite smještaj</h2>
+  <p>Za rezervacije, pitanja i informacije o dostupnosti — kontaktirajte nas direktno ili posjetite Booking.com.</p>
+  <div class="cta-buttons">
+    <a href="kontakt.html" class="btn btn-primary"><i class="fa-solid fa-envelope"></i> Pošalji Upit</a>
+    <a href="https://www.booking.com/hotel/me/hotel-rozaje.html" class="btn btn-outline" target="_blank" rel="noopener"><i class="fa-solid fa-globe"></i> Booking.com</a>
+    <a href="https://www.tripadvisor.com/Hotel_Review-g2362547-d1099567" class="btn btn-outline" target="_blank" rel="noopener"><i class="fa-solid fa-star"></i> TripAdvisor</a>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <a class="nav-logo" href="index.html"><span>🏔️</span> Rožaje Food</a>
+      <p>Tvoj vodič kroz beste ugostiteljske i smještajne objekte Rožaja.</p>
+    </div>
+    <div class="footer-links">
+      <h4>Smještaji</h4>
+      <ul>
+        <li><a href="hotel-rozaje.html">Hotel Rožaje</a></li>
+        <li><a href="hotel-aldi.html">Hotel Aldi</a></li>
+        <li><a href="jela-resort.html">Jela Natural Resort</a></li>
+      </ul>
+    </div>
+    <div class="footer-links">
+      <h4>Navigacija</h4>
+      <ul>
+        <li><a href="index.html">Početna</a></li>
+        <li><a href="index.html#restaurants">Restorani</a></li>
+        <li><a href="index.html#nature-strip">O Nama</a></li>
+        <li><a href="kontakt.html">Kontakt</a></li>
+      </ul>
+    </div>
+    <div class="footer-links">
+      <h4>Kontakt</h4>
+      <ul>
+        <li><a href="#">📍 Rožaje, Crna Gora</a></li>
+        <li><a href="#">✉️ info@rozajefood.me</a></li>
+        <li><a href="kontakt.html">Kontakt forma</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 Rožaje Food. Sva prava zadržana.</p>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -355,6 +355,77 @@
       position: absolute; bottom: 0; left: 0; right: 0; pointer-events: none; opacity: .15;
     }
 
+    /* ─── MODALS ─── */
+    .modal-overlay {
+      position: fixed; inset: 0; z-index: 1000;
+      background: rgba(6,14,26,.8); backdrop-filter: blur(8px);
+      display: none; align-items: center; justify-content: center; padding: 20px;
+    }
+    .modal-overlay.open { display: flex; animation: fadeIn .25s ease; }
+    @keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+    .modal {
+      background: #fff; border-radius: 24px; max-width: 520px; width: 100%;
+      padding: 48px; position: relative;
+      animation: slideUp .35s cubic-bezier(.34,1.56,.64,1) both;
+    }
+    @keyframes slideUp { from { transform:translateY(40px);opacity:0; } to { transform:translateY(0);opacity:1; } }
+    .modal-close {
+      position: absolute; top: 18px; right: 18px;
+      width: 36px; height: 36px; border-radius: 50%;
+      background: #E8F5EE; border: none; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem; color: var(--text); transition: background .2s;
+    }
+    .modal-close:hover { background: #C8E6D0; }
+    .modal-icon {
+      width: 60px; height: 60px; border-radius: 16px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.8rem; margin-bottom: 20px;
+    }
+    .modal-icon.res   { background: linear-gradient(135deg,var(--forest-lt),var(--teal)); }
+    .modal-icon.menu  { background: linear-gradient(135deg,var(--sky),#0D4C8A); }
+    .modal-icon.staff { background: linear-gradient(135deg,var(--red),var(--orange)); }
+    .modal h2 {
+      font-family:'Playfair Display',serif; font-size:1.7rem;
+      color:var(--text); margin-bottom:8px;
+    }
+    .modal p { color:#4A6A55; line-height:1.65; margin-bottom:26px; font-size:.9rem; }
+    .modal-form { display:flex; flex-direction:column; gap:13px; }
+    .modal-form input, .modal-form select, .modal-form textarea {
+      padding:13px 16px; border:2px solid #D0E8D8; border-radius:12px;
+      font-size:.9rem; font-family:inherit; color:var(--text);
+      background:#F5FBF7; transition:border .2s;
+    }
+    .modal-form input:focus,
+    .modal-form select:focus,
+    .modal-form textarea:focus { outline:none; border-color:var(--forest-lt); }
+    .modal-form textarea { resize:vertical; min-height:90px; }
+    .modal-submit {
+      padding:14px; border-radius:12px; border:none; cursor:pointer;
+      font-size:1rem; font-weight:700; transition:transform .2s,box-shadow .2s;
+    }
+    .modal-submit.res   { background:linear-gradient(135deg,var(--forest-lt),var(--teal)); color:#fff; }
+    .modal-submit.menu  { background:linear-gradient(135deg,var(--sky),#0D4C8A); color:#fff; }
+    .modal-submit.staff { background:linear-gradient(135deg,var(--red),var(--orange)); color:#fff; }
+    .modal-submit:hover { transform:translateY(-2px); box-shadow:0 8px 24px rgba(0,0,0,.2); }
+    .coming-soon-tag {
+      display:inline-block; background:#E8F5EE; border:1px dashed var(--forest-lt);
+      color:var(--forest); font-size:.75rem; font-weight:700;
+      padding:4px 12px; border-radius:50px; margin-bottom:14px;
+    }
+
+    /* ─── SMJEŠTAJI ─── */
+    #smjestaji { background: #f0faf5; padding: 90px 60px 70px; border-top: 1px solid #C8E6D0; }
+    @media(max-width:900px){ #smjestaji { padding:70px 22px; } }
+    .smjestaj-btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      margin-top: 16px; padding: 10px 22px; border-radius: 50px;
+      background: linear-gradient(135deg,var(--forest-lt),var(--teal));
+      color: #fff; font-size: .82rem; font-weight: 700;
+      text-decoration: none; transition: transform .2s, box-shadow .2s;
+      border: none; cursor: pointer;
+    }
+    .smjestaj-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,.25); }
     /* ─── FOOTER ─── */
     footer {
       background: var(--night);
@@ -405,8 +476,11 @@
 <nav>
   <div class="nav-logo"><span>🏔️</span> Rožaje Food</div>
   <ul class="nav-links">
+    <li><a href="#smjestaji">Smještaji</a></li>
+    <li><a href="#restaurants">Restorani</a></li>
     <li><a href="#features">Usluge</a></li>
     <li><a href="#nature-strip">O nama</a></li>
+    <li><a href="kontakt.html">Kontakt</a></li>
   </ul>
 </nav>
 
@@ -417,13 +491,13 @@
   <div class="particles" id="particles"></div>
 
   <div class="hero-content">
-    <div class="hero-badge">🏔️ Rožaje, Crna Gora</div>
+    <div class="hero-badge">🏔️ Rožaje, Crna Gora · Planinsko Srce</div>
     <h1 class="hero-title">
       Ukusi<br>
       <span class="accent">Rožaja</span>
     </h1>
     <p class="hero-sub">
-      Autentična domaća kuhinja između planina — gdje se tradicija, miris dima i svježi planinski zrak spajaju na jednoj trpezi.
+      Autentična domaća kuhinja iz srca planina — gdje se tradicija, miris dima i čist planinski vazduh sretaju na jednoj trpezi.
     </p>
     <div class="hero-cta">
       <a href="#restaurants" class="btn btn-primary"><i class="fa-solid fa-utensils"></i> Istraži Restorane</a>
@@ -434,7 +508,7 @@
   <!-- Layered mountain silhouettes -->
   <div class="mountains-wrap">
     <svg viewBox="0 0 1440 320" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-      <!-- layer 1 – far, night-blue peaks (Prokletije backdrop) -->
+      <!-- layer 1 – far, night-blue peaks -->
       <path d="M0,240 L60,170 L120,200 L200,110 L280,160 L360,80 L440,140 L520,90 L600,150 L680,70 L760,130 L840,60 L920,140 L1000,85 L1080,155 L1160,95 L1240,165 L1320,120 L1380,180 L1440,140 L1440,320 L0,320Z"
             fill="#0B1E36" opacity="0.95"/>
       <!-- layer 2 – mid mountains, deep forest -->
@@ -457,11 +531,11 @@
 
 <!-- FEATURES / NAVIGATION CARDS -->
 <div id="features">
-  <div class="feat">
-    <div class="feat-icon res">🍽️</div>
-    <h3>Restorani</h3>
-    <p>Otkrijte najbolje restorane Rožaja — od legendarnih ćevabdžinica do modernih lounge barova.</p>
-    <button class="feat-btn res">Istraži Restorane</button>
+  <div class="feat" onclick="location.href='#smjestaji'">
+    <div class="feat-icon res">🏨</div>
+    <h3>Smještaji</h3>
+    <p>Pronađi savršen smještaj u Rožajama — od udobnih hotela do planinarskih bungalova u prirodi.</p>
+    <a href="#smjestaji" class="feat-btn res">Pregled Smještaja</a>
   </div>
   <div class="feat">
     <div class="feat-icon food">🫕</div>
@@ -490,6 +564,92 @@
           fill="#0D2232"/>
     <path d="M0,40 L200,12 L400,32 L600,8 L800,35 L1000,10 L1200,30 L1440,0 L1440,80 L0,80Z"
           fill="#1B3A28"/>
+  </svg>
+</div>
+
+<!-- ACCOMMODATIONS -->
+<section id="smjestaji">
+  <div class="restaurants-header">
+    <div>
+      <div class="section-label">🏨 Gdje odsjesti</div>
+      <h2 class="section-title">Smještaj u<br><span class="line2">Rožajama</span></h2>
+    </div>
+  </div>
+
+  <div class="rest-grid">
+
+    <!-- Hotel Rožaje -->
+    <div class="card">
+      <div class="card-img-wrap">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/9/9d/Rozaje_Hotel.JPG"
+             alt="Hotel Rožaje" loading="lazy">
+        <span class="card-badge">Centar grada</span>
+        <span class="card-rating"><i class="fa-solid fa-star"></i> 9.3</span>
+      </div>
+      <div class="card-body">
+        <div class="card-type">Hotel · Wellness · Spa</div>
+        <div class="card-name">Hotel Rožaje</div>
+        <p class="card-desc">Moderan hotel u srcu Rožaja s 33 smještajne jedinice, wellness centrom, unutrašnjim bazenom, saunom i vlastitim restoranom.</p>
+        <div class="card-meta">
+          <span><i class="fa-solid fa-bed"></i> 33 sobe & apartmani</span>
+          <span><i class="fa-solid fa-wifi"></i> Besplatni WiFi</span>
+          <span><i class="fa-solid fa-water"></i> Bazen & Sauna</span>
+        </div>
+        <a href="hotel-rozaje.html" class="smjestaj-btn">Saznaj više <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+    </div>
+
+    <!-- Hotel Aldi -->
+    <div class="card">
+      <div class="card-img-wrap">
+        <img src="https://findinmontenegro.com/en/wp-content/uploads/2021/08/hotel-aldi-rozaje-crna-gora-1.jpg"
+             alt="Hotel Aldi Rožaje" loading="lazy">
+        <span class="card-badge">3 km od centra</span>
+        <span class="card-rating"><i class="fa-solid fa-star"></i> 4.2</span>
+      </div>
+      <div class="card-body">
+        <div class="card-type">Hotel · Planinski · Blizu ski-centra</div>
+        <div class="card-name">Hotel Aldi</div>
+        <p class="card-desc">Smješten na Suhom Polju, 3 km od centra Rožaja, na raskrsnici prema planini Hajla i izvorima Ibra. Podzemni parking za 100 vozila, banjket sala i vlastiti restoran. U blizini ski-centra Turjak.</p>
+        <div class="card-meta">
+          <span><i class="fa-solid fa-bed"></i> 36 kreveta</span>
+          <span><i class="fa-solid fa-car"></i> Parking 100 mjesta</span>
+          <span><i class="fa-solid fa-snowflake"></i> Blizu ski-centra</span>
+        </div>
+        <a href="hotel-aldi.html" class="smjestaj-btn">Saznaj više <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+    </div>
+
+    <!-- Jela Natural Resort -->
+    <div class="card">
+      <div class="card-img-wrap">
+        <img src="https://www.jelaresort.me/wp-content/uploads/2023/10/IMG_6467.jpg"
+             alt="Jela Natural Resort Rožaje" loading="lazy"
+             onerror="this.src='https://www.jelaresort.me/wp-content/uploads/2023/10/206220574.jpg'">
+        <span class="card-badge" style="background:var(--gold);color:#1B3A28;">Resort · Bungalovi</span>
+        <span class="card-rating"><i class="fa-solid fa-star"></i> 7.8</span>
+      </div>
+      <div class="card-body">
+        <div class="card-type">Planinski Resort · Bungalovi & Kolibe</div>
+        <div class="card-name">Jela Natural Resort</div>
+        <p class="card-desc">Planinski resort na 1.070 m n.v. sa 36 smještajnih jedinica — bungalovi za 4 osobe, kuće za 6 i planinarskih koliba. Dva restorana, dječije igralište i bicikli u kompleksu.</p>
+        <div class="card-meta">
+          <span><i class="fa-solid fa-house"></i> 36 jedinica</span>
+          <span><i class="fa-solid fa-utensils"></i> 2 restorana</span>
+          <span><i class="fa-solid fa-mountain-sun"></i> Planinarenje</span>
+        </div>
+        <a href="jela-resort.html" class="smjestaj-btn">Saznaj više <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Mountain divider -->
+<div class="divider-mountains">
+  <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+    <path d="M0,0 L0,80 L1440,80 L1440,0 L1200,30 L1000,10 L800,35 L600,8 L400,32 L200,12 L0,40Z" fill="#0D2232"/>
+    <path d="M0,40 L200,12 L400,32 L600,8 L800,35 L1000,10 L1200,30 L1440,0 L1440,80 L0,80Z" fill="#1B3A28"/>
   </svg>
 </div>
 
@@ -625,7 +785,7 @@
     <div class="section-label">O Projektu</div>
     <h2 class="section-title">Rožaje ima<br><span style="color:var(--meadow);">svoju priču</span></h2>
     <p>
-      Rožaje je grad okružen planinama Prokletijama — doma Hajle (2403 m), najvišeg vrha u ovom dijelu Balkana. Ta planinska veličanstvenost oduvijek je oblikovala i lokalnu kuhinju: svježe, domaće, hranjivo. Naš cilj je da tu tradiciju dovedemo na dohvat ruke svakome — bilo da si mještanin ili putnik namjernik.
+      Rožaje je grad okružen planinama, doma Hajle (2.403 m) — najvišeg vrha Rožajske opštine. Ta planinska veličanstvenost oduvijek je oblikovala lokalnu kuhinju i način života: svježe, domaće, hranjivo. Naš cilj je da tu tradiciju dovedemo na dohvat ruke svakome — bilo da si mještanin ili putnik namjernik.
     </p>
     <div class="nature-stats">
       <div class="stat"><span class="stat-num">5</span><span class="stat-lab">Restorana</span></div>
@@ -652,25 +812,25 @@
       <h4>Navigacija</h4>
       <ul>
         <li><a href="#hero">Početna</a></li>
+        <li><a href="#smjestaji">Smještaji</a></li>
         <li><a href="#restaurants">Restorani</a></li>
-        <li><a href="#features">Usluge</a></li>
         <li><a href="#nature-strip">O Nama</a></li>
+        <li><a href="kontakt.html">Kontakt</a></li>
       </ul>
     </div>
     <div class="footer-links">
       <h4>Istraži</h4>
       <ul>
-        <li><a href="#">Restorani</a></li>
-        <li><a href="#">Tradicionalna Jela</a></li>
-        <li><a href="#">Smještaj</a></li>
-        <li><a href="#">O Rožajama</a></li>
+        <li><a href="#smjestaji">Smještaji</a></li>
+        <li><a href="#" onclick="openModal('menu');return false;">Pregled Menija</a></li>
+        <li><a href="#" onclick="openModal('staff');return false;">Staff Login</a></li>
       </ul>
     </div>
     <div class="footer-links">
       <h4>Kontakt</h4>
       <ul>
         <li><a href="#">📍 Rožaje, Crna Gora</a></li>
-        <li><a href="#">🏔️ Prokletije planine</a></li>
+        <li><a href="#">🏔️ Hajla (2.403 m)</a></li>
         <li><a href="#">✉️ info@rozajefood.me</a></li>
       </ul>
     </div>
@@ -680,6 +840,38 @@
   </div>
 </footer>
 
+<!-- MODALS -->
+
+<div class="modal-overlay" id="modal-menu">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('menu')"><i class="fa-solid fa-xmark"></i></button>
+    <div class="modal-icon menu">📋</div>
+    <span class="coming-soon-tag">Uskoro dostupno</span>
+    <h2>Pregled Menija</h2>
+    <p>Pregledaj kompletnu ponudu svakog restorana — od predjela do deserta, s cijenama i opisima. <br><em style="opacity:.6">Ova funkcija je trenutno u razvoju.</em></p>
+    <div class="modal-form">
+      <select disabled><option>Izaberi Restoran</option><option>Restoran Kero</option><option>Alcazar Lounge Bar</option><option>Restoran Duga</option><option>Etno Restoran Ognjište</option><option>Saraj Pod Hajlom</option></select>
+      <select disabled><option>Kategorija jela</option><option>Predjela</option><option>Glavna jela</option><option>Dezert</option><option>Piće</option></select>
+      <button class="modal-submit menu" disabled>Pregledaj Meni</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-staff">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('staff')"><i class="fa-solid fa-xmark"></i></button>
+    <div class="modal-icon staff">🔐</div>
+    <span class="coming-soon-tag">Uskoro dostupno</span>
+    <h2>Staff Portal</h2>
+    <p>Prijavite se kao radnik restorana kako biste upravljali rezervacijama u realnom vremenu. <br><em style="opacity:.6">Ova funkcija je trenutno u razvoju.</em></p>
+    <div class="modal-form">
+      <input type="text"     disabled placeholder="Korisničko ime / Email">
+      <input type="password" disabled placeholder="Lozinka">
+      <select disabled><option>Moj Restoran</option><option>Restoran Kero</option><option>Alcazar Lounge Bar</option><option>Restoran Duga</option><option>Etno Restoran Ognjište</option><option>Saraj Pod Hajlom</option></select>
+      <button class="modal-submit staff" disabled>Prijavi Se</button>
+    </div>
+  </div>
+</div>
 
 <script>
   /* floating food particles */
