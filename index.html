@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rožaje Food — Ukusi Rožaja</title>
+  <title>DOŽIVI ROŽAJE</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
@@ -384,7 +384,6 @@
     }
     .modal-icon.res   { background: linear-gradient(135deg,var(--forest-lt),var(--teal)); }
     .modal-icon.menu  { background: linear-gradient(135deg,var(--sky),#0D4C8A); }
-    .modal-icon.staff { background: linear-gradient(135deg,var(--red),var(--orange)); }
     .modal h2 {
       font-family:'Playfair Display',serif; font-size:1.7rem;
       color:var(--text); margin-bottom:8px;
@@ -406,7 +405,6 @@
     }
     .modal-submit.res   { background:linear-gradient(135deg,var(--forest-lt),var(--teal)); color:#fff; }
     .modal-submit.menu  { background:linear-gradient(135deg,var(--sky),#0D4C8A); color:#fff; }
-    .modal-submit.staff { background:linear-gradient(135deg,var(--red),var(--orange)); color:#fff; }
     .modal-submit:hover { transform:translateY(-2px); box-shadow:0 8px 24px rgba(0,0,0,.2); }
     .coming-soon-tag {
       display:inline-block; background:#E8F5EE; border:1px dashed var(--forest-lt);
@@ -474,13 +472,10 @@
 
 <!-- NAV -->
 <nav>
-  <div class="nav-logo"><span>🏔️</span> Rožaje Food</div>
+  <div class="nav-logo"><span>🏔️</span> Visit Rožaje</div>
   <ul class="nav-links">
-    <li><a href="#smjestaji">Smještaji</a></li>
-    <li><a href="#restaurants">Restorani</a></li>
     <li><a href="#features">Usluge</a></li>
     <li><a href="#nature-strip">O nama</a></li>
-    <li><a href="kontakt.html">Kontakt</a></li>
   </ul>
 </nav>
 
@@ -491,16 +486,15 @@
   <div class="particles" id="particles"></div>
 
   <div class="hero-content">
-    <div class="hero-badge">🏔️ Rožaje, Crna Gora · Planinsko Srce</div>
+    <div class="hero-badge">🏔️ Rožaje, Crna Gora</div>
     <h1 class="hero-title">
-      Ukusi<br>
-      <span class="accent">Rožaja</span>
+      Doživi<br>
+      <span class="accent">Rožaje</span>
     </h1>
     <p class="hero-sub">
       Autentična domaća kuhinja iz srca planina — gdje se tradicija, miris dima i čist planinski vazduh sretaju na jednoj trpezi.
     </p>
     <div class="hero-cta">
-      <a href="#restaurants" class="btn btn-primary"><i class="fa-solid fa-utensils"></i> Istraži Restorane</a>
       <a href="#features" class="btn btn-outline"><i class="fa-solid fa-compass"></i> Istraži Rožaje</a>
     </div>
   </div>
@@ -543,11 +537,11 @@
     <p>Upoznajte autentičnu kuhinju Rožaja — pite, tarhana, bosanski lonac i druge planinske specijalitete.</p>
     <button class="feat-btn food">Vidi Jela</button>
   </div>
-  <div class="feat">
-    <div class="feat-icon stay">🏨</div>
-    <h3>Smještaj</h3>
-    <p>Pronađite savršeno mjesto za odmor — od planinskih kuća do modernih hotela u srcu Rožaja.</p>
-    <button class="feat-btn stay">Nađi Smještaj</button>
+  <div class="feat" onclick="location.href='#restaurants'">
+    <div class="feat-icon food">🍽️</div>
+    <h3>Restorani</h3>
+    <p>Pronađite najbolje restorane u Rožajama — od tradicionalnih ćevabdžinica do elegantnih etno restorana.</p>
+    <a href="#restaurants" class="feat-btn food">Vidi Restorane</a>
   </div>
   <div class="feat">
     <div class="feat-icon city">🏔️</div>
@@ -805,38 +799,23 @@
 <footer>
   <div class="footer-top">
     <div class="footer-brand">
-      <div class="nav-logo"><span>🏔️</span> Rožaje Food</div>
+      <div class="nav-logo"><span>🏔️</span> Rožaje Visit</div>
       <p>Tvoj vodič kroz najbolja ugostiteljska mjesta Rožaja. Lokalno, autentično, planinski svježe.</p>
     </div>
     <div class="footer-links">
       <h4>Navigacija</h4>
       <ul>
         <li><a href="#hero">Početna</a></li>
+        <li><a href="#features">Usluge</a></li>
         <li><a href="#smjestaji">Smještaji</a></li>
         <li><a href="#restaurants">Restorani</a></li>
         <li><a href="#nature-strip">O Nama</a></li>
-        <li><a href="kontakt.html">Kontakt</a></li>
-      </ul>
-    </div>
-    <div class="footer-links">
-      <h4>Istraži</h4>
-      <ul>
-        <li><a href="#smjestaji">Smještaji</a></li>
         <li><a href="#" onclick="openModal('menu');return false;">Pregled Menija</a></li>
-        <li><a href="#" onclick="openModal('staff');return false;">Staff Login</a></li>
-      </ul>
-    </div>
-    <div class="footer-links">
-      <h4>Kontakt</h4>
-      <ul>
-        <li><a href="#">📍 Rožaje, Crna Gora</a></li>
-        <li><a href="#">🏔️ Hajla (2.403 m)</a></li>
-        <li><a href="#">✉️ info@rozajefood.me</a></li>
       </ul>
     </div>
   </div>
   <div class="footer-bottom">
-    <p>&copy; 2026 Rožaje Food. Sva prava zadržana. Napravljeno s ljubavlju za Rožaje. 🏔️</p>
+    <p>&copy; 2026 Rožaje Visit. Sva prava zadržana. Napravljeno s ljubavlju za Rožaje. 🏔️</p>
   </div>
 </footer>
 
@@ -853,22 +832,6 @@
       <select disabled><option>Izaberi Restoran</option><option>Restoran Kero</option><option>Alcazar Lounge Bar</option><option>Restoran Duga</option><option>Etno Restoran Ognjište</option><option>Saraj Pod Hajlom</option></select>
       <select disabled><option>Kategorija jela</option><option>Predjela</option><option>Glavna jela</option><option>Dezert</option><option>Piće</option></select>
       <button class="modal-submit menu" disabled>Pregledaj Meni</button>
-    </div>
-  </div>
-</div>
-
-<div class="modal-overlay" id="modal-staff">
-  <div class="modal">
-    <button class="modal-close" onclick="closeModal('staff')"><i class="fa-solid fa-xmark"></i></button>
-    <div class="modal-icon staff">🔐</div>
-    <span class="coming-soon-tag">Uskoro dostupno</span>
-    <h2>Staff Portal</h2>
-    <p>Prijavite se kao radnik restorana kako biste upravljali rezervacijama u realnom vremenu. <br><em style="opacity:.6">Ova funkcija je trenutno u razvoju.</em></p>
-    <div class="modal-form">
-      <input type="text"     disabled placeholder="Korisničko ime / Email">
-      <input type="password" disabled placeholder="Lozinka">
-      <select disabled><option>Moj Restoran</option><option>Restoran Kero</option><option>Alcazar Lounge Bar</option><option>Restoran Duga</option><option>Etno Restoran Ognjište</option><option>Saraj Pod Hajlom</option></select>
-      <button class="modal-submit staff" disabled>Prijavi Se</button>
     </div>
   </div>
 </div>
