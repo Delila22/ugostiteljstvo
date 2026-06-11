@@ -10,32 +10,32 @@
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=1200&q=80">
   <meta name="twitter:card" content="summary_large_image">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏔️</text></svg>">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='18' fill='%233FA060'/><path d='M12 82 L40 34 L58 60 L70 44 L88 82 Z' fill='%23fff'/><path d='M40 34 L34 44 L46 44 Z' fill='%235FB0CE'/></svg>">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --night:    #060E1A;
-      --deep:     #0D2845;
+      --night:    #09090B;
+      --deep:     #111318;
       --sky:      #0F6BAD;
       --teal:     #0B7B6D;
-      --forest-dk:#1B3A28;
-      --forest:   #2D6A4F;
-      --forest-lt:#40916C;
-      --meadow:   #52B788;
-      --red:      #E63946;
-      --orange:   #F4A261;
-      --gold:     #E9C46A;
-      --cream:    #F2FAF6;
-      --text:     #10291C;
+      --forest-dk:#111318;
+      --forest:   #1E2025;
+      --forest-lt:#3FA060;
+      --meadow:   #3FA060;
+      --red:      #2E86AB;
+      --orange:   #2E86AB;
+      --gold:     #5FB0CE;
+      --cream:    #F5EFE6;
+      --text:     #1A1814;
     }
 
     html { scroll-behavior: smooth; }
 
     body {
-      font-family: 'Poppins', sans-serif;
+      font-family: 'Inter', sans-serif;
       background: var(--cream);
       color: var(--text);
       overflow-x: hidden;
@@ -48,11 +48,12 @@
       padding: 18px 60px;
       background: rgba(6,14,26,0.88);
       backdrop-filter: blur(14px);
-      border-bottom: 1px solid rgba(64,145,108,0.25);
+      border-bottom: 1px solid rgba(63,160,96,0.25);
     }
     .nav-logo {
       font-family: 'Playfair Display', serif;
       font-size: 1.6rem; color: var(--meadow);
+      letter-spacing: -0.02em;
       display: flex; align-items: center; gap: 10px;
     }
     .nav-logo span { font-size: 1.8rem; }
@@ -73,11 +74,14 @@
     /* ─── HERO ─── */
     #hero {
       min-height: 100vh;
-      background: linear-gradient(180deg,
-        #060E1A 0%,
-        #0A1F35 30%,
-        #0D3520 65%,
-        #1B3A28 100%);
+      background:
+        linear-gradient(180deg,
+          rgba(9,9,11,0.88) 0%,
+          rgba(9,9,11,0.72) 35%,
+          rgba(9,9,11,0.68) 65%,
+          rgba(9,9,11,0.93) 100%),
+        linear-gradient(rgba(60,55,50,0.55), rgba(60,55,50,0.55)),
+        url('slike/rozaje-panorama.png') center 60% / cover no-repeat;
       display: flex; align-items: center; justify-content: center;
       position: relative; overflow: hidden; padding-top: 80px;
     }
@@ -119,11 +123,7 @@
       to   { transform: scale(1.2); opacity: 1; }
     }
 
-    /* mountains SVG – positioned at bottom of hero */
-    .mountains-wrap {
-      position: absolute; bottom: 0; left: 0; width: 100%; pointer-events: none;
-    }
-    .mountains-wrap svg { display: block; }
+    .mountains-wrap { display: none; }
 
     /* floating food particles */
     .particles { position: absolute; inset: 0; pointer-events: none; }
@@ -144,8 +144,8 @@
     }
     .hero-badge {
       display: inline-block;
-      background: rgba(64,145,108,.15);
-      border: 1px solid rgba(82,183,136,.5);
+      background: rgba(63,160,96,.15);
+      border: 1px solid rgba(63,160,96,.5);
       color: var(--meadow); font-size: .8rem; font-weight: 600;
       letter-spacing: .15em; text-transform: uppercase;
       padding: 8px 22px; border-radius: 50px; margin-bottom: 28px;
@@ -153,14 +153,15 @@
     }
     .hero-title {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(3.4rem, 9vw, 8rem);
-      font-weight: 900; line-height: 1.0;
+      font-size: clamp(2.8rem, 7vw, 6rem);
+      font-weight: 800; line-height: 1.0;
+      letter-spacing: -0.03em;
       color: #fff;
       animation: fadeDown .9s .1s ease both;
       text-shadow: 0 4px 40px rgba(0,0,0,.6);
     }
     .hero-title .accent {
-      background: linear-gradient(135deg, var(--meadow), #90E0EF, var(--gold));
+      background: linear-gradient(135deg, #5FB0CE, #3FA060, #2E86AB);
       -webkit-background-clip: text; -webkit-text-fill-color: transparent;
       background-clip: text; display: block;
     }
@@ -185,7 +186,7 @@
     }
     .btn:hover { transform: translateY(-3px); box-shadow: 0 12px 36px rgba(0,0,0,.4); }
     .btn-primary { background: linear-gradient(135deg,var(--forest-lt),var(--teal)); color: #fff; }
-    .btn-outline  { background: transparent; border: 2px solid rgba(82,183,136,.45); color: #ddeedd; }
+    .btn-outline  { background: transparent; border: 2px solid rgba(63,160,96,.45); color: #ddeedd; }
     .btn-food     { background: linear-gradient(135deg,var(--red),var(--orange)); color: #fff; }
 
     /* scroll indicator */
@@ -198,8 +199,8 @@
     }
     .scroll-arrow {
       width: 22px; height: 22px;
-      border-right: 2px solid rgba(82,183,136,.4);
-      border-bottom: 2px solid rgba(82,183,136,.4);
+      border-right: 2px solid rgba(63,160,96,.4);
+      border-bottom: 2px solid rgba(63,160,96,.4);
       transform: rotate(45deg);
       animation: bounce 1.5s ease-in-out infinite;
     }
@@ -221,32 +222,32 @@
     }
     .feat:not(:last-child)::after {
       content: ''; position: absolute; right: 0; top: 20%; bottom: 20%;
-      width: 1px; background: rgba(82,183,136,.12);
+      width: 1px; background: rgba(63,160,96,.12);
     }
-    .feat:hover { background: rgba(64,145,108,.1); }
+    .feat:hover { background: rgba(255,255,255,.03); }
     .feat-icon {
-      width: 72px; height: 72px; border-radius: 20px;
+      width: 64px; height: 64px; border-radius: 18px;
       display: flex; align-items: center; justify-content: center;
-      font-size: 2rem; margin-bottom: 22px;
-      transition: transform .3s;
+      margin-bottom: 24px;
+      transition: transform .3s, box-shadow .3s;
     }
-    .feat:hover .feat-icon { transform: scale(1.15) rotate(-5deg); }
-    .feat-icon.res   { background: linear-gradient(135deg,var(--forest-lt),var(--teal)); }
-    .feat-icon.food  { background: linear-gradient(135deg,var(--orange),var(--red)); }
-    .feat-icon.stay  { background: linear-gradient(135deg,var(--sky),#0D4C8A); }
-    .feat-icon.city  { background: linear-gradient(135deg,var(--gold),#c9a227); }
-    .feat h3 { font-size: 1.15rem; font-weight: 700; color: #e8f5ee; margin-bottom: 10px; }
-    .feat p  { font-size: .87rem; color: rgba(200,240,220,.5); line-height: 1.65; max-width: 220px; }
+    .feat:hover .feat-icon { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,.35); }
+    .feat-icon.res  { background: rgba(63,160,96,.12);  border: 1.5px solid rgba(63,160,96,.35); }
+    .feat-icon.food { background: rgba(46,134,171,.12);  border: 1.5px solid rgba(46,134,171,.35); }
+    .feat-icon.city { background: rgba(95,176,206,.12); border: 1.5px solid rgba(95,176,206,.35); }
+    .feat h3 { font-size: 1.05rem; font-weight: 700; color: #e8f5ee; margin-bottom: 10px; letter-spacing: -.01em; }
+    .feat p  { font-size: .86rem; color: rgba(200,240,220,.45); line-height: 1.7; max-width: 220px; }
     .feat-btn {
-      margin-top: 22px; padding: 10px 26px; border-radius: 50px;
-      font-size: .82rem; font-weight: 700; text-decoration: none;
-      transition: transform .2s, box-shadow .2s; border: none; cursor: pointer;
+      margin-top: auto; padding: 9px 22px; border-radius: 8px;
+      font-size: .8rem; font-weight: 600; text-decoration: none;
+      transition: opacity .2s, transform .2s; cursor: pointer;
+      display: inline-flex; align-items: center; gap: 6px;
     }
-    .feat-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,.4); }
-    .feat-btn.res   { background: linear-gradient(135deg,var(--forest-lt),var(--teal)); color: #fff; }
-    .feat-btn.food  { background: linear-gradient(135deg,var(--orange),var(--red)); color: #fff; }
-    .feat-btn.stay  { background: linear-gradient(135deg,var(--sky),#0D4C8A); color: #fff; }
-    .feat-btn.city  { background: linear-gradient(135deg,var(--gold),#c9a227); color: var(--text); }
+    .feat-btn:hover { opacity: .85; transform: translateY(-1px); }
+    .feat-btn.res  { background: rgba(63,160,96,.12);  border: 1px solid rgba(63,160,96,.4);  color: var(--meadow); }
+    .feat-btn.food { background: rgba(46,134,171,.12);  border: 1px solid rgba(46,134,171,.4);  color: var(--orange); }
+    .feat-btn.city { background: rgba(95,176,206,.12); border: 1px solid rgba(95,176,206,.4); color: var(--gold); }
+    .feat-btn::after { content: '→'; font-size: .85rem; }
 
     /* ─── SECTION DIVIDER ─── */
     .section-divider { height: 3px; background: var(--forest-lt); }
@@ -274,10 +275,11 @@
     }
     .section-title {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(2rem, 4vw, 3rem); font-weight: 900;
+      font-size: clamp(1.6rem, 3vw, 2.4rem); font-weight: 800;
+      letter-spacing: -0.03em;
       color: var(--text); line-height: 1.15;
     }
-    .section-title .line2 { color: var(--forest); }
+    .section-title .line2 { color: var(--meadow); }
 
     .rest-grid {
       display: grid; grid-template-columns: repeat(3,1fr); gap: 26px;
@@ -290,13 +292,13 @@
 
     .card {
       background: #fff; border-radius: 22px; overflow: hidden;
-      box-shadow: 0 4px 28px rgba(27,58,40,.09);
+      box-shadow: 0 4px 28px rgba(20,18,14,.09);
       transition: transform .35s cubic-bezier(.34,1.56,.64,1), box-shadow .35s;
       cursor: pointer;
     }
     .card:hover {
       transform: translateY(-10px);
-      box-shadow: 0 22px 52px rgba(27,58,40,.18);
+      box-shadow: 0 22px 52px rgba(20,18,14,.18);
     }
     .card-img-wrap { position: relative; overflow: hidden; height: 220px; }
     .card-img-wrap img {
@@ -306,7 +308,7 @@
     .card:hover .card-img-wrap img { transform: scale(1.08); }
     .card-badge {
       position: absolute; top: 14px; left: 14px;
-      background: var(--forest); color: #fff;
+      background: rgba(63,160,96,.85); color: #fff;
       font-size: .72rem; font-weight: 700; letter-spacing: .08em;
       padding: 5px 12px; border-radius: 50px; text-transform: uppercase;
     }
@@ -322,6 +324,7 @@
     .card-name {
       font-family: 'Playfair Display', serif;
       font-size: 1.3rem; font-weight: 700;
+      letter-spacing: -0.02em;
       color: var(--text); margin-bottom: 5px;
     }
     .card-type {
@@ -338,7 +341,7 @@
     /* ─── MOUNTAINS NATURE STRIP ─── */
     #nature-strip {
       position: relative; overflow: hidden;
-      background: linear-gradient(180deg, #0D2232 0%, #1B3A28 50%, #2D6A4F 100%);
+      background: linear-gradient(180deg, #0D0E12 0%, #111318 50%, #1A1814 100%);
       padding: 80px 60px;
       display: flex; align-items: center; gap: 70px;
     }
@@ -353,7 +356,8 @@
     .stat { text-align: center; }
     .stat-num {
       font-family: 'Playfair Display', serif;
-      font-size: 2.6rem; font-weight: 900; color: var(--meadow); display: block;
+      font-size: 2.6rem; font-weight: 800; letter-spacing: -0.03em;
+      color: var(--meadow); display: block;
     }
     .stat-lab { font-size: .75rem; color: rgba(200,240,210,.5); text-transform: uppercase; letter-spacing: .1em; }
     .nature-imgs { flex: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 14px; position: relative; z-index: 2; }
@@ -399,13 +403,14 @@
     .modal-icon.menu  { background: linear-gradient(135deg,var(--sky),#0D4C8A); }
     .modal h2 {
       font-family:'Playfair Display',serif; font-size:1.7rem;
+      letter-spacing:-0.02em;
       color:var(--text); margin-bottom:8px;
     }
     .modal p { color:#4A6A55; line-height:1.65; margin-bottom:26px; font-size:.9rem; }
     .modal-form { display:flex; flex-direction:column; gap:13px; }
     .modal-form input, .modal-form select, .modal-form textarea {
       padding:13px 16px; border:2px solid #D0E8D8; border-radius:12px;
-      font-size:.9rem; font-family:inherit; color:var(--text);
+      font-size:.9rem; font-family: 'Inter', sans-serif; color:var(--text);
       background:#F5FBF7; transition:border .2s;
     }
     .modal-form input:focus,
@@ -470,7 +475,7 @@
     .footer-links a:hover { color: var(--meadow); }
     .footer-links a:hover::after { width: 100%; }
     .footer-bottom {
-      border-top: 1px solid rgba(82,183,136,.08);
+      border-top: 1px solid rgba(63,160,96,.08);
       padding-top: 26px; text-align: center; font-size: .78rem;
     }
 
@@ -483,18 +488,18 @@
     .nav-social { color:rgba(200,240,220,.5); font-size:1.1rem; transition:color .2s; }
     .nav-social:hover { color:var(--meadow); }
     .lang-toggle {
-      background:rgba(64,145,108,.15); border:1px solid rgba(82,183,136,.4);
+      background:rgba(63,160,96,.15); border:1px solid rgba(63,160,96,.4);
       color:var(--meadow); font-size:.75rem; font-weight:700; letter-spacing:.1em;
       padding:5px 13px; border-radius:50px; cursor:pointer; transition:background .2s;
     }
-    .lang-toggle:hover { background:rgba(64,145,108,.3); }
+    .lang-toggle:hover { background:rgba(63,160,96,.3); }
 
     /* ─── TO INFO BLOK ─── */
     .to-info { margin-top: 32px; display: flex; flex-direction: column; gap: 22px; }
     .to-item { display: flex; align-items: flex-start; gap: 16px; }
     .to-icon {
       width: 44px; height: 44px; border-radius: 12px; flex-shrink: 0;
-      background: rgba(82,183,136,.12); border: 1px solid rgba(82,183,136,.25);
+      background: rgba(63,160,96,.12); border: 1px solid rgba(63,160,96,.25);
       display: flex; align-items: center; justify-content: center;
       color: var(--meadow); font-size: 1rem;
     }
@@ -514,8 +519,8 @@
     .kontakt-form-wrap .section-title span { color:var(--meadow); }
     .kontakt-form { margin-top:28px; display:flex; flex-direction:column; gap:13px; }
     .kontakt-form input, .kontakt-form textarea {
-      padding:13px 16px; border:2px solid rgba(82,183,136,.2); border-radius:12px;
-      font-size:.9rem; font-family:inherit; color:#e8f5ee;
+      padding:13px 16px; border:2px solid rgba(63,160,96,.2); border-radius:12px;
+      font-size:.9rem; font-family: 'Inter', sans-serif; color:#e8f5ee;
       background:rgba(255,255,255,.06); transition:border .2s;
     }
     .kontakt-form input::placeholder, .kontakt-form textarea::placeholder { color:rgba(200,240,220,.35); }
@@ -531,10 +536,10 @@
     .kontakt-submit:hover { transform:translateY(-2px); box-shadow:0 8px 24px rgba(0,0,0,.3); }
     .kontakt-success {
       display:none; margin-top:10px; padding:12px 16px; border-radius:10px;
-      background:rgba(82,183,136,.12); border:1px solid rgba(82,183,136,.4);
+      background:rgba(63,160,96,.12); border:1px solid rgba(63,160,96,.4);
       color:var(--meadow); font-size:.88rem; text-align:center;
     }
-    .map-wrap { border-radius:20px; overflow:hidden; box-shadow:0 8px 40px rgba(0,0,0,.4); border:1px solid rgba(82,183,136,.12); }
+    .map-wrap { border-radius:20px; overflow:hidden; box-shadow:0 8px 40px rgba(0,0,0,.4); border:1px solid rgba(63,160,96,.12); }
     .map-wrap iframe { display:block; width:100%; height:380px; border:0; filter:grayscale(20%) contrast(1.05); }
     .map-info { background:rgba(255,255,255,.04); padding:16px 20px; display:flex; flex-wrap:wrap; gap:14px; }
     .map-info-item { display:flex; align-items:center; gap:8px; font-size:.82rem; color:rgba(200,240,220,.6); }
@@ -544,12 +549,12 @@
     .footer-social { display:flex; gap:12px; margin-top:16px; }
     .footer-social a {
       width:36px; height:36px; border-radius:50%;
-      background:rgba(82,183,136,.08); border:1px solid rgba(82,183,136,.18);
+      background:rgba(63,160,96,.08); border:1px solid rgba(63,160,96,.18);
       display:flex; align-items:center; justify-content:center;
       color:rgba(200,240,220,.45); font-size:.95rem;
       transition:background .2s,color .2s; text-decoration:none;
     }
-    .footer-social a:hover { background:rgba(82,183,136,.22); color:var(--meadow); }
+    .footer-social a:hover { background:rgba(63,160,96,.22); color:var(--meadow); }
 
     /* ─── RESPONSIVE ─── */
     @media(max-width:900px){
@@ -579,7 +584,7 @@
 
 <!-- NAV -->
 <nav>
-  <div class="nav-logo"><span>🏔️</span> Visit Rožaje</div>
+  <div class="nav-logo">Doživi Rožaje</div>
   <ul class="nav-links">
     <li><a href="smjestaji.html"><span class="t-bs">Smještaji</span><span class="t-en">Accommodations</span></a></li>
     <li><a href="restorani.html"><span class="t-bs">Restorani</span><span class="t-en">Restaurants</span></a></li>
@@ -601,7 +606,7 @@
   <div class="particles" id="particles"></div>
 
   <div class="hero-content">
-    <div class="hero-badge">🏔️ <span class="t-bs">Rožaje, Crna Gora</span><span class="t-en">Rožaje, Montenegro</span></div>
+    <div class="hero-badge"><span class="t-bs">Rožaje, Crna Gora</span><span class="t-en">Rožaje, Montenegro</span></div>
     <h1 class="hero-title">
       <span class="t-bs">Doživi</span><span class="t-en">Explore</span><br>
       <span class="accent">Rožaje</span>
@@ -673,7 +678,6 @@
   </div>
 
   <div class="scroll-hint">
-    <span>SKROLI</span>
     <div class="scroll-arrow"></div>
   </div>
 </section>
@@ -681,25 +685,52 @@
 <!-- FEATURES / NAVIGATION CARDS -->
 <div id="features">
   <div class="feat" onclick="location.href='smjestaji.html'">
-    <div class="feat-icon res">🏨</div>
+    <div class="feat-icon res">
+      <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="2" y="8" width="24" height="18" rx="2" stroke="#3FA060" stroke-width="1.6"/>
+        <path d="M2 14h24" stroke="#3FA060" stroke-width="1.6"/>
+        <rect x="7" y="18" width="4" height="4" rx="0.5" stroke="#3FA060" stroke-width="1.4"/>
+        <rect x="17" y="18" width="4" height="4" rx="0.5" stroke="#3FA060" stroke-width="1.4"/>
+        <rect x="12" y="20" width="4" height="6" stroke="#3FA060" stroke-width="1.4"/>
+        <path d="M9 8V5M14 8V3M19 8V5" stroke="#3FA060" stroke-width="1.4" stroke-linecap="round"/>
+      </svg>
+    </div>
     <h3>Smještaji</h3>
     <p>Pronađi savršen smještaj u Rožajama — od udobnih hotela do planinarskih bungalova u prirodi.</p>
     <a href="smjestaji.html" class="feat-btn res">Pregled Smještaja</a>
   </div>
   <div class="feat" onclick="location.href='jela.html'">
-    <div class="feat-icon food">🫕</div>
+    <div class="feat-icon food">
+      <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M4 13h20c0 5.5-4.5 9-10 9S4 18.5 4 13z" stroke="#2E86AB" stroke-width="1.6" stroke-linejoin="round"/>
+        <path d="M2 13h24" stroke="#2E86AB" stroke-width="1.6" stroke-linecap="round"/>
+        <path d="M9 7c0-2 2-2 2-4M14 7c0-2 2-2 2-4M19 7c0-2 2-2 2-4" stroke="#2E86AB" stroke-width="1.4" stroke-linecap="round"/>
+      </svg>
+    </div>
     <h3>Tradicionalna Jela</h3>
     <p>Upoznajte autentičnu kuhinju Rožaja — pite, tarhana, bosanski lonac i druge planinske specijalitete.</p>
     <a href="jela.html" class="feat-btn food">Vidi Jela</a>
   </div>
   <div class="feat" onclick="location.href='restorani.html'">
-    <div class="feat-icon food">🍽️</div>
+    <div class="feat-icon res">
+      <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M8 3v8M6 3v5a2 2 0 004 0V3" stroke="#3FA060" stroke-width="1.6" stroke-linecap="round"/>
+        <path d="M8 11v14" stroke="#3FA060" stroke-width="1.6" stroke-linecap="round"/>
+        <path d="M20 3v22" stroke="#3FA060" stroke-width="1.6" stroke-linecap="round"/>
+        <path d="M17 3v9a3 3 0 006 0V3" stroke="#3FA060" stroke-width="1.6" stroke-linecap="round"/>
+      </svg>
+    </div>
     <h3>Restorani</h3>
     <p>Pronađite najbolje restorane u Rožajama — od tradicionalnih ćevabdžinica do elegantnih etno restorana.</p>
-    <a href="restorani.html" class="feat-btn food">Vidi Restorane</a>
+    <a href="restorani.html" class="feat-btn res">Vidi Restorane</a>
   </div>
   <div class="feat" onclick="location.href='o-rozajama.html'">
-    <div class="feat-icon city">🏔️</div>
+    <div class="feat-icon city">
+      <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M2 24L10 10l5 7 4-5.5L26 24H2z" stroke="#5FB0CE" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"/>
+        <path d="M10 10l-1.5 2.5h3L10 10z" fill="#5FB0CE" opacity="0.35"/>
+      </svg>
+    </div>
     <h3>O Rožajama</h3>
     <p>Saznajte više o gradu pod Hajlom — istorija, kultura, priroda i sve što Rožaje čini posebnim.</p>
     <a href="o-rozajama.html" class="feat-btn city">Upoznaj Grad</a>
@@ -831,7 +862,7 @@
   </div>
   <div class="restaurants-header">
     <div>
-      <div class="section-label">🍽️ Naš odabir</div>
+      <div class="section-label">Naš odabir</div>
       <h2 class="section-title">Restorani koje<br><span class="line2">moraš posjetiti</span></h2>
     </div>
     <a href="#features" class="btn btn-primary" style="font-size:.85rem;padding:12px 26px;">Svi restorani <i class="fa-solid fa-arrow-right"></i></a>
@@ -982,7 +1013,7 @@
   <div class="kontakt-grid">
 
     <div class="kontakt-form-wrap">
-      <div class="section-label"><span class="t-bs">📍 Turistička organizacija</span><span class="t-en">📍 Tourist Organisation</span></div>
+      <div class="section-label"><span class="t-bs">Turistička organizacija</span><span class="t-en">Tourist Organisation</span></div>
       <h2 class="section-title">
         <span class="t-bs">Turistička<br><span>organizacija Rožaje</span></span>
         <span class="t-en">Tourist<br><span>Organisation Rožaje</span></span>
@@ -1027,7 +1058,7 @@
     </div>
 
     <div>
-      <div class="section-label"><span class="t-bs">📍 Gdje smo</span><span class="t-en">📍 Find us</span></div>
+      <div class="section-label"><span class="t-bs">Gdje smo</span><span class="t-en">Find us</span></div>
       <h2 class="section-title" style="color:#fff;margin-bottom:22px;">
         <span class="t-bs">Rožaje,<br><span style="color:var(--meadow)">Crna Gora</span></span>
         <span class="t-en">Rožaje,<br><span style="color:var(--meadow)">Montenegro</span></span>
@@ -1052,7 +1083,7 @@
 <footer>
   <div class="footer-top">
     <div class="footer-brand">
-      <div class="nav-logo"><span>🏔️</span> Rožaje Visit</div>
+      <div class="nav-logo">Doživi Rožaje</div>
       <p><span class="t-bs">Tvoj vodič kroz najbolja ugostiteljska mjesta Rožaja. Lokalno, autentično, planinski svježe.</span><span class="t-en">Your guide to the best hospitality spots in Rožaje. Local, authentic, mountain fresh.</span></p>
       <div class="footer-social">
         <a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
@@ -1072,7 +1103,7 @@
     </div>
   </div>
   <div class="footer-bottom">
-    <p>&copy; 2026 Rožaje Visit. Sva prava zadržana. Napravljeno s ljubavlju za Rožaje. 🏔️</p>
+    <p>&copy; 2026 Doživi Rožaje. Sva prava zadržana. Napravljeno s ljubavlju za Rožaje.</p>
   </div>
 </footer>
 
@@ -1081,7 +1112,7 @@
 <div class="modal-overlay" id="modal-menu">
   <div class="modal">
     <button class="modal-close" onclick="closeModal('menu')"><i class="fa-solid fa-xmark"></i></button>
-    <div class="modal-icon menu">📋</div>
+    <div class="modal-icon menu"><i class="fa-solid fa-clipboard-list" style="color:#fff;"></i></div>
     <span class="coming-soon-tag">Uskoro dostupno</span>
     <h2>Pregled Menija</h2>
     <p>Pregledaj kompletnu ponudu svakog restorana — od predjela do deserta, s cijenama i opisima. <br><em style="opacity:.6">Ova funkcija je trenutno u razvoju.</em></p>
@@ -1094,14 +1125,15 @@
 </div>
 
 <script>
-  /* floating food particles */
-  const emojis = ['🍖','🥩','🥗','🧆','🫕','🍲','🥙','🧇','🥓','🍕','🍜','🌮','🫔','🥘','🍱','🌿','🌲','⛰️'];
+  /* floating light particles (green & blue, no emojis) */
+  const dotColors = ['#3FA060','#5BB871','#2E86AB','#5FB0CE'];
   const container = document.getElementById('particles');
   for(let i=0;i<20;i++){
     const p = document.createElement('div');
     p.className = 'particle';
-    p.textContent = emojis[Math.floor(Math.random()*emojis.length)];
-    p.style.cssText = `left:${Math.random()*100}vw;font-size:${1.1+Math.random()*1.5}rem;
+    const size = 4 + Math.random()*6;
+    p.style.cssText = `left:${Math.random()*100}vw;width:${size}px;height:${size}px;
+      border-radius:50%;background:${dotColors[Math.floor(Math.random()*dotColors.length)]};
       animation-duration:${13+Math.random()*14}s;animation-delay:-${Math.random()*22}s`;
     container.appendChild(p);
   }
