@@ -76,11 +76,10 @@
       min-height: 100vh;
       background:
         linear-gradient(180deg,
-          rgba(9,9,11,0.65) 0%,
-          rgba(9,9,11,0.50) 35%,
-          rgba(9,9,11,0.48) 65%,
-          rgba(9,9,11,0.72) 100%),
-        linear-gradient(rgba(60,55,50,0.30), rgba(60,55,50,0.30)),
+          rgba(6,12,20,0.70) 0%,
+          rgba(6,12,20,0.48) 38%,
+          rgba(6,12,20,0.45) 62%,
+          rgba(6,12,20,0.82) 100%),
         url('slike/doživi rožaje 2..jpg') center 60% / cover no-repeat;
       display: flex; align-items: center; justify-content: center;
       position: relative; overflow: hidden; padding-top: 80px;
@@ -144,32 +143,61 @@
     }
     .hero-badge {
       display: inline-block;
-      background: rgba(63,160,96,.15);
-      border: 1px solid rgba(63,160,96,.5);
-      color: var(--meadow); font-size: .8rem; font-weight: 600;
-      letter-spacing: .15em; text-transform: uppercase;
-      padding: 8px 22px; border-radius: 50px; margin-bottom: 28px;
+      background: rgba(9,9,11,0.45);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(63,160,96,.55);
+      color: #7de0a8; font-size: .8rem; font-weight: 600;
+      letter-spacing: .18em; text-transform: uppercase;
+      padding: 9px 24px; border-radius: 50px; margin-bottom: 32px;
       animation: fadeDown .8s ease both;
     }
     .hero-title {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(2.8rem, 7vw, 6rem);
-      font-weight: 800; line-height: 1.0;
+      font-size: clamp(3.4rem, 8.5vw, 7rem);
+      font-weight: 800; line-height: 1.05;
       letter-spacing: -0.03em;
       color: #fff;
       animation: fadeDown .9s .1s ease both;
-      text-shadow: 0 4px 40px rgba(0,0,0,.6);
+      text-shadow: 0 2px 6px rgba(0,0,0,.9), 0 6px 28px rgba(0,0,0,.7);
     }
     .hero-title .accent {
-      background: linear-gradient(135deg, #5FB0CE, #3FA060, #2E86AB);
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-      background-clip: text; display: block;
+      color: #3FA060;
+      -webkit-text-fill-color: #3FA060;
+      display: inline-block;
+      position: relative;
+      text-shadow: 0 2px 8px rgba(0,0,0,.95), 0 0 32px rgba(0,0,0,.8);
+    }
+    .hero-divider {
+      display: flex; align-items: center; justify-content: center;
+      gap: 12px; margin: 26px auto 0; max-width: 200px;
+      animation: fadeDown 1s .18s ease both;
+    }
+    .hero-divider::before,
+    .hero-divider::after {
+      content: ''; flex: 1; height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(63,160,96,.6), transparent);
+    }
+    .hero-divider span {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: #3FA060;
+      box-shadow: 0 0 8px rgba(63,160,96,.7);
     }
     .hero-sub {
-      font-size: clamp(.95rem, 2vw, 1.2rem);
-      color: rgba(200,240,220,.65); max-width: 540px;
-      margin: 22px auto 0; line-height: 1.75;
-      animation: fadeDown 1s .2s ease both;
+      font-size: clamp(.95rem, 1.7vw, 1.12rem);
+      color: #ffffff;
+      max-width: 500px;
+      margin: 18px auto 0;
+      line-height: 2;
+      font-weight: 300;
+      letter-spacing: .04em;
+      background: radial-gradient(ellipse 80% 100% at 50% 50%, rgba(6,12,20,0.58) 0%, transparent 100%);
+      padding: 20px 30px;
+      text-shadow: 0 1px 4px rgba(0,0,0,.9), 0 2px 10px rgba(0,0,0,.7);
+      animation: fadeDown 1s .25s ease both;
+    }
+    .hero-sub .hero-highlight {
+      color: #ffffff;
+      font-weight: 400;
     }
     .hero-cta {
       margin-top: 40px; display: flex; gap: 16px;
@@ -186,7 +214,7 @@
     }
     .btn:hover { transform: translateY(-3px); box-shadow: 0 12px 36px rgba(0,0,0,.4); }
     .btn-primary { background: linear-gradient(135deg,var(--forest-lt),var(--teal)); color: #fff; }
-    .btn-outline  { background: transparent; border: 2px solid rgba(63,160,96,.45); color: #ddeedd; }
+    .btn-outline  { background: rgba(9,9,11,0.50); backdrop-filter: blur(12px); border: 2px solid rgba(63,160,96,.70); color: #c8f0d8; letter-spacing: .04em; }
     .btn-food     { background: linear-gradient(135deg,var(--red),var(--orange)); color: #fff; }
 
     /* scroll indicator */
@@ -611,9 +639,10 @@
       <span class="t-bs">Doživi</span><span class="t-en">Explore</span><br>
       <span class="accent">Rožaje</span>
     </h1>
+    <div class="hero-divider"><span></span></div>
     <p class="hero-sub">
-      <span class="t-bs">Autentična domaća kuhinja iz srca planina — gdje se tradicija, miris dima i čist planinski vazduh sretaju na jednoj trpezi.</span>
-      <span class="t-en">Authentic mountain cuisine from the heart of Montenegro — where tradition, the scent of smoke and pure mountain air meet at one table.</span>
+      <span class="t-bs">Autentična domaća kuhinja iz srca planina —<br>gdje se <span class="hero-highlight">tradicija</span>, miris dima i čist planinski vazduh<br>sretaju na jednoj trpezi.</span>
+      <span class="t-en">Authentic mountain cuisine from the heart of Montenegro —<br>where <span class="hero-highlight">tradition</span>, the scent of smoke and pure mountain air<br>meet at one table.</span>
     </p>
     <div class="hero-cta">
       <a href="#features" class="btn btn-outline"><i class="fa-solid fa-compass"></i> <span class="t-bs">Istraži Rožaje</span><span class="t-en">Explore Rožaje</span></a>
