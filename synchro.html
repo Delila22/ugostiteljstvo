@@ -1,0 +1,979 @@
+<!DOCTYPE html>
+<html lang="bs">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Synchro – Digitalni savjeznik za tvoj ciklus</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --plum:      #6B3FA0;
+      --plum-l:    #9B6ED4;
+      --plum-d:    #4A2270;
+      --rose:      #C8395C;
+      --peach:     #F0956A;
+      --sage:      #5A9E86;
+      --sage-l:    #9DCFBF;
+      --gold:      #E8B84B;
+      --bg:        #F8F3FF;
+      --card:      #FFFFFF;
+      --text:      #1A1A2E;
+      --muted:     #7A7A9A;
+      --border:    #EBE0F5;
+      --shadow:    rgba(107, 63, 160, 0.12);
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    .screen { display: none; flex-direction: column; min-height: 100vh; }
+    .screen.active { display: flex; }
+
+    /* ══════════ LANDING ══════════ */
+    #screen-landing {
+      background: linear-gradient(145deg, #1A0A2E 0%, #4A2270 35%, #8B3A6A 65%, #C8395C 100%);
+      align-items: center; justify-content: center;
+      text-align: center; padding: 48px 28px;
+      position: relative; overflow: hidden;
+    }
+    #screen-landing::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 30% 20%, rgba(155,110,212,0.3) 0%, transparent 60%),
+                  radial-gradient(ellipse at 70% 80%, rgba(200,57,92,0.25) 0%, transparent 50%);
+    }
+    .landing-content { position: relative; z-index: 1; max-width: 380px; }
+
+    .logo-wrap {
+      width: 110px; height: 110px; border-radius: 35px;
+      background: rgba(255,255,255,0.12);
+      backdrop-filter: blur(12px);
+      border: 1.5px solid rgba(255,255,255,0.2);
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 28px; font-size: 52px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+      animation: floatLogo 4s ease-in-out infinite;
+    }
+    @keyframes floatLogo {
+      0%,100% { transform: translateY(0); }
+      50%      { transform: translateY(-8px); }
+    }
+    .landing-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.2);
+      color: rgba(255,255,255,0.7);
+      font-size: 11px; font-weight: 600;
+      letter-spacing: 2.5px; text-transform: uppercase;
+      padding: 6px 18px; border-radius: 50px;
+      margin-bottom: 20px;
+    }
+    .landing-title {
+      font-family: 'Playfair Display', serif;
+      color: #fff; font-size: 52px; font-weight: 800;
+      line-height: 1.1; margin-bottom: 16px;
+      text-shadow: 0 2px 20px rgba(0,0,0,0.3);
+    }
+    .landing-sub {
+      color: rgba(255,255,255,0.75); font-size: 16px;
+      line-height: 1.7; margin-bottom: 44px;
+    }
+    .btn-landing {
+      background: #fff;
+      color: var(--plum-d);
+      border: none; border-radius: 60px;
+      padding: 18px 52px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 17px; font-weight: 700; cursor: pointer;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+      transition: transform 0.2s, box-shadow 0.2s;
+      letter-spacing: 0.3px;
+    }
+    .btn-landing:hover { transform: translateY(-3px); box-shadow: 0 14px 40px rgba(0,0,0,0.3); }
+    .landing-skip {
+      display: block; margin-top: 22px;
+      color: rgba(255,255,255,0.45); font-size: 14px;
+      cursor: pointer; transition: color 0.2s;
+    }
+    .landing-skip:hover { color: rgba(255,255,255,0.7); }
+
+    .floating-pills {
+      display: flex; justify-content: center; gap: 10px;
+      flex-wrap: wrap; margin-bottom: 40px;
+    }
+    .pill {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.15);
+      color: rgba(255,255,255,0.8);
+      padding: 7px 16px; border-radius: 50px; font-size: 13px;
+    }
+
+    /* ══════════ ONBOARDING ══════════ */
+    #screen-onboarding { background: var(--bg); align-items: center; justify-content: center; }
+    .ob-wrap { width: 100%; max-width: 420px; padding: 40px 28px; }
+
+    .ob-step { display: none; animation: fadeUp 0.4s ease; }
+    .ob-step.active { display: block; }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .ob-emoji { font-size: 64px; text-align: center; display: block; margin-bottom: 24px; }
+    .ob-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 30px; font-weight: 700;
+      color: var(--plum-d); margin-bottom: 10px; text-align: center;
+    }
+    .ob-desc { font-size: 15px; color: var(--muted); text-align: center; line-height: 1.7; margin-bottom: 32px; }
+
+    .dots { display: flex; justify-content: center; gap: 8px; margin-bottom: 36px; }
+    .dot { height: 8px; border-radius: 4px; background: var(--border); transition: all 0.3s; }
+    .dot.active { background: var(--plum); width: 28px; }
+    .dot:not(.active) { width: 8px; }
+
+    .input-field {
+      width: 100%; padding: 16px 20px;
+      border: 2px solid var(--border); border-radius: 16px;
+      font-family: 'Poppins', sans-serif; font-size: 15px;
+      color: var(--text); background: #fff; outline: none;
+      margin-bottom: 14px; transition: border-color 0.2s, box-shadow 0.2s;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    }
+    .input-field:focus { border-color: var(--plum); box-shadow: 0 0 0 4px rgba(107,63,160,0.1); }
+    .input-label { font-size: 13px; font-weight: 600; color: var(--muted); display: block; margin-bottom: 7px; }
+
+    .btn-main {
+      width: 100%; padding: 18px;
+      background: linear-gradient(135deg, var(--plum), var(--rose));
+      color: #fff; border: none; border-radius: 60px;
+      font-family: 'Poppins', sans-serif; font-size: 16px; font-weight: 700;
+      cursor: pointer; letter-spacing: 0.3px;
+      box-shadow: 0 6px 24px rgba(107,63,160,0.35);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .btn-main:hover { transform: translateY(-2px); box-shadow: 0 10px 32px rgba(107,63,160,0.4); }
+    .btn-ghost {
+      width: 100%; padding: 16px; margin-top: 12px;
+      background: transparent; border: 2px solid var(--border);
+      border-radius: 60px; color: var(--muted);
+      font-family: 'Poppins', sans-serif; font-size: 15px; font-weight: 500;
+      cursor: pointer; transition: all 0.2s;
+    }
+    .btn-ghost:hover { border-color: var(--plum); color: var(--plum); }
+
+    /* ══════════ APP SHELL ══════════ */
+    #screen-app { padding-bottom: 88px; }
+
+    /* Header */
+    .app-header {
+      background: linear-gradient(135deg, var(--plum-d) 0%, var(--plum) 50%, var(--rose) 100%);
+      padding: 24px 24px 40px;
+    }
+    .header-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 24px; }
+    .h-greeting { color: rgba(255,255,255,0.65); font-size: 16px; font-weight: 400; }
+    .h-name { color: #fff; font-size: 30px; font-weight: 800; margin-top: 2px; letter-spacing: -0.5px; }
+    .h-sticker { font-size: 28px; display: inline-block; margin-left: 8px; vertical-align: middle; animation: wiggle 2.5s ease-in-out infinite; }
+    @keyframes wiggle {
+      0%,100% { transform: rotate(0deg); }
+      20%      { transform: rotate(-10deg); }
+      40%      { transform: rotate(10deg); }
+      60%      { transform: rotate(-6deg); }
+      80%      { transform: rotate(6deg); }
+    }
+    .h-avatar {
+      width: 52px; height: 52px; border-radius: 50%;
+      background: rgba(255,255,255,0.18);
+      backdrop-filter: blur(8px);
+      border: 2px solid rgba(255,255,255,0.35);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 26px; cursor: pointer; transition: transform 0.2s;
+      position: relative;
+    }
+    .h-avatar:hover { transform: scale(1.1); }
+    .h-avatar-badge {
+      position: absolute; bottom: -2px; right: -2px;
+      width: 18px; height: 18px; border-radius: 50%;
+      background: var(--gold); border: 2px solid #fff;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 9px;
+    }
+
+    .phase-card {
+      background: rgba(255,255,255,0.13);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 22px; padding: 20px 22px;
+      display: flex; align-items: center; gap: 18px; color: #fff;
+    }
+    .phase-icon-big { font-size: 40px; flex-shrink: 0; }
+    .ph-label { font-size: 11px; font-weight: 600; opacity: 0.65; letter-spacing: 2px; text-transform: uppercase; }
+    .ph-name { font-size: 20px; font-weight: 700; margin: 3px 0; }
+    .ph-sub { font-size: 13px; opacity: 0.75; }
+
+    /* Bottom nav */
+    .bottom-nav {
+      position: fixed; bottom: 0; left: 0; right: 0;
+      background: #fff;
+      border-top: 1px solid var(--border);
+      display: flex; height: 80px;
+      box-shadow: 0 -4px 20px rgba(107,63,160,0.08);
+      z-index: 100;
+    }
+    .nav-btn {
+      flex: 1; border: none; background: none;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: 4px; cursor: pointer; color: #BCBCD0;
+      font-family: 'Poppins', sans-serif; font-size: 11px; font-weight: 500;
+      transition: color 0.2s; padding: 0;
+    }
+    .nav-btn .nav-ico { font-size: 24px; transition: transform 0.2s; }
+    .nav-btn.active { color: var(--plum); }
+    .nav-btn.active .nav-ico { transform: scale(1.15); }
+
+    /* Panels */
+    .tab-panel { display: none; padding: 20px 18px 16px; }
+    .tab-panel.active { display: block; animation: fadeUp 0.3s ease; }
+
+    /* Cards */
+    .card {
+      background: #fff; border-radius: 24px;
+      padding: 22px; margin-bottom: 16px;
+      box-shadow: 0 4px 20px var(--shadow);
+      border: 1px solid rgba(255,255,255,0.8);
+    }
+    .card-label {
+      font-size: 11px; font-weight: 700; color: var(--muted);
+      letter-spacing: 2px; text-transform: uppercase; margin-bottom: 16px;
+    }
+    .sec-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px; font-weight: 700;
+      color: var(--plum-d); margin: 20px 0 14px;
+    }
+
+    /* ── CALENDAR ── */
+    .cal-week-labels {
+      display: grid; grid-template-columns: repeat(7,1fr);
+      margin-bottom: 10px;
+    }
+    .cal-wl { text-align: center; font-size: 12px; font-weight: 600; color: var(--muted); }
+    .cal-grid { display: grid; grid-template-columns: repeat(7,1fr); gap: 5px; }
+    .day-cell {
+      aspect-ratio: 1; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 13px; font-weight: 500; cursor: pointer;
+      transition: transform 0.15s;
+    }
+    .day-cell:hover { transform: scale(1.12); }
+    .day-cell.period  { background: #FDDDE6; color: var(--rose); font-weight: 700; }
+    .day-cell.fertile { background: #D6F0E9; color: var(--sage); font-weight: 600; }
+    .day-cell.ovul    { background: var(--sage); color: #fff; font-weight: 800; box-shadow: 0 3px 10px rgba(90,158,134,0.4); }
+    .day-cell.luteal  { background: #EEE0FF; color: var(--plum); }
+    .day-cell.today   { outline: 2.5px solid var(--plum); outline-offset: 2px; }
+
+    .legend { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
+    .leg { display: flex; align-items: center; gap: 7px; font-size: 12px; color: var(--muted); }
+    .leg-dot { width: 11px; height: 11px; border-radius: 50%; flex-shrink: 0; }
+
+    /* ── SYMPTOMS ── */
+    .sym-grid { display: flex; flex-wrap: wrap; gap: 9px; }
+    .sym-btn {
+      padding: 9px 16px; border-radius: 50px;
+      border: 2px solid var(--border); background: #fff;
+      font-family: 'Poppins', sans-serif; font-size: 13px;
+      color: var(--muted); cursor: pointer; transition: all 0.2s; font-weight: 500;
+    }
+    .sym-btn.on { background: var(--plum); border-color: var(--plum); color: #fff; }
+
+    /* ── ADVICE ── */
+    .phase-scroll { display: flex; gap: 10px; overflow-x: auto; padding-bottom: 4px; margin-bottom: 18px; }
+    .phase-scroll::-webkit-scrollbar { display: none; }
+    .ph-tab {
+      flex-shrink: 0; padding: 10px 20px; border-radius: 50px;
+      border: 2px solid var(--border); background: #fff;
+      font-family: 'Poppins', sans-serif; font-size: 13px; font-weight: 600;
+      color: var(--muted); cursor: pointer; transition: all 0.2s;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    }
+    .ph-tab.active { background: var(--plum); border-color: var(--plum); color: #fff; box-shadow: 0 4px 14px rgba(107,63,160,0.3); }
+
+    .adv-card {
+      border-radius: 20px; padding: 20px 22px; margin-bottom: 14px;
+    }
+    .adv-card.food { background: linear-gradient(135deg, #FFF5EE, #FFF0E4); border-left: 4px solid var(--peach); }
+    .adv-card.move { background: linear-gradient(135deg, #EDFAF4, #E6F5EF); border-left: 4px solid var(--sage); }
+    .adv-card.mind { background: linear-gradient(135deg, #F5EEFF, #EFE6FF); border-left: 4px solid var(--plum); }
+    .adv-card h4 { font-size: 15px; font-weight: 700; margin-bottom: 10px; color: var(--text); }
+    .adv-card p  { font-size: 14px; color: var(--muted); line-height: 1.75; }
+    .adv-card ul { padding-left: 18px; }
+    .adv-card li { font-size: 14px; color: var(--muted); line-height: 2; }
+
+    /* Hormone bars */
+    .h-row { display: flex; align-items: center; gap: 12px; margin-bottom: 13px; }
+    .h-name { font-size: 13px; font-weight: 500; color: var(--muted); width: 100px; flex-shrink: 0; }
+    .h-bg { flex: 1; height: 10px; background: var(--border); border-radius: 5px; overflow: hidden; }
+    .h-fill { height: 100%; border-radius: 5px; transition: width 0.7s ease; }
+    .h-val { font-size: 12px; font-weight: 600; color: var(--text); width: 36px; text-align: right; }
+
+    /* ── BOX ── */
+    .box-hero {
+      background: linear-gradient(135deg, #3D7A65, #5A9E86, #80BCA9);
+      border-radius: 28px; padding: 32px 24px; text-align: center;
+      color: #fff; margin-bottom: 20px;
+      box-shadow: 0 8px 32px rgba(90,158,134,0.35);
+    }
+    .box-hero h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 30px; font-weight: 800; margin: 14px 0 10px;
+    }
+    .box-hero p { font-size: 14px; opacity: 0.85; line-height: 1.7; margin-bottom: 22px; }
+    .btn-white {
+      background: #fff; color: var(--sage);
+      border: none; border-radius: 50px; padding: 14px 36px;
+      font-family: 'Poppins', sans-serif; font-size: 15px; font-weight: 700;
+      cursor: pointer; box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+      transition: transform 0.2s;
+    }
+    .btn-white:hover { transform: translateY(-2px); }
+
+    .prod-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 18px; }
+    .prod-card {
+      background: #fff; border-radius: 22px; padding: 20px 16px;
+      text-align: center; cursor: pointer;
+      border: 2px solid var(--border);
+      box-shadow: 0 3px 14px rgba(0,0,0,0.06);
+      transition: all 0.2s;
+    }
+    .prod-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.1); }
+    .prod-card.sel { border-color: var(--sage); background: #F0FAF6; box-shadow: 0 6px 20px rgba(90,158,134,0.2); }
+    .prod-emo { font-size: 40px; display: block; margin-bottom: 10px; }
+    .prod-name { font-size: 14px; font-weight: 700; color: var(--text); }
+    .prod-desc { font-size: 12px; color: var(--muted); margin: 5px 0; }
+    .prod-price { font-size: 16px; font-weight: 800; color: var(--sage); }
+
+    .sum-row { display: flex; justify-content: space-between; align-items: center; font-size: 15px; padding: 12px 0; border-bottom: 1px solid var(--border); }
+    .sum-row:last-child { border: none; }
+    .sum-row.total { font-weight: 700; font-size: 17px; padding-top: 16px; }
+    .sum-row.total .s-val { color: var(--sage); font-size: 20px; }
+
+    .eco-card {
+      background: linear-gradient(135deg, #FFF8EC, #FFF3E0);
+      border-radius: 20px; padding: 20px 22px; border-left: 4px solid var(--gold);
+      margin-bottom: 16px;
+    }
+    .eco-card h4 { font-size: 15px; font-weight: 700; margin-bottom: 8px; }
+    .eco-card p  { font-size: 14px; color: var(--muted); line-height: 1.75; }
+
+    /* ── PROFIL ── */
+    .prof-header {
+      background: linear-gradient(135deg, var(--plum-d), var(--rose));
+      margin: -20px -18px 22px;
+      padding: 32px 24px;
+      display: flex; align-items: center; gap: 20px; color: #fff;
+      border-radius: 0 0 32px 32px;
+    }
+    .prof-av {
+      width: 72px; height: 72px; border-radius: 50%;
+      background: rgba(255,255,255,0.2);
+      border: 2.5px solid rgba(255,255,255,0.35);
+      display: flex; align-items: center; justify-content: center; font-size: 34px;
+    }
+    .prof-name { font-size: 22px; font-weight: 700; }
+    .prof-sub  { font-size: 13px; opacity: 0.7; margin-top: 3px; }
+
+    .stat-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; margin-bottom: 18px; }
+    .stat-card {
+      background: #fff; border-radius: 20px; padding: 18px 10px;
+      text-align: center; box-shadow: 0 3px 14px var(--shadow);
+    }
+    .stat-v { font-size: 28px; font-weight: 800; color: var(--plum); }
+    .stat-l { font-size: 11px; color: var(--muted); margin-top: 3px; font-weight: 500; }
+
+    .set-item {
+      display: flex; align-items: center; gap: 16px;
+      padding: 16px 0; border-bottom: 1px solid var(--border); cursor: pointer;
+    }
+    .set-item:last-child { border: none; }
+    .set-ico { font-size: 22px; }
+    .set-lbl { flex: 1; font-size: 15px; font-weight: 500; }
+    .set-val { font-size: 14px; color: var(--muted); }
+
+    .tog-row { display: flex; align-items: center; padding: 15px 0; border-bottom: 1px solid var(--border); }
+    .tog-row:last-child { border: none; }
+    .tog-lbl { flex: 1; font-size: 15px; font-weight: 500; }
+    .toggle {
+      width: 48px; height: 27px; border-radius: 14px;
+      background: var(--border); position: relative; cursor: pointer; transition: background 0.25s;
+    }
+    .toggle.on { background: var(--sage); }
+    .toggle::after {
+      content: ''; position: absolute; top: 3.5px; left: 3.5px;
+      width: 20px; height: 20px; border-radius: 50%; background: #fff;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2); transition: left 0.25s;
+    }
+    .toggle.on::after { left: 24.5px; }
+
+    .credit-card {
+      background: linear-gradient(135deg, var(--plum-d), var(--plum));
+      border-radius: 24px; padding: 24px; text-align: center; color: #fff; margin-bottom: 16px;
+    }
+    .credit-card h4 { font-family: 'Playfair Display', serif; font-size: 20px; margin-bottom: 8px; }
+    .credit-card p  { font-size: 13px; opacity: 0.7; line-height: 1.7; }
+
+    /* Note textarea */
+    .note-area {
+      width: 100%; border: 2px solid var(--border); border-radius: 16px;
+      padding: 14px 16px; font-family: 'Poppins', sans-serif; font-size: 14px;
+      color: var(--text); resize: none; height: 90px; outline: none;
+      background: #fff; transition: border-color 0.2s;
+      line-height: 1.6;
+    }
+    .note-area:focus { border-color: var(--plum); }
+
+    /* Toast */
+    .toast {
+      position: fixed; bottom: 98px; left: 50%; transform: translateX(-50%) translateY(12px);
+      background: #1A1A2E; color: #fff;
+      padding: 14px 28px; border-radius: 60px;
+      font-size: 14px; font-weight: 500;
+      opacity: 0; pointer-events: none; transition: all 0.35s; z-index: 999;
+      white-space: nowrap;
+      box-shadow: 0 6px 24px rgba(0,0,0,0.3);
+    }
+    .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+    /* ── AVATAR PICKER ── */
+    .picker-overlay {
+      display: none; position: fixed; inset: 0;
+      background: rgba(26,26,46,0.55); backdrop-filter: blur(6px);
+      z-index: 500; align-items: flex-end; justify-content: center;
+    }
+    .picker-overlay.open { display: flex; animation: fadeIn 0.2s ease; }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    .picker-sheet {
+      background: #fff; border-radius: 32px 32px 0 0;
+      padding: 28px 24px 40px; width: 100%; max-width: 480px;
+      animation: slideUp 0.3s ease;
+    }
+    @keyframes slideUp {
+      from { transform: translateY(80px); opacity: 0; }
+      to   { transform: translateY(0);    opacity: 1; }
+    }
+    .picker-handle {
+      width: 40px; height: 4px; background: var(--border);
+      border-radius: 2px; margin: 0 auto 20px;
+    }
+    .picker-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px; font-weight: 700; color: var(--plum-d);
+      margin-bottom: 18px; text-align: center;
+    }
+    .picker-grid {
+      display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px;
+      margin-bottom: 20px;
+    }
+    .picker-opt {
+      aspect-ratio: 1; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 28px; cursor: pointer; border: 2px solid transparent;
+      background: var(--bg); transition: all 0.2s;
+    }
+    .picker-opt:hover { transform: scale(1.15); background: var(--border); }
+    .picker-opt.chosen { border-color: var(--plum); background: #F0E8FF; transform: scale(1.1); }
+    .picker-close {
+      width: 100%; padding: 14px; border: 2px solid var(--border);
+      border-radius: 50px; background: transparent; color: var(--muted);
+      font-family: 'Poppins', sans-serif; font-size: 15px; font-weight: 500; cursor: pointer;
+    }
+
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+  </style>
+</head>
+<body>
+
+<!-- ══════════ LANDING ══════════ -->
+<div id="screen-landing" class="screen active">
+  <div class="landing-content">
+    <div class="logo-wrap">🌙</div>
+    <div class="landing-badge">Synchro &middot; 2026 Prototip</div>
+    <h1 class="landing-title">Synchro</h1>
+    <p class="landing-sub">Digitalni savjeznik za tvoj ciklus — znanje o hormonima, personalizovani savjeti i organski proizvodi na jednom mjestu.</p>
+    <div class="floating-pills">
+      <span class="pill">📅 Praćenje ciklusa</span>
+      <span class="pill">💡 Savjeti ishrane</span>
+      <span class="pill">🌿 Organski box</span>
+    </div>
+    <button class="btn-landing" onclick="goTo('screen-onboarding')">Počni &rarr;</button>
+    <span class="landing-skip" onclick="skipToApp()">Preskoči – pogledaj demo</span>
+  </div>
+</div>
+
+<!-- ══════════ ONBOARDING ══════════ -->
+<div id="screen-onboarding" class="screen" style="background:var(--bg)">
+  <div class="ob-wrap">
+
+    <div id="ob-1" class="ob-step active">
+      <span class="ob-emoji">🌺</span>
+      <div class="dots">
+        <div class="dot active"></div><div class="dot"></div><div class="dot"></div>
+      </div>
+      <h2 class="ob-title">Dobrodošla!</h2>
+      <p class="ob-desc">Synchro će pratiti tvoj menstrualni ciklus i prilagođavati savjete o ishrani, aktivnostima i wellbeing-u tvojim hormonima.</p>
+      <input id="ob-name" class="input-field" type="text" placeholder="Upiši svoje ime" />
+      <button class="btn-main" onclick="obNext(2)">Nastavi &rarr;</button>
+    </div>
+
+    <div id="ob-2" class="ob-step">
+      <span class="ob-emoji">📅</span>
+      <div class="dots">
+        <div class="dot"></div><div class="dot active"></div><div class="dot"></div>
+      </div>
+      <h2 class="ob-title">Tvoj ciklus</h2>
+      <p class="ob-desc">Reci nam kada je počela tvoja posljednja menstruacija i koliko dana traje tvoj ciklus.</p>
+      <label class="input-label">Datum zadnje menstruacije</label>
+      <input id="ob-date" class="input-field" type="date" />
+      <label class="input-label" style="margin-top:2px">Dužina ciklusa (dana)</label>
+      <input id="ob-len" class="input-field" type="number" value="28" min="21" max="40" />
+      <button class="btn-main" onclick="obNext(3)">Nastavi &rarr;</button>
+    </div>
+
+    <div id="ob-3" class="ob-step">
+      <span class="ob-emoji">✨</span>
+      <div class="dots">
+        <div class="dot"></div><div class="dot"></div><div class="dot active"></div>
+      </div>
+      <h2 class="ob-title">Sve je spremno!</h2>
+      <p class="ob-desc">Synchro je personalizovan za tebe. Prati faze, dobijaj savjete i naruči Synchro Box bez stresa.</p>
+      <button class="btn-main" onclick="launchApp()">Uđi u Synchro 🌸</button>
+      <button class="btn-ghost" onclick="skipToApp()">Nastavi bez registracije</button>
+    </div>
+
+  </div>
+</div>
+
+<!-- ══════════ MAIN APP ══════════ -->
+<div id="screen-app" class="screen">
+
+  <!-- Avatar picker sheet -->
+  <div class="picker-overlay" id="picker-overlay" onclick="closePicker(event)">
+    <div class="picker-sheet">
+      <div class="picker-handle"></div>
+      <div class="picker-title">Odaberi avatar 🌸</div>
+      <div class="picker-grid" id="picker-grid"></div>
+      <button class="picker-close" onclick="document.getElementById('picker-overlay').classList.remove('open')">Zatvori</button>
+    </div>
+  </div>
+
+  <div class="app-header">
+    <div class="header-top">
+      <div>
+        <div class="h-greeting">Zdravo,</div>
+        <div class="h-name">
+          <span id="app-name">Delila</span>
+          <span class="h-sticker" id="header-sticker">🌷</span>
+        </div>
+      </div>
+      <div class="h-avatar" onclick="openPicker()">
+        <span id="header-avatar">🌸</span>
+        <div class="h-avatar-badge">✏️</div>
+      </div>
+    </div>
+    <div class="phase-card">
+      <div class="phase-icon-big" id="ph-icon">🌱</div>
+      <div>
+        <div class="ph-label">Trenutna faza</div>
+        <div class="ph-name" id="ph-name">Folikularna faza</div>
+        <div class="ph-sub" id="ph-sub">Dan 8 od 28</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DOM -->
+  <div id="tab-dom" class="tab-panel active">
+    <div class="card">
+      <div class="card-label">Ciklus — Juni 2026</div>
+      <div class="cal-week-labels">
+        <div class="cal-wl">Pon</div><div class="cal-wl">Uto</div><div class="cal-wl">Sri</div>
+        <div class="cal-wl">Čet</div><div class="cal-wl">Pet</div><div class="cal-wl">Sub</div><div class="cal-wl">Ned</div>
+      </div>
+      <div class="cal-grid" id="cal"></div>
+      <div class="legend">
+        <div class="leg"><div class="leg-dot" style="background:#FDDDE6"></div>Menstruacija</div>
+        <div class="leg"><div class="leg-dot" style="background:#D6F0E9"></div>Fertilni dani</div>
+        <div class="leg"><div class="leg-dot" style="background:var(--sage)"></div>Ovulacija</div>
+        <div class="leg"><div class="leg-dot" style="background:#EEE0FF"></div>Lutealna</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-label">Kako se osjećaš danas?</div>
+      <div class="sym-grid" id="sym-grid"></div>
+    </div>
+
+    <div class="card">
+      <div class="card-label">Dnevna bilješka</div>
+      <textarea class="note-area" id="note" placeholder="Napiši kako se danas osjećaš..."></textarea>
+      <button class="btn-main" style="margin-top:14px;padding:14px" onclick="saveNote()">Sačuvaj bilješku ✓</button>
+    </div>
+  </div>
+
+  <!-- SAVJETI -->
+  <div id="tab-savjeti" class="tab-panel">
+    <div class="sec-title">Savjeti po fazi ciklusa</div>
+    <div class="phase-scroll">
+      <button class="ph-tab active" onclick="setPhase('mens',this)">🩸 Menstruacija</button>
+      <button class="ph-tab" onclick="setPhase('fol',this)">🌱 Folikularna</button>
+      <button class="ph-tab" onclick="setPhase('ovul',this)">🌸 Ovulacija</button>
+      <button class="ph-tab" onclick="setPhase('lut',this)">🍂 Lutealna</button>
+    </div>
+    <div id="adv-content"></div>
+    <div class="card">
+      <div class="card-label">Razina hormona ove faze</div>
+      <div id="h-bars"></div>
+    </div>
+  </div>
+
+  <!-- BOX -->
+  <div id="tab-box" class="tab-panel">
+    <div class="box-hero">
+      <div style="font-size:54px">📦</div>
+      <h2>Synchro Box</h2>
+      <p>100% organski higijenski proizvodi bez plastike i hemikalija — dostava tačno 3 dana prije početka ciklusa.</p>
+      <button class="btn-white">Odaberi paket &darr;</button>
+    </div>
+
+    <div class="sec-title">Odaberi paket</div>
+    <div class="prod-grid" id="prod-grid"></div>
+
+    <div class="card">
+      <div class="card-label">Detalji narudžbe</div>
+      <div class="sum-row"><span>Paket</span><span class="s-val" id="s-pkg">–</span></div>
+      <div class="sum-row"><span>Dostava</span><span style="color:var(--sage);font-weight:600">Besplatno 🌿</span></div>
+      <div class="sum-row"><span>Sljedeća dostava</span><span class="s-val" id="s-date">–</span></div>
+      <div class="sum-row total"><span>Ukupno / mj.</span><span class="s-val" id="s-price">–</span></div>
+      <button class="btn-main" style="margin-top:20px" onclick="placeOrder()">Naruči Synchro Box 🌿</button>
+    </div>
+
+    <div class="eco-card">
+      <h4>🌍 Zašto organski?</h4>
+      <p>Komercijalni uložaci sadrže <strong>plastiku, hlor i sintetičke mirise</strong> — endokrine disruptore koji štete hormonalnom zdravlju. Organski pamuk je nježniji za tijelo i prijatan za planetu.</p>
+    </div>
+  </div>
+
+  <!-- PROFIL -->
+  <div id="tab-profil" class="tab-panel">
+    <div class="prof-header">
+      <div class="prof-av" id="prof-av" onclick="openPicker()" style="cursor:pointer;position:relative">
+        <span id="prof-avatar-ico">🌸</span>
+        <div style="position:absolute;bottom:0;right:0;width:20px;height:20px;border-radius:50%;background:var(--gold);border:2px solid rgba(255,255,255,0.5);display:flex;align-items:center;justify-content:center;font-size:10px">✏️</div>
+      </div>
+      <div>
+        <div class="prof-name" id="prof-n">Delila</div>
+        <div class="prof-sub">Synchro korisnica od juna 2026.</div>
+      </div>
+    </div>
+
+    <div class="stat-grid">
+      <div class="stat-card"><div class="stat-v">3</div><div class="stat-l">Ciklusa<br>praćeno</div></div>
+      <div class="stat-card"><div class="stat-v">28</div><div class="stat-l">Prosječna<br>dužina</div></div>
+      <div class="stat-card"><div class="stat-v">5</div><div class="stat-l">Dana<br>menstr.</div></div>
+    </div>
+
+    <div class="card">
+      <div class="card-label">Moji podaci</div>
+      <div class="set-item"><span class="set-ico">📅</span><span class="set-lbl">Dužina ciklusa</span><span class="set-val">28 dana</span></div>
+      <div class="set-item"><span class="set-ico">🩸</span><span class="set-lbl">Menstruacija</span><span class="set-val">5 dana</span></div>
+      <div class="set-item"><span class="set-ico">📍</span><span class="set-lbl">Adresa dostave</span><span class="set-val" style="color:var(--plum)">Podesi &rarr;</span></div>
+      <div class="set-item"><span class="set-ico">🔔</span><span class="set-lbl">Obavještenja</span><span class="set-val" style="color:var(--plum)">Uključena &rarr;</span></div>
+    </div>
+
+    <div class="card">
+      <div class="card-label">Obavještenja</div>
+      <div class="tog-row"><span class="tog-lbl">Podsjetnik – početak ciklusa</span><div class="toggle on" onclick="this.classList.toggle('on')"></div></div>
+      <div class="tog-row"><span class="tog-lbl">Dnevni savjeti ishrane</span><div class="toggle on" onclick="this.classList.toggle('on')"></div></div>
+      <div class="tog-row"><span class="tog-lbl">Synchro Box dostava</span><div class="toggle" onclick="this.classList.toggle('on')"></div></div>
+    </div>
+
+    <div class="credit-card">
+      <h4>Synchro &middot; 2026</h4>
+      <p style="margin-bottom:14px">JU Gimnazija "30. septembar", Rožaje<br>Prototip — startup projekat</p>
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <div style="background:rgba(255,255,255,0.12);border-radius:14px;padding:10px 16px;display:flex;align-items:center;gap:10px">
+          <span style="font-size:20px">👑</span>
+          <div>
+            <div style="font-size:12px;opacity:0.6;letter-spacing:1px;text-transform:uppercase">Predsjednica</div>
+            <div style="font-size:15px;font-weight:700">Delila Agović</div>
+          </div>
+        </div>
+        <div style="background:rgba(255,255,255,0.12);border-radius:14px;padding:10px 16px;display:flex;align-items:center;gap:10px">
+          <span style="font-size:20px">🌟</span>
+          <div>
+            <div style="font-size:12px;opacity:0.6;letter-spacing:1px;text-transform:uppercase">Članica tima</div>
+            <div style="font-size:15px;font-weight:700">Nerma Škrijelj</div>
+          </div>
+        </div>
+        <div style="background:rgba(255,255,255,0.12);border-radius:14px;padding:10px 16px;display:flex;align-items:center;gap:10px">
+          <span style="font-size:20px">💜</span>
+          <div>
+            <div style="font-size:12px;opacity:0.6;letter-spacing:1px;text-transform:uppercase">Članica tima</div>
+            <div style="font-size:15px;font-weight:700">Baria Mujević</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <nav class="bottom-nav">
+    <button class="nav-btn active" onclick="showTab('dom')">
+      <span class="nav-ico">🏠</span><span>Dom</span>
+    </button>
+    <button class="nav-btn" onclick="showTab('savjeti')">
+      <span class="nav-ico">💡</span><span>Savjeti</span>
+    </button>
+    <button class="nav-btn" onclick="showTab('box')">
+      <span class="nav-ico">📦</span><span>Box</span>
+    </button>
+    <button class="nav-btn" onclick="showTab('profil')">
+      <span class="nav-ico">👤</span><span>Profil</span>
+    </button>
+  </nav>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+const S = {
+  name: 'Delila',
+  cycleLen: 28,
+  periodLen: 5,
+  lastPeriod: new Date(Date.now() - 7 * 864e5),
+  selProd: null,
+};
+
+const PRODUCTS = [
+  { id:'basic',   emo:'🌿', name:'Basic Box',   desc:'10 organskih uložaka',         price:'5€/mj'  },
+  { id:'comfort', emo:'🌸', name:'Comfort Box', desc:'20 uložaka + vlažne maramice', price:'9€/mj'  },
+  { id:'premium', emo:'✨', name:'Premium Box', desc:'Uložaci + biljni čaj + ulje',  price:'14€/mj' },
+  { id:'teen',    emo:'🎀', name:'Teen Box',    desc:'Starter set za tinejdžerke',   price:'7€/mj'  },
+];
+
+const SYMS = ['😴 Umor','🤕 Bol u stomaku','😊 Puno energije','😔 Promjena raspoloženja','🤰 Nadutost','💧 Pojačana žeđ','🧠 Slab fokus','🌧️ Razdražljivost'];
+
+const ADVICE = {
+  mens: {
+    food:{ items:['Tamna čokolada (magnezij za grčeve)','Spanać i leća (nadoknada željeza)','Đumbir čaj i kurkuma','Izbjegavaj kafu i alkohol'] },
+    move:{ items:['Lagani hod i istezanje','Restorativna joga','Odmori ako si umorna – to je OK'] },
+    mind:'Tvoje tijelo radi tvrd posao. Budi nježna prema sebi. Topla voda, čajevi s kamilom i odmor su sve što ti treba.',
+    horm:[{n:'Estrogen',v:15,c:'#9B6ED4'},{n:'Progesteron',v:5,c:'#5A9E86'},{n:'FSH',v:55,c:'#F0956A'},{n:'LH',v:20,c:'#C8395C'}],
+  },
+  fol: {
+    food:{ items:['Jaja i piletina (proteini)','Kefir i jogurt (probiotici)','Citrusno voće (vit. C)','Zeleno lisnato povrće'] },
+    move:{ items:['HIIT i trčanje','Ples i grupni fitnes','Plivanje','Istraži nove aktivnosti!'] },
+    mind:'Estrogen raste — ti si energična, kreativna i motivisana. Idealan period za nove projekte, učenje i socijalnu interakciju.',
+    horm:[{n:'Estrogen',v:60,c:'#9B6ED4'},{n:'Progesteron',v:8,c:'#5A9E86'},{n:'FSH',v:70,c:'#F0956A'},{n:'LH',v:25,c:'#C8395C'}],
+  },
+  ovul: {
+    food:{ items:['Losos i orasi (omega-3)','Avokado','Bobičasto voće (antioksidansi)','Tamna čokolada'] },
+    move:{ items:['Intenzivni treninzi','Dizanje tegova','Kompeticija – u vrhuncu si!','Timski sportovi'] },
+    mind:'Estrogen i testosteron su na vrhuncu. Samopouzdana si, komunikativna i sprema za sve. Iskoristi ovaj tjedan maksimalno!',
+    horm:[{n:'Estrogen',v:100,c:'#9B6ED4'},{n:'Progesteron',v:15,c:'#5A9E86'},{n:'FSH',v:40,c:'#F0956A'},{n:'LH',v:100,c:'#C8395C'}],
+  },
+  lut: {
+    food:{ items:['Kvinoja i slatki krompir (složeni ugljikohidrati)','Orasi i sjemenke bundeve (magnezij)','Smanjiti sol i šećer','Lipa i kamilica čaj'] },
+    move:{ items:['Pilates i joga','Umjerene šetnje u prirodi','Vožnja bicikla','Fokus na oporavak'] },
+    mind:'Progesteron dominira. Energija pada — to je normalno. Budi strpljiva sa sobom i pripremi se za novi ciklus.',
+    horm:[{n:'Estrogen',v:45,c:'#9B6ED4'},{n:'Progesteron',v:90,c:'#5A9E86'},{n:'FSH',v:20,c:'#F0956A'},{n:'LH',v:10,c:'#C8395C'}],
+  },
+};
+
+function goTo(id) {
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+}
+function skipToApp() { goTo('screen-app'); initApp(); }
+function obNext(n) {
+  if (n===2){ const v=document.getElementById('ob-name').value.trim(); if(v) S.name=v; }
+  if (n===3){
+    const d=document.getElementById('ob-date').value;
+    const l=document.getElementById('ob-len').value;
+    if(d) S.lastPeriod=new Date(d);
+    if(l) S.cycleLen=+l;
+  }
+  document.querySelectorAll('.ob-step').forEach(s=>s.classList.remove('active'));
+  document.getElementById('ob-'+n).classList.add('active');
+}
+function launchApp(){ goTo('screen-app'); initApp(); }
+
+function showTab(id){
+  document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById('tab-'+id).classList.add('active');
+  const order=['dom','savjeti','box','profil'];
+  const i=order.indexOf(id);
+  if(i>=0) document.querySelectorAll('.nav-btn')[i].classList.add('active');
+  window.scrollTo(0,0);
+}
+
+function cycleDay(){ return (Math.floor((Date.now()-S.lastPeriod)/864e5) % S.cycleLen)+1; }
+function getPhase(d){
+  const ov=Math.round(S.cycleLen-14);
+  if(d<=S.periodLen) return 'period';
+  if(d<ov-4)         return 'fol';
+  if(d===ov)         return 'ovul';
+  if(d<=ov+1)        return 'fertile';
+  return 'luteal';
+}
+const PI={
+  period: {ico:'🩸',name:'Menstruacija'},
+  fol:    {ico:'🌱',name:'Folikularna faza'},
+  fertile:{ico:'💛',name:'Fertilni period'},
+  ovul:   {ico:'🌸',name:'Ovulacija'},
+  luteal: {ico:'🍂',name:'Lutealna faza'},
+};
+
+function updateHeader(){
+  document.getElementById('app-name').textContent=S.name;
+  document.getElementById('prof-n').textContent=S.name;
+  const d=cycleDay(), ph=getPhase(d), info=PI[ph];
+  document.getElementById('ph-icon').textContent=info.ico;
+  document.getElementById('ph-name').textContent=info.name;
+  const ov=Math.round(S.cycleLen-14);
+  let sub=`Dan ${d} od ${S.cycleLen}`;
+  if(ph==='period')  sub+=` · Još ${S.periodLen-d+1} dan(a)`;
+  else if(ph==='fol') sub+=` · Ovulacija za ${ov-d} dana`;
+  else if(ph==='ovul') sub+=' · Danas je ovulacija! 🌸';
+  else if(ph==='luteal') sub+=` · Sljedeći ciklus za ${S.cycleLen-d+1} dana`;
+  document.getElementById('ph-sub').textContent=sub;
+}
+
+function buildCal(){
+  const now=new Date(), y=now.getFullYear(), m=now.getMonth();
+  const first=new Date(y,m,1).getDay();
+  const days=new Date(y,m+1,0).getDate();
+  const offset=(first===0?6:first-1);
+  let html='';
+  for(let i=0;i<offset;i++) html+='<div></div>';
+  for(let d=1;d<=days;d++){
+    const date=new Date(y,m,d);
+    const raw=Math.floor((date-S.lastPeriod)/864e5);
+    const cd=(raw%S.cycleLen)+1;
+    const ph=getPhase(cd>0?cd:1);
+    const isToday=d===now.getDate();
+    let cls='day-cell';
+    if(ph==='period') cls+=' period';
+    else if(ph==='ovul') cls+=' ovul';
+    else if(ph==='fertile') cls+=' fertile';
+    else if(ph==='luteal') cls+=' luteal';
+    if(isToday) cls+=' today';
+    html+=`<div class="${cls}" title="Dan ciklusa: ${cd}">${d}</div>`;
+  }
+  document.getElementById('cal').innerHTML=html;
+}
+
+function buildSyms(){
+  document.getElementById('sym-grid').innerHTML=SYMS.map(s=>
+    `<button class="sym-btn" onclick="this.classList.toggle('on')">${s}</button>`
+  ).join('');
+}
+
+function setPhase(key,btn){
+  document.querySelectorAll('.ph-tab').forEach(t=>t.classList.remove('active'));
+  if(btn) btn.classList.add('active');
+  const d=ADVICE[key];
+  let h='';
+  h+=`<div class="adv-card food"><h4>🍽️ Ishrana</h4><ul>${d.food.items.map(i=>`<li>${i}</li>`).join('')}</ul></div>`;
+  h+=`<div class="adv-card move"><h4>🏃 Aktivnosti</h4><ul>${d.move.items.map(i=>`<li>${i}</li>`).join('')}</ul></div>`;
+  h+=`<div class="adv-card mind"><h4>🧘 Wellbeing</h4><p>${d.mind}</p></div>`;
+  document.getElementById('adv-content').innerHTML=h;
+  document.getElementById('h-bars').innerHTML=d.horm.map(h=>
+    `<div class="h-row">
+      <span class="h-name">${h.n}</span>
+      <div class="h-bg"><div class="h-fill" style="width:${h.v}%;background:${h.c}"></div></div>
+      <span class="h-val">${h.v}%</span>
+    </div>`
+  ).join('');
+}
+
+function buildProds(){
+  document.getElementById('prod-grid').innerHTML=PRODUCTS.map(p=>
+    `<div class="prod-card" id="pc-${p.id}" onclick="selProd('${p.id}')">
+      <span class="prod-emo">${p.emo}</span>
+      <div class="prod-name">${p.name}</div>
+      <div class="prod-desc">${p.desc}</div>
+      <div class="prod-price">${p.price}</div>
+    </div>`
+  ).join('');
+  selProd('comfort');
+}
+
+function selProd(id){
+  document.querySelectorAll('.prod-card').forEach(c=>c.classList.remove('sel'));
+  document.getElementById('pc-'+id).classList.add('sel');
+  const p=PRODUCTS.find(x=>x.id===id);
+  S.selProd=p;
+  document.getElementById('s-pkg').textContent=p.name;
+  document.getElementById('s-price').textContent=p.price;
+  const next=new Date(S.lastPeriod.getTime()+S.cycleLen*864e5);
+  const del=new Date(next.getTime()-3*864e5);
+  document.getElementById('s-date').textContent=del.toLocaleDateString('bs-BA',{day:'numeric',month:'long'});
+}
+
+function placeOrder(){ toast('Narudžba primljena! 🌿 Synchro Box stiže uskoro.'); }
+function saveNote(){   toast(document.getElementById('note').value.trim()?'Bilješka sačuvana ✓':'Upiši nešto prvo 😊'); }
+
+function toast(msg){
+  const t=document.getElementById('toast');
+  t.textContent=msg; t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),2800);
+}
+
+function initApp(){
+  updateHeader(); buildCal(); buildSyms();
+  buildProds(); setPhase('mens',document.querySelector('.ph-tab'));
+}
+
+document.getElementById('ob-date').valueAsDate=S.lastPeriod;
+
+// ── AVATAR PICKER ──────────────────────────────────────────────────────────
+const AVATARS = ['🌸','🌺','🌷','🌼','🦋','🌙','⭐','🌈','🍓','🌿','🦄','🐝','🌻','💜','🍀','🎀','🌊','🦊','🍄','🌙','💫','🐚','🌑','🫧'];
+let currentAvatar = '🌸';
+
+function buildPicker() {
+  document.getElementById('picker-grid').innerHTML = AVATARS.map(a =>
+    `<div class="picker-opt${a===currentAvatar?' chosen':''}" onclick="pickAvatar('${a}')">${a}</div>`
+  ).join('');
+}
+
+function openPicker() {
+  buildPicker();
+  document.getElementById('picker-overlay').classList.add('open');
+}
+
+function closePicker(e) {
+  if (e.target === document.getElementById('picker-overlay'))
+    document.getElementById('picker-overlay').classList.remove('open');
+}
+
+function pickAvatar(a) {
+  currentAvatar = a;
+  document.getElementById('header-avatar').textContent = a;
+  document.getElementById('prof-avatar-ico').textContent = a;
+  buildPicker();
+  setTimeout(() => document.getElementById('picker-overlay').classList.remove('open'), 400);
+  toast('Avatar promijenjen ' + a);
+}
+</script>
+</body>
+</html>
