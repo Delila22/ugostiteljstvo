@@ -414,10 +414,10 @@
   <a href="index.html" class="nav-logo">Doživi Rožaje</a>
   <ul class="nav-links">
     <li><a href="smjestaji.html" class="active"><span class="t-bs">Smještaji</span><span class="t-en">Accommodations</span></a></li>
-    <li><a href="restorani.html"><span class="t-bs">Restorani</span><span class="t-en">Restaurants</span></a></li>
-    <li><a href="jela.html"><span class="t-bs">Jela</span><span class="t-en">Food</span></a></li>
-    <li><a href="o-rozajama.html"><span class="t-bs">O Rožajama</span><span class="t-en">About</span></a></li>
-    <li><a href="kontakt.html"><span class="t-bs">Kontakt</span><span class="t-en">Contact</span></a></li>
+    <li><a href="index.html#restaurants"><span class="t-bs">Restorani</span><span class="t-en">Restaurants</span></a></li>
+    <li><a href="index.html#features"><span class="t-bs">Jela</span><span class="t-en">Food</span></a></li>
+    <li><a href="index.html#nature-strip"><span class="t-bs">O Rožajama</span><span class="t-en">About</span></a></li>
+    <li><a href="index.html#kontakt"><span class="t-bs">Kontakt</span><span class="t-en">Contact</span></a></li>
   </ul>
   <div class="nav-right">
     <a href="https://www.instagram.com/" target="_blank" rel="noopener" class="nav-social" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
@@ -554,7 +554,7 @@
         <span class="t-en">The Tourist Organisation of Rožaje can help with bookings and recommendations. Get in touch!</span>
       </p>
     </div>
-    <a href="kontakt.html" class="promo-strip-btn">
+    <a href="index.html#kontakt" class="promo-strip-btn">
       <i class="fa-solid fa-envelope"></i>
       <span class="t-bs">Kontaktirajte nas</span><span class="t-en">Contact us</span>
     </a>
@@ -577,10 +577,10 @@
       <ul>
         <li><a href="index.html"><span class="t-bs">Početna</span><span class="t-en">Home</span></a></li>
         <li><a href="smjestaji.html"><span class="t-bs">Smještaji</span><span class="t-en">Accommodations</span></a></li>
-        <li><a href="restorani.html"><span class="t-bs">Restorani</span><span class="t-en">Restaurants</span></a></li>
-        <li><a href="jela.html"><span class="t-bs">Tradicionalna Jela</span><span class="t-en">Traditional Food</span></a></li>
-        <li><a href="o-rozajama.html"><span class="t-bs">O Rožajama</span><span class="t-en">About</span></a></li>
-        <li><a href="kontakt.html"><span class="t-bs">Kontakt</span><span class="t-en">Contact</span></a></li>
+        <li><a href="index.html#restaurants"><span class="t-bs">Restorani</span><span class="t-en">Restaurants</span></a></li>
+        <li><a href="index.html#features"><span class="t-bs">Tradicionalna Jela</span><span class="t-en">Traditional Food</span></a></li>
+        <li><a href="index.html#nature-strip"><span class="t-bs">O Rožajama</span><span class="t-en">About</span></a></li>
+        <li><a href="index.html#kontakt"><span class="t-bs">Kontakt</span><span class="t-en">Contact</span></a></li>
       </ul>
     </div>
   </div>
@@ -710,14 +710,18 @@
     observer.observe(el);
   });
 
-  /* language toggle */
-  let isEn = false;
-  function toggleLang(){
-    isEn = !isEn;
+  /* language toggle — persists across pages */
+  function applyLang(isEn){
     document.documentElement.className = isEn ? 'en' : 'bs';
-    document.documentElement.lang = isEn ? 'en' : 'bs';
-    document.getElementById('langBtn').textContent = isEn ? 'BS' : 'EN';
+    document.documentElement.lang      = isEn ? 'en' : 'bs';
+    const btn = document.getElementById('langBtn');
+    if(btn) btn.textContent = isEn ? 'BS' : 'EN';
+    localStorage.setItem('lang', isEn ? 'en' : 'bs');
   }
+  function toggleLang(){
+    applyLang(document.documentElement.className !== 'en');
+  }
+  applyLang(localStorage.getItem('lang') === 'en');
 </script>
 </body>
 </html>
