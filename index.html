@@ -281,13 +281,14 @@
     .section-divider { height: 3px; background: var(--forest-lt); }
 
     /* ─── SECTION MOUNTAIN WATERMARKS ─── */
-    #restaurants { position: relative; }
+    #restaurants, #smjestaji { position: relative; }
     .section-mountain-bg {
       position: absolute; top: 0; left: 0; right: 0;
       pointer-events: none; z-index: 0;
     }
     .section-mountain-bg svg { display: block; width: 100%; }
-    #restaurants > *:not(.section-mountain-bg) { position: relative; z-index: 1; }
+    #restaurants > *:not(.section-mountain-bg),
+    #smjestaji > *:not(.section-mountain-bg) { position: relative; z-index: 1; }
 
     /* ─── RESTAURANTS ─── */
     #restaurants { background: var(--cream); padding: 90px 60px 100px; }
@@ -457,6 +458,18 @@
       padding:4px 12px; border-radius:50px; margin-bottom:14px;
     }
 
+    /* ─── SMJEŠTAJI ─── */
+    #smjestaji { background: #f0faf5; padding: 90px 60px 70px; border-top: 1px solid #C8E6D0; }
+    @media(max-width:900px){ #smjestaji { padding:70px 22px; } }
+    .smjestaj-btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      margin-top: 16px; padding: 10px 22px; border-radius: 50px;
+      background: linear-gradient(135deg,var(--forest-lt),var(--teal));
+      color: #fff; font-size: .82rem; font-weight: 700;
+      text-decoration: none; transition: transform .2s, box-shadow .2s;
+      border: none; cursor: pointer;
+    }
+    .smjestaj-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,.25); }
     /* ─── FOOTER ─── */
     footer {
       background: var(--night);
@@ -756,6 +769,100 @@
 
 <!-- Mountain divider between features and restaurants -->
 <div class="section-divider"></div>
+
+<!-- ACCOMMODATIONS -->
+<section id="smjestaji">
+  <div class="section-mountain-bg" aria-hidden="true">
+    <svg viewBox="0 0 1440 560" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMin meet">
+      <!-- daleki planinski lanac -->
+      <path d="M0,460 L200,340 L380,410 L540,290 L660,250 L740,170 L820,220 L960,330 L1140,280 L1320,360 L1440,310 L1440,560 L0,560Z"
+            fill="#0D2232" opacity="0.05"/>
+      <!-- srednji plan -->
+      <path d="M0,490 L160,400 L300,445 L450,370 L580,415 L700,320 L780,240 L840,195 L920,245 L1040,360 L1200,390 L1360,350 L1440,380 L1440,560 L0,560Z"
+            fill="#1B3A28" opacity="0.06"/>
+      <!-- glavni vrh – Hajla-like -->
+      <path d="M0,515 L180,455 L320,485 L460,440 L570,468 L660,420 L730,360 L780,290 L820,255 L870,290 L930,355 L1040,420 L1180,450 L1320,425 L1440,450 L1440,560 L0,560Z"
+            fill="#2D6A4F" opacity="0.07"/>
+      <!-- prednji plan + nagovjestaj borova -->
+      <path d="M0,538 L80,524 L160,533 L240,520 L320,530 L400,518 L480,528 L560,516 L640,527 L720,514 L800,526 L880,514 L960,526 L1040,514 L1120,528 L1200,516 L1280,530 L1360,518 L1440,530 L1440,560 L0,560Z"
+            fill="#40916C" opacity="0.05"/>
+    </svg>
+  </div>
+  <div class="restaurants-header">
+    <div>
+      <div class="section-label">Gdje odsjesti</div>
+      <h2 class="section-title">Smještaj u<br><span class="line2">Rožajama</span></h2>
+    </div>
+  </div>
+
+  <div class="rest-grid">
+
+    <!-- Hotel Rožaje -->
+    <div class="card">
+      <div class="card-img-wrap">
+        <img src="images/accommodations/hotel-rozaje.webp"
+             alt="Hotel Rožaje" loading="lazy">
+        <span class="card-badge">Centar grada</span>
+        <span class="card-rating"><i class="fa-solid fa-star"></i> 9.3</span>
+      </div>
+      <div class="card-body">
+        <div class="card-type">Hotel · Wellness · Spa</div>
+        <div class="card-name">Hotel Rožaje</div>
+        <p class="card-desc">Moderan hotel u srcu Rožaja s 33 smještajne jedinice, wellness centrom, unutrašnjim bazenom, saunom i vlastitim restoranom.</p>
+        <div class="card-meta">
+          <span><i class="fa-solid fa-bed"></i> 33 sobe & apartmani</span>
+          <span><i class="fa-solid fa-wifi"></i> Besplatni WiFi</span>
+          <span><i class="fa-solid fa-water"></i> Bazen & Sauna</span>
+        </div>
+        <a href="hotel-rozaje.html" class="smjestaj-btn">Saznaj više <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+    </div>
+
+    <!-- Hotel Aldi -->
+    <div class="card">
+      <div class="card-img-wrap">
+        <img src="images/accommodations/hotel-aldi.webp"
+             alt="Hotel Aldi Rožaje" loading="lazy">
+        <span class="card-badge">3 km od centra</span>
+        <span class="card-rating"><i class="fa-solid fa-star"></i> 4.2</span>
+      </div>
+      <div class="card-body">
+        <div class="card-type">Hotel · Planinski · Blizu ski-centra</div>
+        <div class="card-name">Hotel Aldi</div>
+        <p class="card-desc">Smješten na Suhom Polju, 3 km od centra Rožaja, na raskrsnici prema planini Hajla i izvorima Ibra. Podzemni parking za 100 vozila, banjket sala i vlastiti restoran. U blizini ski-centra Turjak.</p>
+        <div class="card-meta">
+          <span><i class="fa-solid fa-bed"></i> 36 kreveta</span>
+          <span><i class="fa-solid fa-car"></i> Parking 100 mjesta</span>
+          <span><i class="fa-solid fa-snowflake"></i> Blizu ski-centra</span>
+        </div>
+        <a href="hotel-aldi.html" class="smjestaj-btn">Saznaj više <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+    </div>
+
+    <!-- Jela Natural Resort -->
+    <div class="card">
+      <div class="card-img-wrap">
+        <img src="images/accommodations/jela-resort.webp"
+             alt="Jela Natural Resort Rožaje" loading="lazy">
+        <span class="card-badge" style="background:var(--gold);color:#1B3A28;">Resort · Bungalovi</span>
+        <span class="card-rating"><i class="fa-solid fa-star"></i> 7.8</span>
+      </div>
+      <div class="card-body">
+        <div class="card-type">Planinski Resort · Bungalovi & Kolibe</div>
+        <div class="card-name">Jela Natural Resort</div>
+        <p class="card-desc">Planinski resort na 1.070 m n.v. sa 36 smještajnih jedinica — bungalovi za 4 osobe, kuće za 6 i planinarskih koliba. Dva restorana, dječije igralište i bicikli u kompleksu.</p>
+        <div class="card-meta">
+          <span><i class="fa-solid fa-house"></i> 36 jedinica</span>
+          <span><i class="fa-solid fa-utensils"></i> 2 restorana</span>
+          <span><i class="fa-solid fa-mountain-sun"></i> Planinarenje</span>
+        </div>
+        <a href="jela-resort.html" class="smjestaj-btn">Saznaj više <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
 
 <!-- RESTAURANTS -->
 <section id="restaurants">
