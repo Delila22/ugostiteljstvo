@@ -1208,14 +1208,18 @@
     setTimeout(()=>succ.style.display='none', 5000);
   }
 
-  /* language toggle BS ↔ EN */
-  let isEn = false;
-  function toggleLang(){
-    isEn = !isEn;
+  /* language toggle BS ↔ EN — persists across pages */
+  function applyLang(isEn){
     document.documentElement.className = isEn ? 'en' : 'bs';
-    document.documentElement.lang     = isEn ? 'en' : 'bs';
-    document.getElementById('langBtn').textContent = isEn ? 'BS' : 'EN';
+    document.documentElement.lang      = isEn ? 'en' : 'bs';
+    const btn = document.getElementById('langBtn');
+    if(btn) btn.textContent = isEn ? 'BS' : 'EN';
+    localStorage.setItem('lang', isEn ? 'en' : 'bs');
   }
+  function toggleLang(){
+    applyLang(document.documentElement.className !== 'en');
+  }
+  applyLang(localStorage.getItem('lang') === 'en');
 </script>
 </body>
 </html>
