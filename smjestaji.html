@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="bs" class="bs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smještaji u Rožajama — Doživi Rožaje</title>
+  <meta name="description" content="Pronađi savršen smještaj u Rožajama — hoteli, bungalovi i planinska odmarališta u srcu Crne Gore.">
+  <meta property="og:title" content="Smještaji u Rožajama — Doživi Rožaje">
+  <meta property="og:description" content="Hoteli, bungalovi i planinska odmarališta u Rožajama, Crna Gora.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='18' fill='%233FA060'/><path d='M12 82 L40 34 L58 60 L70 44 L88 82 Z' fill='%23fff'/><path d='M40 34 L34 44 L46 44 Z' fill='%235FB0CE'/></svg>">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --night:    #09090B;
+      --deep:     #111318;
+      --sky:      #0F6BAD;
+      --teal:     #0B7B6D;
+      --forest-dk:#111318;
+      --forest:   #1E2025;
+      --forest-lt:#3FA060;
+      --meadow:   #3FA060;
+      --red:      #2E86AB;
+      --orange:   #2E86AB;
+      --gold:     #5FB0CE;
+      --cream:    #F5EFE6;
+      --text:     #1A1814;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    /* ─── NAV ─── */
+    nav {
+      position: fixed; top: 0; left: 0; width: 100%; z-index: 999;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 18px 60px;
+      background: rgba(6,14,26,0.88);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(63,160,96,0.25);
+    }
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem; color: var(--meadow);
+      letter-spacing: -0.02em;
+      display: flex; align-items: center; gap: 10px;
+      text-decoration: none;
+    }
+    .nav-links { display: flex; gap: 32px; list-style: none; }
+    .nav-links a {
+      color: #ddeedd; text-decoration: none; font-size: .9rem;
+      font-weight: 600; letter-spacing: .05em; text-transform: uppercase;
+      position: relative; padding-bottom: 4px; transition: color .3s;
+    }
+    .nav-links a::after {
+      content: ''; position: absolute; bottom: 0; left: 0;
+      width: 0; height: 2px; background: var(--meadow);
+      transition: width .3s;
+    }
+    .nav-links a:hover,
+    .nav-links a.active { color: var(--meadow); }
+    .nav-links a:hover::after,
+    .nav-links a.active::after { width: 100%; }
+    .nav-right { display:flex; align-items:center; gap:14px; }
+    .nav-social { color:rgba(200,240,220,.5); font-size:1.1rem; transition:color .2s; }
+    .nav-social:hover { color:var(--meadow); }
+    .lang-toggle {
+      background:rgba(63,160,96,.15); border:1px solid rgba(63,160,96,.4);
+      color:var(--meadow); font-size:.75rem; font-weight:700; letter-spacing:.1em;
+      padding:5px 13px; border-radius:50px; cursor:pointer; transition:background .2s;
+    }
+    .lang-toggle:hover { background:rgba(63,160,96,.3); }
+
+    /* ─── PAGE HERO ─── */
+    .page-hero {
+      min-height: 54vh;
+      background:
+        linear-gradient(180deg,
+          rgba(6,12,20,0.75) 0%,
+          rgba(6,12,20,0.50) 50%,
+          rgba(6,12,20,0.80) 100%),
+        url('images/accommodations/hotel-rozaje.webp') center 50% / cover no-repeat;
+      display: flex; align-items: center; justify-content: center;
+      padding-top: 90px; position: relative; overflow: hidden;
+    }
+    .page-hero-content {
+      text-align: center; position: relative; z-index: 2;
+      padding: 0 20px;
+    }
+    .page-hero-badge {
+      display: inline-block;
+      background: rgba(9,9,11,0.45);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(63,160,96,.55);
+      color: #7de0a8; font-size: .8rem; font-weight: 600;
+      letter-spacing: .18em; text-transform: uppercase;
+      padding: 9px 24px; border-radius: 50px; margin-bottom: 28px;
+    }
+    .page-hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.6rem, 6vw, 5rem);
+      font-weight: 800; line-height: 1.1;
+      letter-spacing: -0.03em;
+      color: #fff;
+      text-shadow: 0 2px 6px rgba(0,0,0,.9), 0 6px 28px rgba(0,0,0,.7);
+      margin-bottom: 16px;
+    }
+    .page-hero-title .accent { color: #3FA060; }
+    .page-hero-sub {
+      color: rgba(255,255,255,.85);
+      font-size: clamp(.9rem, 1.5vw, 1.05rem);
+      max-width: 520px; margin: 0 auto; line-height: 1.8;
+      text-shadow: 0 1px 4px rgba(0,0,0,.8);
+    }
+    .page-hero-divider {
+      display: flex; align-items: center; justify-content: center;
+      gap: 12px; margin: 22px auto; max-width: 200px;
+    }
+    .page-hero-divider::before,
+    .page-hero-divider::after {
+      content: ''; flex: 1; height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(63,160,96,.6), transparent);
+    }
+    .page-hero-divider span {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: #3FA060;
+      box-shadow: 0 0 8px rgba(63,160,96,.7);
+    }
+
+    /* ─── FILTER BAR ─── */
+    .filter-bar {
+      background: #fff;
+      border-bottom: 1px solid #E8F5EE;
+      padding: 18px 60px;
+      display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+    }
+    .filter-label {
+      font-size: .78rem; font-weight: 700; letter-spacing: .12em;
+      text-transform: uppercase; color: var(--forest-lt); margin-right: 4px;
+    }
+    .filter-btn {
+      padding: 7px 18px; border-radius: 50px; border: 1.5px solid #D0E8D8;
+      background: transparent; font-size: .82rem; font-weight: 600;
+      color: #4A6A55; cursor: pointer; transition: all .2s;
+    }
+    .filter-btn:hover,
+    .filter-btn.active {
+      background: var(--meadow); border-color: var(--meadow);
+      color: #fff;
+    }
+
+    /* ─── SECTION ─── */
+    #smjestaji {
+      background: #f0faf5;
+      padding: 70px 60px 90px;
+      position: relative;
+    }
+    .section-label {
+      font-size: .78rem; font-weight: 700; letter-spacing: .2em;
+      text-transform: uppercase; color: var(--forest-lt);
+      margin-bottom: 10px;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.6rem, 3vw, 2.4rem); font-weight: 800;
+      letter-spacing: -0.03em;
+      color: var(--text); line-height: 1.15;
+    }
+    .section-title .line2 { color: var(--meadow); }
+    .smjestaji-header {
+      display: flex; justify-content: space-between; align-items: flex-end;
+      margin-bottom: 48px;
+    }
+    .smjestaji-count {
+      font-size: .88rem; color: #6A8A70; font-weight: 500;
+    }
+
+    /* ─── CARDS GRID ─── */
+    .smjestaji-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .card {
+      background: #fff; border-radius: 22px; overflow: hidden;
+      box-shadow: 0 4px 28px rgba(20,18,14,.09);
+      transition: transform .35s cubic-bezier(.34,1.56,.64,1), box-shadow .35s;
+      cursor: pointer;
+    }
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 22px 52px rgba(20,18,14,.18);
+    }
+    .card-img-wrap { position: relative; overflow: hidden; height: 240px; }
+    .card-img-wrap img {
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform .5s;
+    }
+    .card:hover .card-img-wrap img { transform: scale(1.08); }
+    .card-badge {
+      position: absolute; top: 14px; left: 14px;
+      background: rgba(63,160,96,.85); color: #fff;
+      font-size: .72rem; font-weight: 700; letter-spacing: .08em;
+      padding: 5px 12px; border-radius: 50px; text-transform: uppercase;
+    }
+    .card-rating {
+      position: absolute; top: 14px; right: 14px;
+      background: rgba(6,14,26,.75); backdrop-filter: blur(6px);
+      color: var(--gold); font-size: .8rem; font-weight: 700;
+      padding: 5px 11px; border-radius: 50px;
+      display: flex; align-items: center; gap: 4px;
+    }
+    .card-body { padding: 22px 24px 26px; }
+    .card-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem; font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--text); margin-bottom: 5px;
+    }
+    .card-type {
+      font-size: .78rem; color: var(--forest-lt); font-weight: 600;
+      text-transform: uppercase; letter-spacing: .08em; margin-bottom: 10px;
+    }
+    .card-desc { font-size: .85rem; color: #4A6A55; line-height: 1.58; margin-bottom: 16px; }
+    .card-meta {
+      display: flex; gap: 14px; font-size: .78rem; color: #6A8A70;
+      border-top: 1px solid #D8EFDF; padding-top: 14px; flex-wrap: wrap;
+    }
+    .card-meta span { display: flex; align-items: center; gap: 5px; }
+    .smjestaj-btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      margin-top: 16px; padding: 10px 22px; border-radius: 50px;
+      background: linear-gradient(135deg,var(--forest-lt),var(--teal));
+      color: #fff; font-size: .82rem; font-weight: 700;
+      text-decoration: none; transition: transform .2s, box-shadow .2s;
+      border: none; cursor: pointer;
+    }
+    .smjestaj-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,.25); }
+
+    /* ─── PROMO STRIP ─── */
+    .promo-strip {
+      background: linear-gradient(135deg, var(--forest-lt), var(--teal));
+      border-radius: 20px;
+      padding: 44px 52px;
+      margin-top: 60px;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 30px; flex-wrap: wrap;
+    }
+    .promo-strip-text h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem; font-weight: 800; color: #fff;
+      margin-bottom: 8px; letter-spacing: -0.02em;
+    }
+    .promo-strip-text p {
+      color: rgba(255,255,255,.82); font-size: .9rem; line-height: 1.6;
+    }
+    .promo-strip-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 14px 32px; border-radius: 50px;
+      background: #fff; color: var(--teal);
+      font-size: .95rem; font-weight: 700;
+      text-decoration: none; white-space: nowrap;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .promo-strip-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,.25); }
+
+    /* ─── SMJEŠTAJ MODAL ─── */
+    .modal-overlay {
+      position: fixed; inset: 0; z-index: 1000;
+      background: rgba(6,14,26,.8); backdrop-filter: blur(8px);
+      display: none; align-items: center; justify-content: center; padding: 20px;
+    }
+    .modal-overlay.open { display: flex; animation: fadeIn .25s ease; }
+    @keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+    .smodal {
+      background: #fff; border-radius: 24px; max-width: 620px; width: 100%;
+      max-height: 88vh; overflow-y: auto; position: relative;
+      animation: slideUp .35s cubic-bezier(.34,1.56,.64,1) both;
+    }
+    @keyframes slideUp { from { transform:translateY(40px);opacity:0; } to { transform:translateY(0);opacity:1; } }
+    .smodal-img {
+      width: 100%; height: 240px; object-fit: cover;
+      border-radius: 24px 24px 0 0; display: block;
+    }
+    .smodal-body { padding: 28px 32px 32px; }
+    .smodal-type {
+      font-size: .75rem; font-weight: 700; letter-spacing: .14em;
+      text-transform: uppercase; color: var(--forest-lt); margin-bottom: 6px;
+    }
+    .smodal-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem; font-weight: 800; letter-spacing: -0.02em;
+      color: var(--text); margin-bottom: 10px;
+    }
+    .smodal-rating {
+      display: inline-flex; align-items: center; gap: 5px;
+      background: #f0faf5; border: 1px solid #C8E6D0;
+      padding: 4px 12px; border-radius: 50px;
+      font-size: .82rem; font-weight: 700; color: var(--forest-lt);
+      margin-bottom: 14px;
+    }
+    .smodal-desc {
+      font-size: .9rem; color: #4A6A55; line-height: 1.68;
+      margin-bottom: 22px; border-bottom: 1px solid #E8F5EE; padding-bottom: 20px;
+    }
+    .smodal-amenities {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 22px;
+    }
+    .smodal-amenity {
+      display: flex; align-items: center; gap: 10px;
+      background: #f5fbf7; border: 1px solid #D8EFDF;
+      border-radius: 10px; padding: 10px 14px;
+      font-size: .83rem; color: var(--text); font-weight: 500;
+    }
+    .smodal-amenity i { color: var(--forest-lt); width: 16px; text-align: center; }
+    .smodal-location {
+      display: flex; align-items: center; gap: 8px;
+      font-size: .84rem; color: #6A8A70; margin-bottom: 22px;
+    }
+    .smodal-location i { color: var(--forest-lt); }
+    .smodal-close {
+      position: absolute; top: 14px; right: 14px;
+      width: 36px; height: 36px; border-radius: 50%;
+      background: rgba(9,9,11,0.45); backdrop-filter: blur(6px);
+      border: none; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem; color: #fff; transition: background .2s; z-index: 2;
+    }
+    .smodal-close:hover { background: rgba(9,9,11,0.7); }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--night);
+      padding: 60px 60px 28px;
+      color: rgba(200,240,220,.4);
+    }
+    .footer-top {
+      display: flex; justify-content: space-between; align-items: center;
+      margin-bottom: 48px; gap: 40px; flex-wrap: wrap;
+    }
+    .footer-brand { max-width: 280px; }
+    .footer-brand .nav-logo { margin-bottom: 14px; }
+    .footer-brand p { font-size: .85rem; line-height: 1.75; }
+    .footer-links { flex: 1; display: flex; justify-content: center; }
+    .footer-links h4 { display: none; }
+    .footer-links ul {
+      list-style: none; display: flex; flex-direction: row;
+      gap: 32px; flex-wrap: wrap; justify-content: center;
+    }
+    .footer-links a {
+      color: rgba(200,240,220,.5); font-size: .9rem; font-weight: 600;
+      letter-spacing: .05em; text-transform: uppercase;
+      text-decoration: none; position: relative; padding-bottom: 4px;
+      transition: color .3s;
+    }
+    .footer-links a::after {
+      content: ''; position: absolute; bottom: 0; left: 0;
+      width: 0; height: 2px; background: var(--meadow);
+      transition: width .3s;
+    }
+    .footer-links a:hover { color: var(--meadow); }
+    .footer-links a:hover::after { width: 100%; }
+    .footer-bottom {
+      border-top: 1px solid rgba(63,160,96,.08);
+      padding-top: 26px; text-align: center; font-size: .78rem;
+    }
+    .footer-social { display:flex; gap:12px; margin-top:16px; }
+    .footer-social a {
+      width:36px; height:36px; border-radius:50%;
+      background:rgba(63,160,96,.08); border:1px solid rgba(63,160,96,.18);
+      display:flex; align-items:center; justify-content:center;
+      color:rgba(200,240,220,.45); font-size:.95rem;
+      transition:background .2s,color .2s; text-decoration:none;
+    }
+    .footer-social a:hover { background:rgba(63,160,96,.22); color:var(--meadow); }
+
+    /* ─── LANG ─── */
+    html.en .t-bs { display: none !important; }
+    html.bs .t-en { display: none !important; }
+
+    /* ─── RESPONSIVE ─── */
+    @media(max-width:1100px){
+      .smjestaji-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media(max-width:900px){
+      nav { padding:16px 22px; }
+      .nav-links { gap:18px; }
+      #smjestaji { padding:60px 22px 70px; }
+      .filter-bar { padding:16px 22px; }
+      .smjestaji-header { flex-direction: column; align-items: flex-start; gap: 10px; }
+      footer { padding:40px 22px 24px; }
+      .promo-strip { padding: 32px 28px; }
+    }
+    @media(max-width:640px){
+      .smjestaji-grid { grid-template-columns: 1fr; }
+      .page-hero { min-height: 46vh; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">Doživi Rožaje</a>
+  <ul class="nav-links">
+    <li><a href="smjestaji.html" class="active"><span class="t-bs">Smještaji</span><span class="t-en">Accommodations</span></a></li>
+    <li><a href="restorani.html"><span class="t-bs">Restorani</span><span class="t-en">Restaurants</span></a></li>
+    <li><a href="jela.html"><span class="t-bs">Jela</span><span class="t-en">Food</span></a></li>
+    <li><a href="o-rozajama.html"><span class="t-bs">O Rožajama</span><span class="t-en">About</span></a></li>
+    <li><a href="kontakt.html"><span class="t-bs">Kontakt</span><span class="t-en">Contact</span></a></li>
+  </ul>
+  <div class="nav-right">
+    <a href="https://www.instagram.com/" target="_blank" rel="noopener" class="nav-social" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+    <a href="https://www.facebook.com/" target="_blank" rel="noopener" class="nav-social" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+    <button class="lang-toggle" onclick="toggleLang()" id="langBtn">EN</button>
+  </div>
+</nav>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="page-hero-content">
+    <div class="page-hero-badge"><span class="t-bs">Gdje odsjesti</span><span class="t-en">Where to stay</span></div>
+    <h1 class="page-hero-title">
+      <span class="t-bs">Smještaj u<br><span class="accent">Rožajama</span></span>
+      <span class="t-en">Accommodation in<br><span class="accent">Rožaje</span></span>
+    </h1>
+    <div class="page-hero-divider"><span></span></div>
+    <p class="page-hero-sub">
+      <span class="t-bs">Od modernih hotela u centru do planinarskih bungalova u borovima — pronađi idealan smještaj za tvoj boravak.</span>
+      <span class="t-en">From modern city hotels to mountain bungalows in the pines — find the ideal stay for your visit.</span>
+    </p>
+  </div>
+</div>
+
+<!-- FILTER BAR -->
+<div class="filter-bar">
+  <span class="filter-label"><span class="t-bs">Filtriraj:</span><span class="t-en">Filter:</span></span>
+  <button class="filter-btn active" data-filter="all"><span class="t-bs">Svi smještaji</span><span class="t-en">All</span></button>
+  <button class="filter-btn" data-filter="hotel"><span class="t-bs">Hoteli</span><span class="t-en">Hotels</span></button>
+  <button class="filter-btn" data-filter="resort"><span class="t-bs">Resortovi</span><span class="t-en">Resorts</span></button>
+</div>
+
+<!-- SMJEŠTAJI SECTION -->
+<section id="smjestaji">
+  <div class="smjestaji-header">
+    <div>
+      <div class="section-label"><span class="t-bs">Naš izbor</span><span class="t-en">Our selection</span></div>
+      <h2 class="section-title">
+        <span class="t-bs">Svi smještaji<br><span class="line2">u Rožajama</span></span>
+        <span class="t-en">All accommodations<br><span class="line2">in Rožaje</span></span>
+      </h2>
+    </div>
+    <div class="smjestaji-count">
+      <span class="t-bs">3 smještajna objekta</span>
+      <span class="t-en">3 properties</span>
+    </div>
+  </div>
+
+  <div class="smjestaji-grid">
+
+    <!-- Hotel Rožaje -->
+    <div class="card" data-type="hotel">
+      <div class="card-img-wrap">
+        <img src="images/accommodations/hotel-rozaje.webp" alt="Hotel Rožaje" loading="lazy">
+        <span class="card-badge"><span class="t-bs">Centar grada</span><span class="t-en">City centre</span></span>
+        <span class="card-rating"><i class="fa-solid fa-star"></i> 9.3</span>
+      </div>
+      <div class="card-body">
+        <div class="card-type">Hotel · Wellness · Spa</div>
+        <div class="card-name">Hotel Rožaje</div>
+        <p class="card-desc">
+          <span class="t-bs">Moderan hotel u srcu Rožaja s 33 smještajne jedinice, wellness centrom, unutrašnjim bazenom, saunom i vlastitim restoranom.</span>
+          <span class="t-en">Modern hotel in the heart of Rožaje with 33 units, wellness centre, indoor pool, sauna and restaurant.</span>
+        </p>
+        <div class="card-meta">
+          <span><i class="fa-solid fa-bed"></i> <span class="t-bs">33 sobe & apartmani</span><span class="t-en">33 rooms & apartments</span></span>
+          <span><i class="fa-solid fa-wifi"></i> <span class="t-bs">Besplatni WiFi</span><span class="t-en">Free WiFi</span></span>
+          <span><i class="fa-solid fa-water"></i> <span class="t-bs">Bazen & Sauna</span><span class="t-en">Pool & Sauna</span></span>
+        </div>
+        <button onclick="openModal('hotel-rozaje')" class="smjestaj-btn">
+          <span class="t-bs">Saznaj više</span><span class="t-en">Learn more</span> <i class="fa-solid fa-arrow-right"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Hotel Aldi -->
+    <div class="card" data-type="hotel">
+      <div class="card-img-wrap">
+        <img src="images/accommodations/hotel-aldi.webp" alt="Hotel Aldi Rožaje" loading="lazy">
+        <span class="card-badge"><span class="t-bs">3 km od centra</span><span class="t-en">3 km from centre</span></span>
+        <span class="card-rating"><i class="fa-solid fa-star"></i> 4.2</span>
+      </div>
+      <div class="card-body">
+        <div class="card-type"><span class="t-bs">Hotel · Planinski · Blizu ski-centra</span><span class="t-en">Hotel · Mountain · Near ski centre</span></div>
+        <div class="card-name">Hotel Aldi</div>
+        <p class="card-desc">
+          <span class="t-bs">Smješten na Suhom Polju, 3 km od centra Rožaja, na raskrsnici prema planini Hajla i izvorima Ibra. Podzemni parking za 100 vozila, banjket sala i vlastiti restoran.</span>
+          <span class="t-en">Located in Suho Polje, 3 km from Rožaje centre, at the crossroads toward Mount Hajla and the Ibar springs. Underground parking for 100 vehicles, banquet hall and restaurant.</span>
+        </p>
+        <div class="card-meta">
+          <span><i class="fa-solid fa-bed"></i> <span class="t-bs">6 soba · 36 kreveta</span><span class="t-en">6 rooms · 36 beds</span></span>
+          <span><i class="fa-solid fa-car"></i> <span class="t-bs">Parking 100 mjesta</span><span class="t-en">100-space parking</span></span>
+          <span><i class="fa-solid fa-snowflake"></i> <span class="t-bs">Blizu ski-centra</span><span class="t-en">Near ski centre</span></span>
+        </div>
+        <button onclick="openModal('hotel-aldi')" class="smjestaj-btn">
+          <span class="t-bs">Saznaj više</span><span class="t-en">Learn more</span> <i class="fa-solid fa-arrow-right"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Jela Natural Resort -->
+    <div class="card" data-type="resort">
+      <div class="card-img-wrap">
+        <img src="images/accommodations/jela-resort.webp" alt="Jela Natural Resort Rožaje" loading="lazy">
+        <span class="card-badge" style="background:var(--gold);color:#1B3A28;">Resort · Bungalovi</span>
+        <span class="card-rating"><i class="fa-solid fa-star"></i> 7.8</span>
+      </div>
+      <div class="card-body">
+        <div class="card-type"><span class="t-bs">Planinski Resort · Bungalovi & Kolibe</span><span class="t-en">Mountain Resort · Bungalows & Cabins</span></div>
+        <div class="card-name">Jela Natural Resort</div>
+        <p class="card-desc">
+          <span class="t-bs">Planinski resort na 1.070 m n.v. sa 36 smještajnih jedinica — bungalovi za 4 osobe, kuće za 6 i planinarskih koliba. Dva restorana, dječije igralište i bicikli u kompleksu.</span>
+          <span class="t-en">Mountain resort at 1,070 m a.s.l. with 36 accommodation units — bungalows for 4, houses for 6 and hiking cabins. Two restaurants, playground and bikes on site.</span>
+        </p>
+        <div class="card-meta">
+          <span><i class="fa-solid fa-house"></i> <span class="t-bs">36 jedinica</span><span class="t-en">36 units</span></span>
+          <span><i class="fa-solid fa-utensils"></i> <span class="t-bs">2 restorana</span><span class="t-en">2 restaurants</span></span>
+          <span><i class="fa-solid fa-mountain-sun"></i> <span class="t-bs">Planinarenje</span><span class="t-en">Hiking</span></span>
+        </div>
+        <button onclick="openModal('jela-resort')" class="smjestaj-btn">
+          <span class="t-bs">Saznaj više</span><span class="t-en">Learn more</span> <i class="fa-solid fa-arrow-right"></i>
+        </button>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- PROMO STRIP -->
+  <div class="promo-strip">
+    <div class="promo-strip-text">
+      <h3><span class="t-bs">Planirate posjetu Rožajama?</span><span class="t-en">Planning a visit to Rožaje?</span></h3>
+      <p>
+        <span class="t-bs">Turistička organizacija Rožaje može vam pomoći s rezervacijama i preporukama. Kontaktirajte nas!</span>
+        <span class="t-en">The Tourist Organisation of Rožaje can help with bookings and recommendations. Get in touch!</span>
+      </p>
+    </div>
+    <a href="kontakt.html" class="promo-strip-btn">
+      <i class="fa-solid fa-envelope"></i>
+      <span class="t-bs">Kontaktirajte nas</span><span class="t-en">Contact us</span>
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <a href="index.html" class="nav-logo">Doživi Rožaje</a>
+      <p style="margin-top:14px;"><span class="t-bs">Tvoj vodič kroz najbolja ugostiteljska mjesta Rožaja. Lokalno, autentično, planinski svježe.</span><span class="t-en">Your guide to the best hospitality spots in Rožaje. Local, authentic, mountain fresh.</span></p>
+      <div class="footer-social">
+        <a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="https://www.tiktok.com/" target="_blank" rel="noopener" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+      </div>
+    </div>
+    <div class="footer-links">
+      <ul>
+        <li><a href="index.html"><span class="t-bs">Početna</span><span class="t-en">Home</span></a></li>
+        <li><a href="smjestaji.html"><span class="t-bs">Smještaji</span><span class="t-en">Accommodations</span></a></li>
+        <li><a href="restorani.html"><span class="t-bs">Restorani</span><span class="t-en">Restaurants</span></a></li>
+        <li><a href="jela.html"><span class="t-bs">Tradicionalna Jela</span><span class="t-en">Traditional Food</span></a></li>
+        <li><a href="o-rozajama.html"><span class="t-bs">O Rožajama</span><span class="t-en">About</span></a></li>
+        <li><a href="kontakt.html"><span class="t-bs">Kontakt</span><span class="t-en">Contact</span></a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 Doživi Rožaje. <span class="t-bs">Sva prava zadržana. Napravljeno s ljubavlju za Rožaje.</span><span class="t-en">All rights reserved. Made with love for Rožaje.</span></p>
+  </div>
+</footer>
+
+<!-- MODALS -->
+
+<!-- Hotel Rožaje -->
+<div class="modal-overlay" id="modal-hotel-rozaje">
+  <div class="smodal">
+    <button class="smodal-close" onclick="closeModal('hotel-rozaje')"><i class="fa-solid fa-xmark"></i></button>
+    <img src="images/accommodations/hotel-rozaje.webp" alt="Hotel Rožaje" class="smodal-img">
+    <div class="smodal-body">
+      <div class="smodal-type">Hotel · Wellness · Spa</div>
+      <div class="smodal-name">Hotel Rožaje</div>
+      <div class="smodal-rating"><i class="fa-solid fa-star"></i> 9.3 / 10</div>
+      <div class="smodal-location"><i class="fa-solid fa-location-dot"></i> <span class="t-bs">Centar Rožaja, Crna Gora</span><span class="t-en">Rožaje Town Centre, Montenegro</span></div>
+      <p class="smodal-desc">
+        <span class="t-bs">Moderan hotel u srcu Rožaja s 33 smještajne jedinice — sobe i apartmani. Wellness centar s unutrašnjim bazenom i saunom, vlastiti restoran i sve što vam je potrebno za udoban boravak.</span>
+        <span class="t-en">Modern hotel in the heart of Rožaje with 33 accommodation units — rooms and apartments. Wellness centre with indoor pool and sauna, restaurant, and everything you need for a comfortable stay.</span>
+      </p>
+      <div class="smodal-amenities">
+        <div class="smodal-amenity"><i class="fa-solid fa-bed"></i> <span class="t-bs">33 sobe & apartmani</span><span class="t-en">33 rooms & apartments</span></div>
+        <div class="smodal-amenity"><i class="fa-solid fa-wifi"></i> <span class="t-bs">Besplatni WiFi</span><span class="t-en">Free WiFi</span></div>
+        <div class="smodal-amenity"><i class="fa-solid fa-water"></i> <span class="t-bs">Unutrašnji bazen</span><span class="t-en">Indoor pool</span></div>
+        <div class="smodal-amenity"><i class="fa-solid fa-hot-tub-person"></i> <span class="t-bs">Sauna & Wellness</span><span class="t-en">Sauna & Wellness</span></div>
+        <div class="smodal-amenity"><i class="fa-solid fa-utensils"></i> <span class="t-bs">Vlastiti restoran</span><span class="t-en">On-site restaurant</span></div>
+        <div class="smodal-amenity"><i class="fa-solid fa-car"></i> <span class="t-bs">Parking</span><span class="t-en">Parking</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Hotel Aldi -->
+<div class="modal-overlay" id="modal-hotel-aldi">
+  <div class="smodal">
+    <button class="smodal-close" onclick="closeModal('hotel-aldi')"><i class="fa-solid fa-xmark"></i></button>
+    <img src="images/accommodations/hotel-aldi.webp" alt="Hotel Aldi" class="smodal-img">
+    <div class="smodal-body">
+      <div class="smodal-type"><span class="t-bs">Hotel · Planinski · Blizu ski-centra</span><span class="t-en">Hotel · Mountain · Near ski centre</span></div>
+      <div class="smodal-name">Hotel Aldi</div>
+      <div class="smodal-rating"><i class="fa-solid fa-star"></i> 4.2 / 5</div>
+      <div class="smodal-location"><i class="fa-solid fa-location-dot"></i> <span class="t-bs">Suho Polje, 3 km od centra Rožaja</span><span class="t-en">Suho Polje, 3 km from Rožaje centre</span></div>
+      <p class="smodal-desc">
+        <span class="t-bs">Smješten na Suhom Polju na raskrsnici prema planini Hajla i izvorima Ibra. Podzemni parking za 100 vozila, banjket sala za proslave i vlastiti restoran. U blizini ski-centra Turjak — idealan izbor zimi i ljeti.</span>
+        <span class="t-en">Located in Suho Polje at the crossroads toward Mount Hajla and the Ibar springs. Underground parking for 100 vehicles, banquet hall and restaurant. Near Turjak ski centre — ideal in winter and summer.</span>
+      </p>
+      <div class="smodal-amenities">
+        <div class="smodal-amenity"><i class="fa-solid fa-bed"></i> <span class="t-bs">6 soba · 36 kreveta</span><span class="t-en">6 rooms · 36 beds</span></div>
+        <div class="smodal-amenity"><i class="fa-solid fa-wifi"></i> <span class="t-bs">Besplatni WiFi</span><span class="t-en">Free WiFi</span></div>
+        <div class="smodal-amenity"><i class="fa-solid fa-car"></i> <span class="t-bs">Parking za 100 vozila</span><span class="t-en">Parking for 100 vehicles</span></div>
+        <div class="smodal-amenity"><i class="fa-solid fa-snowflake"></i> <span class="t-bs">Blizu ski-centra Turjak</span><span class="t-en">Near Turjak ski centre</span></div>
+        <div class="smodal-amenity"><i class="fa-solid fa-utensils"></i> <span class="t-bs">Vlastiti restoran</span><span class="t-en">On-site restaurant</span></div>
+        <div class="smodal-amenity"><i class="fa-solid fa-champagne-glasses"></i> <span class="t-bs">Banjket sala</span><span class="t-en">Banquet hall</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Jela Natural Resort -->
+<div class="modal-overlay" id="modal-jela-resort">
+  <div class="smodal">
+    <button class="smodal-close" onclick="closeModal('jela-resort')"><i class="fa-solid fa-xmark"></i></button>
+    <img src="images/accommodations/jela-resort.webp" alt="Jela Natural Resort" class="smodal-img">
+    <div class="smodal-body">
+      <div class="smodal-type"><span class="t-bs">Planinski Resort · Bungalovi & Kolibe</span><span class="t-en">Mountain Resort · Bungalows & Cabins</span></div>
+      <div class="smodal-name">Jela Natural Resort</div>
+      <div class="smodal-rating"><i class="fa-solid fa-star"></i> 7.8 / 10</div>
+      <div class="smodal-location"><i class="fa-solid fa-location-dot"></i> <span class="t-bs">Rožaje, 1.070 m nadmorske visine</span><span class="t-en">Rožaje, 1,070 m above sea level</span></div>
+      <p class="smodal-desc">
+        <span class="t-bs">Planinski resort okružen borovom šumom na 1.070 m n.v. sa 36 smještajnih jedinica — bungalovi za 4 osobe, porodične kuće za 6 osoba i planinarske kolibe. Savršen spoj prirode i komfora.</span>
+        <span class="t-en">Mountain resort surrounded by pine forest at 1,070 m a.s.l. with 36 accommodation units — bungalows for 4, family houses for 6 and hiking cabins. A perfect blend of nature and comfort.</span>
+      </p>
+      <div class="smodal-amenities">
+        <div class="smodal-amenity"><i class="fa-solid fa-house"></i> <span class="t-bs">36 smještajnih jedinica</span><span class="t-en">36 accommodation units</span></div>
+        <div class="smodal-amenity"><i class="fa-solid fa-wifi"></i> <span class="t-bs">Besplatni WiFi</span><span class="t-en">Free WiFi</span></div>
+        <div class="smodal-amenity"><i class="fa-solid fa-utensils"></i> <span class="t-bs">2 restorana u kompleksu</span><span class="t-en">2 on-site restaurants</span></div>
+        <div class="smodal-amenity"><i class="fa-solid fa-person-hiking"></i> <span class="t-bs">Planinarenje</span><span class="t-en">Hiking trails</span></div>
+        <div class="smodal-amenity"><i class="fa-solid fa-children"></i> <span class="t-bs">Dječije igralište</span><span class="t-en">Children's playground</span></div>
+        <div class="smodal-amenity"><i class="fa-solid fa-bicycle"></i> <span class="t-bs">Bicikli u kompleksu</span><span class="t-en">Bikes on site</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  /* modal open/close */
+  function openModal(id){
+    const el = document.getElementById('modal-'+id);
+    if(el){ el.classList.add('open'); document.body.style.overflow='hidden'; }
+  }
+  function closeModal(id){
+    const el = document.getElementById('modal-'+id);
+    if(el){ el.classList.remove('open'); document.body.style.overflow=''; }
+  }
+  document.addEventListener('click', e=>{
+    if(e.target.classList.contains('modal-overlay'))
+      closeModal(e.target.id.replace('modal-',''));
+  });
+  document.addEventListener('keydown', e=>{
+    if(e.key==='Escape') document.querySelectorAll('.modal-overlay.open')
+      .forEach(m=>closeModal(m.id.replace('modal-','')));
+  });
+
+  /* filter */
+  document.querySelectorAll('.filter-btn').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+      btn.classList.add('active');
+      const filter = btn.dataset.filter;
+      document.querySelectorAll('.smjestaji-grid .card').forEach(card=>{
+        card.style.display = (filter==='all' || card.dataset.type===filter) ? '' : 'none';
+      });
+    });
+  });
+
+  /* scroll-reveal */
+  const observer = new IntersectionObserver(entries=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.style.opacity=1; e.target.style.transform='none'; } });
+  },{threshold:0.1});
+  document.querySelectorAll('.card').forEach(el=>{
+    el.style.opacity='0'; el.style.transform='translateY(32px)';
+    el.style.transition='opacity .65s ease, transform .65s ease';
+    observer.observe(el);
+  });
+
+  /* language toggle */
+  let isEn = false;
+  function toggleLang(){
+    isEn = !isEn;
+    document.documentElement.className = isEn ? 'en' : 'bs';
+    document.documentElement.lang = isEn ? 'en' : 'bs';
+    document.getElementById('langBtn').textContent = isEn ? 'BS' : 'EN';
+  }
+</script>
+</body>
+</html>
