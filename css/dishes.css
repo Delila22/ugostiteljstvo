@@ -74,7 +74,7 @@ nav {
       rgba(6,12,20,0.50) 40%,
       rgba(6,12,20,0.48) 65%,
       rgba(6,12,20,0.85) 100%),
-    url('images/food/hero-food.webp') center 55% / cover no-repeat;
+    url('../images/food/hero-food.webp') center 55% / cover no-repeat;
   display: flex; align-items: center; justify-content: center;
   position: relative; overflow: hidden; padding-top: 80px;
 }

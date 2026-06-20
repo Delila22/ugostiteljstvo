@@ -74,7 +74,7 @@ nav {
       rgba(6,12,20,0.72) 0%,
       rgba(6,12,20,0.52) 50%,
       rgba(6,12,20,0.82) 100%),
-    url('images/hero/hotel-lozaje-hero.webp') center 40% / cover no-repeat;
+    url('../images/hero/hotel-lozaje-hero.webp') center 40% / cover no-repeat;
   display: flex; align-items: center; justify-content: center;
   padding-top: 100px; padding-bottom: 60px;
   position: relative;
