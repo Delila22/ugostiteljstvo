@@ -1,893 +1,1303 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="bs" class="bs">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Restorani u Rožajama — Doživi Rožaje</title>
+    <meta
+      name="description"
+      content="Pronađite najbolje restorane u Rožajama — od legendarnih ćevabdžinica do etno restorana i planinarskih objekata pod Hajlom."
+    />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='18' fill='%233FA060'/><path d='M12 82 L40 34 L58 60 L70 44 L88 82 Z' fill='%23fff'/><path d='M40 34 L34 44 L46 44 Z' fill='%235FB0CE'/></svg>"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="css/restaurants.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Restorani u Rožajama — Doživi Rožaje</title>
-  <meta name="description"
-    content="Pronađite najbolje restorane u Rožajama — od legendarnih ćevabdžinica do etno restorana i planinarskih objekata pod Hajlom.">
-  <link rel="icon"
-    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='18' fill='%233FA060'/><path d='M12 82 L40 34 L58 60 L70 44 L88 82 Z' fill='%23fff'/><path d='M40 34 L34 44 L46 44 Z' fill='%235FB0CE'/></svg>">
-  <link
-    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@300;400;600;700&display=swap"
-    rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <link rel="stylesheet" href="css/restaurants.css">
-</head>
-
-<body>
-
-  <!-- NAV -->
-  <nav>
-    <a href="index.html" class="nav-logo">Doživi Rožaje</a>
-    <ul class="nav-links">
-      <li><a href="accommodations.html">
-        <span class="t-bs">Smještaji</span>
-        <span class="t-en">Accommodations</span>
-      </a>
-      </li>
-      <li><a href="restaurants.html" class="active"><span class="t-bs">Restorani</span><span
-            class="t-en">Restaurants</span></a></li>
-      <li><a href="dishes.html">
-        <span class="t-bs">Jela</span>
-        <span class="t-en">Food</span>
-      </a></li>
-      <li><a href="o-rozajama.html">
-        <span class="t-bs">O Rožajama</span>
-        <span class="t-en">About</span>
-      </a></li>
-      <li><a href="kontakt.html">
-        <span class="t-bs">Kontakt</span>
-        <span class="t-en">Contact</span>
-      </a></li>
-    </ul>
-    <div class="nav-right">
-      <a href="https://www.instagram.com/" target="_blank" rel="noopener" class="nav-social" aria-label="Instagram"><i
-          class="fa-brands fa-instagram"></i></a>
-      <a href="https://www.facebook.com/" target="_blank" rel="noopener" class="nav-social" aria-label="Facebook"><i
-          class="fa-brands fa-facebook-f"></i></a>
-      <button class="lang-toggle" onclick="toggleLang()" id="langBtn">EN</button>
-    </div>
-  </nav>
-
-  <!-- PAGE HERO -->
-  <header class="page-hero">
-    <div class="page-hero-content">
-      <div class="hero-badge">
-        <span class="t-bs">Gdje jesti u Rožajama</span>
-        <span class="t-en">Where to Eat in Rožaje</span>
-      </div>
-      <h1 class="page-title">
-        <span class="t-bs">Restorani u<br><span class="accent">Rožajama</span></span>
-        <span class="t-en">Restaurants in<br><span class="accent">Rožaje</span></span>
-      </h1>
-      <p class="page-sub">
-        <span class="t-bs">Od legendarnih ćevabdžinica i etno kuća do lounge barova — donosimo ti pažljivo biranu ponudu
-          ugostiteljskih mjesta u gradu pod Hajlom.</span>
-        <span class="t-en">From legendary ćevap joints and ethno houses to lounge bars — a carefully curated selection of dining spots in the city beneath Mount Hajla.</span>
-      </p>
-    </div>
-  </header>
-
-  <!-- BREADCRUMB -->
-  <div class="breadcrumb">
-    <a href="index.html"><i class="fa-solid fa-house"></i> <span class="t-bs">Početna</span><span
-        class="t-en">Home</span></a>
-    <i class="fa-solid fa-chevron-right"></i>
-    <span>
-      <span class="t-bs">Restorani</span>
-      <span class="t-en">Restaurants</span>
-    </span>
-  </div>
-
-  <!-- MAIN -->
-  <main>
-    <section class="restorani-section">
-      <div class="restorani-header">
-        <div>
-          <div class="section-label">
-            <span class="t-bs">Naš odabir · 17 mjesta</span>
-            <span class="t-en">Our Selection · 17 Spots</span>
-          </div>
-          <h2 class="section-title">
-            <span class="t-bs">Restorani koje<br><span class="line2">moraš posjetiti</span></span>
-            <span class="t-en">Restaurants you<br><span class="line2">must visit</span></span>
-          </h2>
-        </div>
-      </div>
-
-      <!-- Filter tabs -->
-      <div class="filter-tabs">
-        <button class="filter-tab active" onclick="filterCards('sve', this)">
-          <span class="t-bs">Svi restorani</span><span class="t-en">All</span>
-        </button>
-        <button class="filter-tab" onclick="filterCards('roštilj', this)">
-          <span class="t-bs">Roštilj</span><span class="t-en">Grill</span>
-        </button>
-        <button class="filter-tab" onclick="filterCards('etno', this)">
-          <span class="t-bs">Etno / Domaće</span><span class="t-en">Ethno / Local</span>
-        </button>
-        <button class="filter-tab" onclick="filterCards('bar', this)">
-          <span class="t-bs">Kafić / Bar</span><span class="t-en">Café / Bar</span>
-        </button>
-        <button class="filter-tab" onclick="filterCards('planinski', this)">
-          <span class="t-bs">Planinski</span><span class="t-en">Mountain</span>
-        </button>
-        <button class="filter-tab" onclick="filterCards('pizza', this)">
-          <span class="t-bs">Pizza</span><span class="t-en">Pizza</span>
-        </button>
-        <button class="filter-tab" onclick="filterCards('fast-food', this)">
-          <span class="t-bs">Brza hrana</span><span class="t-en">Fast Food</span>
-        </button>
-      </div>
-
-      <div class="rest-grid">
-
-        <!-- 1. Restoran Kero -->
-        <div class="card" data-cat="roštilj">
-          <div class="card-img-wrap">
-            <img src="images/restaurants/restaurant-kero.webp" alt="Restoran Kero Rožaje" loading="lazy">
-            <span class="card-badge">
-              <span class="t-bs">Legenda od 1989.</span>
-              <span class="t-en">Legend since 1989</span>
-            </span>
-            <span class="card-rating"><i class="fa-solid fa-star"></i> 4.8</span>
-          </div>
-          <div class="card-body">
-            <div class="card-type">
-              <span class="t-bs">Ćevabdžinica · Roštilj</span>
-              <span class="t-en">Ćevap House · Grill</span>
-            </div>
-            <div class="card-name">Restoran Kero</div>
-            <div class="card-tags">
-              <span class="tag">Ćevapi</span>
-              <span class="tag">Pljeskavica</span>
-              <span class="tag">Roštilj</span>
-            </div>
-            <p class="card-desc">
-              <span class="t-bs">Restoran Kero slovi za najstariju i najpopularniju ćevabdžinicu u Rožajama, otvorenu
-                1989. godine. Ručno miješano meso, svježe pečen somun i domaći prelivi — recept koji se nije mijenjao
-                decenijama. Interijer krasi kolekcija originalnih uljanih slika.</span>
-              <span class="t-en">Restaurant Kero is considered the oldest and most popular ćevap house in Rožaje, opened in 1989. Hand-mixed meat, freshly baked somun bread and homemade sauces — a recipe unchanged for decades.</span>
-            </p>
-            <div class="card-meta">
-              <span><i class="fa-regular fa-clock"></i> 10:00–23:00</span>
-              <span><i class="fa-solid fa-location-dot"></i> Jaha Kurtagića bb</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- 2. Alcazar Lounge Bar -->
-        <div class="card" data-cat="bar">
-          <div class="card-img-wrap">
-            <img src="images/restaurants/alkazar-lounge-bar.webp" alt="Alcazar Lounge Bar Rožaje" loading="lazy">
-            <span class="card-badge blue">
-              <span class="t-bs">#1 u Rožajama</span>
-              <span class="t-en">#1 in Rožaje</span>
-            </span>
-            <span class="card-rating"><i class="fa-solid fa-star"></i> 5.0</span>
-          </div>
-          <div class="card-body">
-            <div class="card-type">
-              <span class="t-bs">Lounge Bar · Kafa · Pizza</span>
-              <span class="t-en">Lounge Bar · Coffee · Pizza</span>
-            </div>
-            <div class="card-name">Alcazar Lounge Bar</div>
-            <div class="card-tags">
-              <span class="tag">Kafa</span>
-              <span class="tag">Pizza</span>
-              <span class="tag">Kokteli</span>
-              <span class="tag">Brunch</span>
-            </div>
-            <p class="card-desc">
-              <span class="t-bs">Ocijenjen brojem jedan u Rožajama. Moderna atmosfera, svježe mljevena kafa, bogata
-                lista pića i lagana hrana — omiljeno mjesto mještana i turista od jutra do kasno u noć.</span>
-              <span class="t-en">Rated number one in Rožaje. Modern atmosphere, freshly ground coffee, an extensive drinks menu and light food — a favourite spot for locals and tourists from morning until late at night.</span>
-            </p>
-            <div class="card-meta">
-              <span><i class="fa-regular fa-clock"></i> 08:00–01:00</span>
-              <span><i class="fa-solid fa-location-dot"></i>
-                <span class="t-bs">Centar Rožaja</span>
-                <span class="t-en">Rožaje Centre</span>
-              </span>
-              <span><i class="fa-solid fa-wifi"></i> WiFi</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- 3. Restoran Duga -->
-        <div class="card" data-cat="etno">
-          <div class="card-img-wrap">
-            <img src="images/restaurants/restaurant-rainbow.webp" alt="Restoran Duga Rožaje" loading="lazy">
-            <span class="card-badge">
-              <span class="t-bs">Porodičan</span>
-              <span class="t-en">Family</span>
-            </span>
-            <span class="card-rating"><i class="fa-solid fa-star"></i> 4.4</span>
-          </div>
-          <div class="card-body">
-            <div class="card-type">
-              <span class="t-bs">Domaća Kuhinja · Porodičan restoran</span>
-              <span class="t-en">Home Cooking · Family Restaurant</span>
-            </div>
-            <div class="card-name">Restoran Duga</div>
-            <div class="card-tags">
-              <span class="tag">Domaća jela</span>
-              <span class="tag">Čorbe</span>
-              <span class="tag">Roštilj</span>
-            </div>
-            <p class="card-desc">
-              <span class="t-bs">Prostran porodičan restoran uz magistralu E65 s bogatim menijom — svježe čorbe, jela u
-                loncu, sezonski specijaliteti i roštilj. Idealno za veće grupe i porodična slavlja.</span>
-              <span class="t-en">A spacious family restaurant along the E65 with a rich menu — fresh soups, slow-cooked dishes, seasonal specialities and grill. Ideal for larger groups and family celebrations.</span>
-            </p>
-            <div class="card-meta">
-              <span><i class="fa-regular fa-clock"></i> 09:00–22:00</span>
-              <span><i class="fa-solid fa-location-dot"></i> Magistrala E65</span>
-              <span><i class="fa-solid fa-car"></i> Parking</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- 4. Etno Restoran Ognjište -->
-        <div class="card" data-cat="etno">
-          <div class="card-img-wrap">
-            <img src="images/restaurants/traditional-restaurant-hearth.webp" alt="Etno Restoran Ognjište Rožaje"
-              loading="lazy">
-            <span class="card-badge">
-              <span class="t-bs">Etno · Tradicija</span>
-              <span class="t-en">Ethno · Tradition</span>
-            </span>
-            <span class="card-rating"><i class="fa-solid fa-star"></i> 4.7</span>
-          </div>
-          <div class="card-body">
-            <div class="card-type">
-              <span class="t-bs">Etno Restoran · Bosanska Kuhinja</span>
-              <span class="t-en">Ethno Restaurant · Bosnian Cuisine</span>
-            </div>
-            <div class="card-name">Etno Restoran Ognjište</div>
-            <div class="card-tags">
-              <span class="tag">Bosanski lonac</span>
-              <span class="tag">Pita</span>
-              <span class="tag">Ambijentan</span>
-            </div>
-            <p class="card-desc">
-              <span class="t-bs">Autentičan etno restoran u drvenoj kući okruženoj borovinom. Dim s ognjišta, starinski
-                predmeti i bosanska kuhinja — bosanski lonac, mantije, pita i jagnjetina ispod sača.</span>
-              <span class="t-en">Authentic ethno restaurant in a log cabin surrounded by pine forest. Hearth smoke, antique décor and Bosnian cuisine — pot stew, mantije, cheese pie and lamb under the sač bell.</span>
-            </p>
-            <div class="card-meta">
-              <span><i class="fa-regular fa-clock"></i> 10:00–23:00</span>
-              <span><i class="fa-solid fa-location-dot"></i> Rožaje</span>
-              <span><i class="fa-solid fa-utensils"></i>
-                <span class="t-bs">Rezervacija preporučena</span>
-                <span class="t-en">Reservation recommended</span>
-              </span>
-            </div>
-          </div>
-        </div>
-
-        <!-- 5. Saraj Pod Hajlom -->
-        <div class="card" data-cat="planinski">
-          <div class="card-img-wrap">
-            <img src="images/restaurants/palace-under-hajla.webp" alt="Saraj Pod Hajlom Rožaje" loading="lazy">
-            <span class="card-badge gold">
-              <span class="t-bs">Planinski · Hajla</span>
-              <span class="t-en">Mountain · Hajla</span>
-            </span>
-            <span class="card-rating"><i class="fa-solid fa-star"></i> 4.6</span>
-          </div>
-          <div class="card-body">
-            <div class="card-type">
-              <span class="t-bs">Planinski Restoran · Roštilj</span>
-              <span class="t-en">Mountain Restaurant · Grill</span>
-            </div>
-            <div class="card-name">Saraj Pod Hajlom</div>
-            <div class="card-tags">
-              <span class="tag">Planinska hrana</span>
-              <span class="tag">Jagnjetina</span>
-              <span class="tag">Roštilj</span>
-            </div>
-            <p class="card-desc">
-              <span class="t-bs">Restoran u podnožju Hajle (2.403 m). Svjež planinski vazduh, domaće jagnjeće meso i
-                planinski specijaliteti u netaknutoj prirodi — omiljeno odredište planinara i porodica.</span>
-              <span class="t-en">A restaurant at the foot of Hajla (2,403 m). Fresh mountain air, local lamb and mountain specialities in unspoilt nature — a favourite destination for hikers and families.</span>
-            </p>
-            <div class="card-meta">
-              <span><i class="fa-regular fa-clock"></i> 10:00–22:00</span>
-              <span><i class="fa-solid fa-location-dot"></i>
-                <span class="t-bs">Pod Hajlom, Rožaje</span>
-                <span class="t-en">Foot of Hajla, Rožaje</span>
-              </span>
-              <span><i class="fa-solid fa-mountain"></i> 2403 m</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- 6. Gastroli -->
-        <div class="card" data-cat="bar">
-          <div class="card-img-wrap">
-            <img src="images/restaurants/gastroli.webp" alt="Gastroli Rožaje" loading="lazy">
-            <span class="card-badge">
-              <span class="t-bs">Domaće · Roštilj</span>
-              <span class="t-en">Home · Grill</span>
-            </span>
-          </div>
-          <div class="card-body">
-            <div class="card-type">
-              <span class="t-bs">Restoran · Domaća Kuhinja</span>
-              <span class="t-en">Restaurant · Home Cuisine</span>
-            </div>
-            <div class="card-name">Gastroli</div>
-            <div class="card-tags">
-              <span class="tag">Domaća jela</span>
-              <span class="tag">Roštilj</span>
-              <span class="tag">Ćevapi</span>
-            </div>
-            <p class="card-desc">
-              <span class="t-bs">Restoran Gastroli nudi bogatu domaću kuhinju rožajskog kraja — svježa jela s roštilja,
-                domaće čorbe i tradicionalni specijaliteti. Topla atmosfera i brza usluga čine ga popularnim izborom u
-                gradu.</span>
-              <span class="t-en">Gastroli restaurant offers a rich home cuisine from the Rožaje region — fresh grilled dishes, homemade soups and traditional specialities. Warm atmosphere and quick service make it a popular choice in town.</span>
-            </p>
-            <div class="card-meta">
-              <span><i class="fa-regular fa-clock"></i> 09:00–22:00</span>
-              <span><i class="fa-solid fa-location-dot"></i> Rožaje</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- 7. Komitet -->
-        <div class="card" data-cat="bar">
-          <div class="card-img-wrap">
-            <img src="images/restaurants/committee.webp" alt="Komitet Rožaje" loading="lazy">
-            <span class="card-badge blue">
-              <span class="t-bs">Kafić · Bar</span>
-              <span class="t-en">Café · Bar</span>
-            </span>
-          </div>
-          <div class="card-body">
-            <div class="card-type">
-              <span class="t-bs">Kafić · Restoran · Bar</span>
-              <span class="t-en">Café · Restaurant · Bar</span>
-            </div>
-            <div class="card-name">Komitet</div>
-            <div class="card-tags">
-              <span class="tag">Kafa</span>
-              <span class="tag">Hrana</span>
-              <span class="tag">Kokteli</span>
-            </div>
-            <p class="card-desc">
-              <span class="t-bs">Komitet je moderan kafić i bar u centru Rožaja, poznat po odličnoj kafi i ugodnoj
-                atmosferi. Idealno mjesto za jutarnju kafu, poslovni sastanak ili opušteno veče s prijateljima.</span>
-              <span class="t-en">Komitet is a modern café and bar in the centre of Rožaje, known for excellent coffee and a pleasant atmosphere. The ideal place for a morning coffee, a business meeting or a relaxed evening with friends.</span>
-            </p>
-            <div class="card-meta">
-              <span><i class="fa-regular fa-clock"></i> 07:00–00:00</span>
-              <span><i class="fa-solid fa-location-dot"></i> Gradski Trg, Rožaje</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- 8. Restoran Ibar -->
-        <div class="card" data-cat="etno">
-          <div class="card-img-wrap">
-            <img src="images/restaurants/restaurant-ibar.webp" alt="Restoran Ibar Rožaje" loading="lazy">
-            <span class="card-badge">
-              <span class="t-bs">Uz rijeku Ibar</span>
-              <span class="t-en">By the Ibar River</span>
-            </span>
-          </div>
-          <div class="card-body">
-            <div class="card-type">
-              <span class="t-bs">Restoran · Domaća Kuhinja</span>
-              <span class="t-en">Restaurant · Home Cuisine</span>
-            </div>
-            <div class="card-name">Restoran Ibar</div>
-            <div class="card-tags">
-              <span class="tag">Domaća jela</span>
-              <span class="tag">Riba</span>
-              <span class="tag">Roštilj</span>
-            </div>
-            <p class="card-desc">
-              <span class="t-bs">Restoran Ibar nosi ime po rijeci Ibar čiji izvori se nalaze u okolini Rožaja. Nudi
-                domaću kuhinju s naglaskom na svježu ribu i jela s roštilja, u mirnom ambijentu blizu prirode.</span>
-              <span class="t-en">Restaurant Ibar takes its name from the Ibar river, whose sources are near Rožaje. It offers home cuisine with an emphasis on fresh fish and grilled dishes, in a peaceful setting close to nature.</span>
-            </p>
-            <div class="card-meta">
-              <span><i class="fa-regular fa-clock"></i> 09:00–22:00</span>
-              <span><i class="fa-solid fa-location-dot"></i> Rožaje</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- 9. Restoran Kurtagić -->
-        <div class="card" data-cat="roštilj">
-          <div class="card-img-wrap">
-            <img src="images/restaurants/restaurant-kurtagic.webp" alt="Restoran Kurtagić Rožaje" loading="lazy">
-            <span class="card-badge">
-              <span class="t-bs">Porodično · Tradicija</span>
-              <span class="t-en">Family · Tradition</span>
-            </span>
-          </div>
-          <div class="card-body">
-            <div class="card-type">
-              <span class="t-bs">Porodični Restoran · Roštilj</span>
-              <span class="t-en">Family Restaurant · Grill</span>
-            </div>
-            <div class="card-name">Restoran Kurtagić</div>
-            <div class="card-tags">
-              <span class="tag">Ćevapi</span>
-              <span class="tag">Roštilj</span>
-              <span class="tag">Domaće</span>
-            </div>
-            <p class="card-desc">
-              <span class="t-bs">Porodični restoran Kurtagić s dugom tradicijom u Rožajama. Specijaliteti s roštilja,
-                domaći ćevapi i jela pripremljena po tradicionalnim receptima. Topla, domaćinska atmosfera i
-                gostoprimstvo u svakom zalogaju.</span>
-              <span class="t-en">Family restaurant Kurtagić with a long tradition in Rožaje. Grill specialities, homemade ćevapi and dishes prepared from traditional recipes. Warm, homely atmosphere and hospitality in every bite.</span>
-            </p>
-            <div class="card-meta">
-              <span><i class="fa-regular fa-clock"></i> 10:00–22:00</span>
-              <span><i class="fa-solid fa-location-dot"></i> Rožaje</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- 10. Pizzeria City -->
-        <div class="card" data-cat="pizza">
-          <div class="card-img-wrap">
-            <img src="images/restaurants/pizzeria-city.webp" alt="Pizzeria City Rožaje" loading="lazy">
-            <span class="card-badge blue">
-              <span class="t-bs">Pizza · Brza hrana</span>
-              <span class="t-en">Pizza · Fast Food</span>
-            </span>
-          </div>
-          <div class="card-body">
-            <div class="card-type">
-              <span class="t-bs">Pizzeria · Brza hrana</span>
-              <span class="t-en">Pizzeria · Fast Food</span>
-            </div>
-            <div class="card-name">Pizzeria City</div>
-            <div class="card-tags">
-              <span class="tag">Pizza</span>
-              <span class="tag">Pasta</span>
-              <span class="tag">Dostava</span>
-            </div>
-            <p class="card-desc">
-              <span class="t-bs">Pizzeria City je popularna pizzeria u centru Rožaja s bogatom ponudom pizza, paste i
-                brze hrane. Svježe tijesto, kvalitetni sastojci i brza usluga — idealno za porodice i mlade.</span>
-              <span class="t-en">Pizzeria City is a popular pizzeria in the centre of Rožaje with a wide selection of pizzas, pasta and fast food. Fresh dough, quality ingredients and quick service — ideal for families and young visitors.</span>
-            </p>
-            <div class="card-meta">
-              <span><i class="fa-regular fa-clock"></i> 10:00–23:00</span>
-              <span><i class="fa-solid fa-location-dot"></i>
-                <span class="t-bs">Centar Rožaja</span>
-                <span class="t-en">Rožaje Centre</span>
-              </span>
-              <span><i class="fa-solid fa-motorcycle"></i>
-                <span class="t-bs">Dostava</span>
-                <span class="t-en">Delivery</span>
-              </span>
-            </div>
-          </div>
-        </div>
-
-        <!-- 11. Gracia -->
-        <div class="card" data-cat="bar">
-          <div class="card-img-wrap">
-            <img src="images/restaurants/gracia.webp" alt="Gracia Rožaje" loading="lazy">
-            <span class="card-badge blue">
-              <span class="t-bs">Kafić · Restoran</span>
-              <span class="t-en">Café · Restaurant</span>
-            </span>
-          </div>
-          <div class="card-body">
-            <div class="card-type">
-              <span class="t-bs">Kafić · Restoran · Desertni bar</span>
-              <span class="t-en">Café · Restaurant · Dessert Bar</span>
-            </div>
-            <div class="card-name">Gracia</div>
-            <div class="card-tags">
-              <span class="tag">Kafa</span>
-              <span class="tag">Deserti</span>
-              <span class="tag">Hrana</span>
-            </div>
-            <p class="card-desc">
-              <span class="t-bs">Gracia je ugodan kafić i restoran s elegantnom atmosferom u Rožajama. Poznata po
-                ukusnim desertima, raznovrsnoj hrani i odličnoj kafi — savršeno mjesto za opuštanje i uživanje u svakom
-                trenutku dana.</span>
-              <span class="t-en">Gracia is a pleasant café and restaurant with an elegant atmosphere in Rožaje. Known for delicious desserts, varied food and excellent coffee — the perfect place to relax and enjoy any time of day.</span>
-            </p>
-            <div class="card-meta">
-              <span><i class="fa-regular fa-clock"></i> 08:00–23:00</span>
-              <span><i class="fa-solid fa-location-dot"></i>
-                <span class="t-bs">Centar Rožaja</span>
-                <span class="t-en">Rožaje Centre</span>
-              </span>
-            </div>
-          </div>
-        </div>
-
-        <!-- 12. Dermando -->
-        <div class="card" data-cat="planinski">
-          <div class="card-img-wrap">
-            <img src="images/restaurants/dermando.webp" alt="Dom Kulture Dermando Bandžov Rožaje" loading="lazy">
-            <span class="card-badge gold">
-              <span class="t-bs">1500 m · Bandžov</span>
-              <span class="t-en">1500 m · Bandžov</span>
-            </span>
-          </div>
-          <div class="card-body">
-            <div class="card-type">
-              <span class="t-bs">Planinski Restoran · Etno · Domaća kuhinja</span>
-              <span class="t-en">Mountain Restaurant · Ethno · Home Cuisine</span>
-            </div>
-            <div class="card-name">Dom Kulture Dermando</div>
-            <div class="card-tags">
-              <span class="tag">Kačamak</span>
-              <span class="tag">Cicvara</span>
-              <span class="tag">Jagnjetina</span>
-              <span class="tag">Roštilj</span>
-            </div>
-            <p class="card-desc">
-              <span class="t-bs">Planinski restoran i dom kulture u selu Bandžov na 1.500 m nadmorske visine, svega
-                nekoliko kilometara od Rožaja. Nudi autentičnu planinsku kuhinju — kačamak, cicvaru, domaću pogaču i
-                pečenje s roštilja — uz predivan pogled na Hajlu i okolne planine. Kapacitet: 60 mjesta za sjedenje, 30
-                ležaja.</span>
-              <span class="t-en">Mountain restaurant and cultural centre in the village of Bandžov at 1,500 m above sea level, just a few kilometres from Rožaje. Offers authentic mountain cuisine — kačamak, cicvara, homemade pogača and roasted meats — with a beautiful view of Hajla and the surrounding mountains. Capacity: 60 seats, 30 beds.</span>
-            </p>
-            <div class="card-meta">
-              <span><i class="fa-solid fa-location-dot"></i> Bandžov, Rožaje</span>
-              <span><i class="fa-solid fa-phone"></i> +382 67 510 999</span>
-              <span><i class="fa-solid fa-mountain"></i> 1500 m n.v.</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- 13. Lorenza -->
-        <div class="card" data-cat="fast-food">
-          <div class="card-img-wrap">
-            <img src="images/restaurants/lorenza.webp" alt="Lorenza Rožaje" loading="lazy">
-            <span class="card-badge">
-              <span class="t-bs">Brza hrana</span>
-              <span class="t-en">Fast Food</span>
-            </span>
-          </div>
-          <div class="card-body">
-            <div class="card-type">
-              <span class="t-bs">Brza hrana · Sendviči · Roštilj</span>
-              <span class="t-en">Fast Food · Sandwiches · Grill</span>
-            </div>
-            <div class="card-name">Lorenza</div>
-            <div class="card-tags">
-              <span class="tag">Sendviči</span>
-              <span class="tag">Ćevapi</span>
-              <span class="tag">Brza usluga</span>
-            </div>
-            <p class="card-desc">
-              <span class="t-bs">Lorenza je popularan fast food objekat u Rožajama s brzom uslugom i povoljnim cijenama.
-                Nudi sendviče, ćevape, pljeskavice i druge specijalitete s roštilja — idealno za brzi i ukusni obrok u
-                gradu.</span>
-              <span class="t-en">Lorenza is a popular fast food spot in Rožaje with quick service and affordable prices. It offers sandwiches, ćevapi, pljeskavica and other grilled items — ideal for a quick and tasty meal in town.</span>
-            </p>
-            <div class="card-meta">
-              <span><i class="fa-solid fa-location-dot"></i> Rožaje</span>
-              <span><i class="fa-solid fa-bolt"></i>
-                <span class="t-bs">Brza usluga</span>
-                <span class="t-en">Quick service</span>
-              </span>
-            </div>
-          </div>
-        </div>
-
-        <!-- 14. Little Italy -->
-        <div class="card" data-cat="fast-food pizza">
-          <div class="card-img-wrap">
-            <img src="images/restaurants/little-italy.webp" alt="Little Italy Rožaje" loading="lazy">
-            <span class="card-badge blue">
-              <span class="t-bs">Pizza · Italijanska</span>
-              <span class="t-en">Pizza · Italian</span>
-            </span>
-          </div>
-          <div class="card-body">
-            <div class="card-type">
-              <span class="t-bs">Fast Food · Pizza · Italijanska kuhinja</span>
-              <span class="t-en">Fast Food · Pizza · Italian Cuisine</span>
-            </div>
-            <div class="card-name">Little Italy</div>
-            <div class="card-tags">
-              <span class="tag">Pizza</span>
-              <span class="tag">Pasta</span>
-              <span class="tag">Brza hrana</span>
-            </div>
-            <p class="card-desc">
-              <span class="t-bs">Little Italy nudi autentičan italijanski fast food ukus u Rožajama — svježe pečene
-                pizze na tankom tijestu, pasta i italijanski sendviči. Brza usluga i bogat izbor okusa za
-                svakoga.</span>
-              <span class="t-en">Little Italy brings an authentic Italian fast food taste to Rožaje — freshly baked thin-crust pizzas, pasta and Italian sandwiches. Quick service and a rich variety of flavours for everyone.</span>
-            </p>
-            <div class="card-meta">
-              <span><i class="fa-solid fa-location-dot"></i> Rožaje</span>
-              <span><i class="fa-solid fa-pizza-slice"></i>
-                <span class="t-bs">Pizza & Pasta</span>
-                <span class="t-en">Pizza & Pasta</span>
-              </span>
-            </div>
-          </div>
-        </div>
-
-        <!-- 15. Bereket -->
-        <div class="card" data-cat="fast-food">
-          <div class="card-img-wrap">
-            <img src="images/restaurants/bereket.webp" alt="Fast Food Bereket Rožaje" loading="lazy">
-            <span class="card-badge">
-              <span class="t-bs">Burek · Pečenje</span>
-              <span class="t-en">Burek · Roasted Meat</span>
-            </span>
-          </div>
-          <div class="card-body">
-            <div class="card-type">
-              <span class="t-bs">Fast Food · Burekdžinica · Pečenjara</span>
-              <span class="t-en">Fast Food · Burek · Roast House</span>
-            </div>
-            <div class="card-name">Fast Food Bereket</div>
-            <div class="card-tags">
-              <span class="tag">Burek</span>
-              <span class="tag">Pita</span>
-              <span class="tag">Pečenje</span>
-            </div>
-            <p class="card-desc">
-              <span class="t-bs">Fast Food Bereket smješten je na Trgu IX Crnogorske Brigade u Rožajama. Nudi svježe
-                pečen burek, pite s različitim nadjevima i toplo pečenje — dobar izbor za brz i izdašan obrok u centru
-                grada.</span>
-              <span class="t-en">Fast Food Bereket is located on Trg IX Crnogorske Brigade in Rožaje. It offers freshly baked burek, pies with various fillings and warm roasted meats — a good choice for a quick and filling meal in the city centre.</span>
-            </p>
-            <div class="card-meta">
-              <span><i class="fa-solid fa-location-dot"></i> Trg IX Crnogorske Brigade bb</span>
-              <span><i class="fa-solid fa-phone"></i> 063 260 261</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- 16. PC Diyaz -->
-        <div class="card" data-cat="bar">
-          <div class="card-img-wrap">
-            <img src="images/restaurants/pc-diyaz.webp" alt="PC Diyaz Rožaje" loading="lazy">
-            <span class="card-badge blue">
-              <span class="t-bs">Kafić · Lounge</span>
-              <span class="t-en">Café · Lounge</span>
-            </span>
-          </div>
-          <div class="card-body">
-            <div class="card-type">
-              <span class="t-bs">Kafić · Lounge Bar</span>
-              <span class="t-en">Café · Lounge Bar</span>
-            </div>
-            <div class="card-name">PC Diyaz</div>
-            <div class="card-tags">
-              <span class="tag">Kafa</span>
-              <span class="tag">Pića</span>
-              <span class="tag">Lounge</span>
-            </div>
-            <p class="card-desc">
-              <span class="t-bs">PC Diyaz je kafić i lounge bar u Rožajama, poznat po ugodnoj atmosferi i dobrom izboru
-                pića. Omiljeno okupljalište mještana za jutarnju kafu, opušteno poslijepodne ili večernji izlazak s
-                društvom.</span>
-              <span class="t-en">PC Diyaz is a café and lounge bar in Rožaje, known for its pleasant atmosphere and good selection of drinks. A favourite gathering place for locals for a morning coffee, a relaxed afternoon or an evening out with friends.</span>
-            </p>
-            <div class="card-meta">
-              <span><i class="fa-solid fa-location-dot"></i> Rožaje</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- 17. Osmica -->
-        <div class="card" data-cat="fast-food">
-          <div class="card-img-wrap">
-            <img src="images/restaurants/the-eight.webp" alt="Osmica Rožaje" loading="lazy">
-            <span class="card-badge">
-              <span class="t-bs">Brza hrana</span>
-              <span class="t-en">Fast Food</span>
-            </span>
-          </div>
-          <div class="card-body">
-            <div class="card-type">
-              <span class="t-bs">Fast Food · Brza hrana</span>
-              <span class="t-en">Fast Food</span>
-            </div>
-            <div class="card-name">Osmica</div>
-            <div class="card-tags">
-              <span class="tag">Brza hrana</span>
-              <span class="tag">Ćevapi</span>
-              <span class="tag">Sendviči</span>
-            </div>
-            <p class="card-desc">
-              <span class="t-bs">Osmica je prepoznatljivi fast food objekat u Rožajama, poznat po brzoj usluzi i domaćim
-                ukusima. Omiljen među lokalnim stanovništvom zahvaljujući kvalitetnoj hrani po pristupačnim cijenama —
-                dobar izbor za brzi obrok u bilo koje doba dana.</span>
-              <span class="t-en">Osmica is a well-known fast food spot in Rožaje, appreciated for quick service and homemade flavours. A favourite among locals thanks to quality food at affordable prices — a solid choice for a quick meal at any time of day.</span>
-            </p>
-            <div class="card-meta">
-              <span><i class="fa-solid fa-location-dot"></i> Rožaje</span>
-              <span><i class="fa-solid fa-bolt"></i>
-                <span class="t-bs">Brza usluga</span>
-                <span class="t-en">Quick service</span>
-              </span>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- SAVJETI ZA POSJETIOCE -->
-    <section class="savjeti-strip">
-      <div class="section-label">
-        <span class="t-bs">Korisne informacije</span>
-        <span class="t-en">Useful Information</span>
-      </div>
-      <h2 class="section-title">
-        <span class="t-bs">Savjeti za<br><span class="line2">posjetioce</span></span>
-        <span class="t-en">Tips for<br><span class="line2">Visitors</span></span>
-      </h2>
-      <div class="savjeti-grid">
-        <div class="savjet">
-          <div class="savjet-icon"><i class="fa-solid fa-calendar-check"></i></div>
-          <div>
-            <h4>
-              <span class="t-bs">Rezervišite unaprijed</span>
-              <span class="t-en">Book in Advance</span>
-            </h4>
-            <p>
-              <span class="t-bs">Rožajski restorani, posebno etno kuće i planinska odmarališta, često su popunjeni
-                vikendom i tokom ljetne sezone (juli–august). Preporučujemo rezervaciju barem dan ranije.</span>
-              <span class="t-en">Rožaje restaurants, especially ethno houses and mountain retreats, are often full on weekends and during the summer season (July–August). We recommend booking at least a day in advance.</span>
-            </p>
-          </div>
-        </div>
-        <div class="savjet">
-          <div class="savjet-icon"><i class="fa-solid fa-coins"></i></div>
-          <div>
-            <h4>
-              <span class="t-bs">Plaćanje i cijene</span>
-              <span class="t-en">Payment &amp; Prices</span>
-            </h4>
-            <p>
-              <span class="t-bs">Valuta je euro (€). Većina restorana prihvata kartično plaćanje, ali planinski objekti
-                poput Saraja Pod Hajlom mogu raditi isključivo s gotovinom — ponijeti sitniš.</span>
-              <span class="t-en">The currency is euro (€). Most restaurants accept card payments, but mountain venues like Saraj Pod Hajlom may operate cash-only — bring change.</span>
-            </p>
-          </div>
-        </div>
-        <div class="savjet">
-          <div class="savjet-icon"><i class="fa-solid fa-utensils"></i></div>
-          <div>
-            <h4>
-              <span class="t-bs">Što naručiti</span>
-              <span class="t-en">What to Order</span>
-            </h4>
-            <p>
-              <span class="t-bs">U Rožajama obavezno probajte: ćevape (Kero), bosanski lonac i mantije (Ognjište),
-                jagnjetinu s ražnja (Saraj Pod Hajlom) i domaći kajmak koji prate gotovo sva jela.</span>
-              <span class="t-en">In Rožaje be sure to try: ćevapi (Kero), Bosnian pot stew and mantije (Ognjište), spit-roasted lamb (Saraj Pod Hajlom) and homemade kajmak cream served alongside almost every dish.</span>
-            </p>
-          </div>
-        </div>
-        <div class="savjet">
-          <div class="savjet-icon"><i class="fa-solid fa-sun"></i></div>
-          <div>
-            <h4>
-              <span class="t-bs">Sezona i radno vrijeme</span>
-              <span class="t-en">Season &amp; Opening Hours</span>
-            </h4>
-            <p>
-              <span class="t-bs">Planinski objekti (Saraj Pod Hajlom) mogu imati skraćeno radno vrijeme ili zatvoreni
-                biti van sezone (oktobar–maj). Restorani u centru rade cijele godine. Uvijek provjerite radno vrijeme
-                telefonski.</span>
-              <span class="t-en">Mountain venues (Saraj Pod Hajlom) may have reduced hours or be closed out of season (October–May). Restaurants in the centre operate year-round. Always check opening hours by phone.</span>
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- INFO STRIP -->
-    <div class="info-strip">
-      <div class="info-item">
-        <div class="info-icon"><i class="fa-solid fa-award"></i></div>
-        <h3>
-          <span class="t-bs">Pažljivo biran odabir</span>
-          <span class="t-en">Carefully Curated</span>
-        </h3>
-        <p>
-          <span class="t-bs">Svi restorani su odabrani na temelju recenzija posjetilaca, lokalnih preporuka i
-            dugogodišnje tradicije.</span>
-          <span class="t-en">All restaurants are selected based on visitor reviews, local recommendations and long-standing tradition.</span>
-        </p>
-      </div>
-      <div class="info-item">
-        <div class="info-icon"><i class="fa-solid fa-mountain-sun"></i></div>
-        <h3>
-          <span class="t-bs">Planinska hrana</span>
-          <span class="t-en">Mountain Food</span>
-        </h3>
-        <p>
-          <span class="t-bs">Kuhinja Rožaja je odraz planinske tradicije — svježe, domaće, hranjivo. Hajla na 2.403 m
-            oblikuje lokalni identitet i ukus.</span>
-          <span class="t-en">Rožaje cuisine reflects mountain tradition — fresh, homemade, nourishing. Hajla at 2,403 m shapes local identity and flavour.</span>
-        </p>
-      </div>
-      <div class="info-item">
-        <div class="info-icon"><i class="fa-solid fa-circle-info"></i></div>
-        <h3>
-          <span class="t-bs">Turistička organizacija</span>
-          <span class="t-en">Tourist Organisation</span>
-        </h3>
-        <p>
-          <span class="t-bs">Za više preporuka o restoranima kontaktirajte Turističku organizaciju Rožaje:
-            <br>torozaje.me</span>
-          <span class="t-en">For more restaurant recommendations contact the Tourist Organisation of Rožaje: <br>torozaje.me</span>
-        </p>
-      </div>
-    </div>
-  </main>
-
-  <!-- FOOTER -->
-  <footer>
-    <div class="footer-top">
-      <div class="footer-brand">
-        <div class="nav-logo">Doživi Rožaje</div>
-        <p>
-          <span class="t-bs">Tvoj vodič kroz najbolja ugostiteljska mjesta Rožaja. Lokalno, autentično, planinski
-            svježe.</span>
-          <span class="t-en">Your guide to the best hospitality spots in Rožaje. Local, authentic, mountain fresh.</span>
-        </p>
-        <div class="footer-social">
-          <a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram"><i
-              class="fa-brands fa-instagram"></i></a>
-          <a href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="Facebook"><i
-              class="fa-brands fa-facebook-f"></i></a>
-          <a href="https://www.tiktok.com/" target="_blank" rel="noopener" aria-label="TikTok"><i
-              class="fa-brands fa-tiktok"></i></a>
-        </div>
-      </div>
-      <div class="footer-links">
-        <ul>
-          <li><a href="index.html">
-            <span class="t-bs">Početna</span>
-            <span class="t-en">Home</span>
-          </a></li>
-          <li><a href="accommodations.html"><span class="t-bs">Smještaji</span><span
-                class="t-en">Accommodations</span></a></li>
-          <li><a href="restaurants.html">
+  <body>
+    <!-- NAV -->
+    <nav>
+      <a href="index.html" class="nav-logo">Doživi Rožaje</a>
+      <ul class="nav-links">
+        <li>
+          <a href="accommodations.html">
+            <span class="t-bs">Smještaji</span>
+            <span class="t-en">Accommodations</span>
+          </a>
+        </li>
+        <li>
+          <a href="restaurants.html" class="active">
             <span class="t-bs">Restorani</span>
             <span class="t-en">Restaurants</span>
           </a>
-          </li>
-          <li><a href="dishes.html">
-            <span class="t-bs">Tradicionalna Jela</span>
-            <span class="t-en">Traditional Food</span>
-          </a></li>
-          <li><a href="o-rozajama.html">
+        </li>
+        <li>
+          <a href="dishes.html">
+            <span class="t-bs">Jela</span>
+            <span class="t-en">Food</span>
+          </a>
+        </li>
+        <li>
+          <a href="o-rozajama.html">
             <span class="t-bs">O Rožajama</span>
             <span class="t-en">About</span>
-          </a></li>
-          <li><a href="kontakt.html">
+          </a>
+        </li>
+        <li>
+          <a href="kontakt.html">
             <span class="t-bs">Kontakt</span>
             <span class="t-en">Contact</span>
-          </a></li>
-        </ul>
+          </a>
+        </li>
+      </ul>
+      <div class="nav-right">
+        <a
+          href="https://www.instagram.com/"
+          target="_blank"
+          rel="noopener"
+          class="nav-social"
+          aria-label="Instagram"
+        >
+          <i class="fa-brands fa-instagram"></i>
+        </a>
+        <a
+          href="https://www.facebook.com/"
+          target="_blank"
+          rel="noopener"
+          class="nav-social"
+          aria-label="Facebook"
+        >
+          <i class="fa-brands fa-facebook-f"></i>
+        </a>
+        <button class="lang-toggle" onclick="toggleLang()" id="langBtn">EN</button>
       </div>
-    </div>
-    <div class="footer-bottom">
-      <p>&copy; 2026 Doživi Rožaje. <span class="t-bs">Sva prava zadržana. Napravljeno s ljubavlju za
-          Rožaje.</span><span class="t-en">All rights reserved. Made with love for Rožaje.</span></p>
-    </div>
-  </footer>
+    </nav>
 
-  <script src="js/restaurants.js"></script>
-</body>
+    <!-- PAGE HERO -->
+    <header class="page-hero">
+      <div class="page-hero-content">
+        <div class="hero-badge">
+          <span class="t-bs">Gdje jesti u Rožajama</span>
+          <span class="t-en">Where to Eat in Rožaje</span>
+        </div>
+        <h1 class="page-title">
+          <span class="t-bs">
+            Restorani u
+            <br />
+            <span class="accent">Rožajama</span>
+          </span>
+          <span class="t-en">
+            Restaurants in
+            <br />
+            <span class="accent">Rožaje</span>
+          </span>
+        </h1>
+        <p class="page-sub">
+          <span class="t-bs">
+            Od legendarnih ćevabdžinica i etno kuća do lounge barova — donosimo ti pažljivo biranu
+            ponudu ugostiteljskih mjesta u gradu pod Hajlom.
+          </span>
+          <span class="t-en">
+            From legendary ćevap joints and ethno houses to lounge bars — a carefully curated
+            selection of dining spots in the city beneath Mount Hajla.
+          </span>
+        </p>
+      </div>
+    </header>
 
+    <!-- BREADCRUMB -->
+    <div class="breadcrumb">
+      <a href="index.html">
+        <i class="fa-solid fa-house"></i>
+        <span class="t-bs">Početna</span>
+        <span class="t-en">Home</span>
+      </a>
+      <i class="fa-solid fa-chevron-right"></i>
+      <span>
+        <span class="t-bs">Restorani</span>
+        <span class="t-en">Restaurants</span>
+      </span>
+    </div>
+
+    <!-- MAIN -->
+    <main>
+      <section class="restorani-section">
+        <div class="restorani-header">
+          <div>
+            <div class="section-label">
+              <span class="t-bs">Naš odabir · 17 mjesta</span>
+              <span class="t-en">Our Selection · 17 Spots</span>
+            </div>
+            <h2 class="section-title">
+              <span class="t-bs">
+                Restorani koje
+                <br />
+                <span class="line2">moraš posjetiti</span>
+              </span>
+              <span class="t-en">
+                Restaurants you
+                <br />
+                <span class="line2">must visit</span>
+              </span>
+            </h2>
+          </div>
+        </div>
+
+        <!-- Filter tabs -->
+        <div class="filter-tabs">
+          <button class="filter-tab active" onclick="filterCards('sve', this)">
+            <span class="t-bs">Svi restorani</span>
+            <span class="t-en">All</span>
+          </button>
+          <button class="filter-tab" onclick="filterCards('roštilj', this)">
+            <span class="t-bs">Roštilj</span>
+            <span class="t-en">Grill</span>
+          </button>
+          <button class="filter-tab" onclick="filterCards('etno', this)">
+            <span class="t-bs">Etno / Domaće</span>
+            <span class="t-en">Ethno / Local</span>
+          </button>
+          <button class="filter-tab" onclick="filterCards('bar', this)">
+            <span class="t-bs">Kafić / Bar</span>
+            <span class="t-en">Café / Bar</span>
+          </button>
+          <button class="filter-tab" onclick="filterCards('planinski', this)">
+            <span class="t-bs">Planinski</span>
+            <span class="t-en">Mountain</span>
+          </button>
+          <button class="filter-tab" onclick="filterCards('pizza', this)">
+            <span class="t-bs">Pizza</span>
+            <span class="t-en">Pizza</span>
+          </button>
+          <button class="filter-tab" onclick="filterCards('fast-food', this)">
+            <span class="t-bs">Brza hrana</span>
+            <span class="t-en">Fast Food</span>
+          </button>
+        </div>
+
+        <div class="rest-grid">
+          <!-- 1. Restoran Kero -->
+          <div class="card" data-cat="roštilj">
+            <div class="card-img-wrap">
+              <img
+                src="images/restaurants/restaurant-kero.webp"
+                alt="Restoran Kero Rožaje"
+                loading="lazy"
+              />
+              <span class="card-badge">
+                <span class="t-bs">Legenda od 1989.</span>
+                <span class="t-en">Legend since 1989</span>
+              </span>
+              <span class="card-rating">
+                <i class="fa-solid fa-star"></i>
+                4.8
+              </span>
+            </div>
+            <div class="card-body">
+              <div class="card-type">
+                <span class="t-bs">Ćevabdžinica · Roštilj</span>
+                <span class="t-en">Ćevap House · Grill</span>
+              </div>
+              <div class="card-name">Restoran Kero</div>
+              <div class="card-tags">
+                <span class="tag">Ćevapi</span>
+                <span class="tag">Pljeskavica</span>
+                <span class="tag">Roštilj</span>
+              </div>
+              <p class="card-desc">
+                <span class="t-bs">
+                  Restoran Kero slovi za najstariju i najpopularniju ćevabdžinicu u Rožajama,
+                  otvorenu 1989. godine. Ručno miješano meso, svježe pečen somun i domaći prelivi —
+                  recept koji se nije mijenjao decenijama. Interijer krasi kolekcija originalnih
+                  uljanih slika.
+                </span>
+                <span class="t-en">
+                  Restaurant Kero is considered the oldest and most popular ćevap house in Rožaje,
+                  opened in 1989. Hand-mixed meat, freshly baked somun bread and homemade sauces — a
+                  recipe unchanged for decades.
+                </span>
+              </p>
+              <div class="card-meta">
+                <span>
+                  <i class="fa-regular fa-clock"></i>
+                  10:00–23:00
+                </span>
+                <span>
+                  <i class="fa-solid fa-location-dot"></i>
+                  Jaha Kurtagića bb
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2. Alcazar Lounge Bar -->
+          <div class="card" data-cat="bar">
+            <div class="card-img-wrap">
+              <img
+                src="images/restaurants/alkazar-lounge-bar.webp"
+                alt="Alcazar Lounge Bar Rožaje"
+                loading="lazy"
+              />
+              <span class="card-badge blue">
+                <span class="t-bs">#1 u Rožajama</span>
+                <span class="t-en">#1 in Rožaje</span>
+              </span>
+              <span class="card-rating">
+                <i class="fa-solid fa-star"></i>
+                5.0
+              </span>
+            </div>
+            <div class="card-body">
+              <div class="card-type">
+                <span class="t-bs">Lounge Bar · Kafa · Pizza</span>
+                <span class="t-en">Lounge Bar · Coffee · Pizza</span>
+              </div>
+              <div class="card-name">Alcazar Lounge Bar</div>
+              <div class="card-tags">
+                <span class="tag">Kafa</span>
+                <span class="tag">Pizza</span>
+                <span class="tag">Kokteli</span>
+                <span class="tag">Brunch</span>
+              </div>
+              <p class="card-desc">
+                <span class="t-bs">
+                  Ocijenjen brojem jedan u Rožajama. Moderna atmosfera, svježe mljevena kafa, bogata
+                  lista pića i lagana hrana — omiljeno mjesto mještana i turista od jutra do kasno u
+                  noć.
+                </span>
+                <span class="t-en">
+                  Rated number one in Rožaje. Modern atmosphere, freshly ground coffee, an extensive
+                  drinks menu and light food — a favourite spot for locals and tourists from morning
+                  until late at night.
+                </span>
+              </p>
+              <div class="card-meta">
+                <span>
+                  <i class="fa-regular fa-clock"></i>
+                  08:00–01:00
+                </span>
+                <span>
+                  <i class="fa-solid fa-location-dot"></i>
+                  <span class="t-bs">Centar Rožaja</span>
+                  <span class="t-en">Rožaje Centre</span>
+                </span>
+                <span>
+                  <i class="fa-solid fa-wifi"></i>
+                  WiFi
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 3. Restoran Duga -->
+          <div class="card" data-cat="etno">
+            <div class="card-img-wrap">
+              <img
+                src="images/restaurants/restaurant-rainbow.webp"
+                alt="Restoran Duga Rožaje"
+                loading="lazy"
+              />
+              <span class="card-badge">
+                <span class="t-bs">Porodičan</span>
+                <span class="t-en">Family</span>
+              </span>
+              <span class="card-rating">
+                <i class="fa-solid fa-star"></i>
+                4.4
+              </span>
+            </div>
+            <div class="card-body">
+              <div class="card-type">
+                <span class="t-bs">Domaća Kuhinja · Porodičan restoran</span>
+                <span class="t-en">Home Cooking · Family Restaurant</span>
+              </div>
+              <div class="card-name">Restoran Duga</div>
+              <div class="card-tags">
+                <span class="tag">Domaća jela</span>
+                <span class="tag">Čorbe</span>
+                <span class="tag">Roštilj</span>
+              </div>
+              <p class="card-desc">
+                <span class="t-bs">
+                  Prostran porodičan restoran uz magistralu E65 s bogatim menijom — svježe čorbe,
+                  jela u loncu, sezonski specijaliteti i roštilj. Idealno za veće grupe i porodična
+                  slavlja.
+                </span>
+                <span class="t-en">
+                  A spacious family restaurant along the E65 with a rich menu — fresh soups,
+                  slow-cooked dishes, seasonal specialities and grill. Ideal for larger groups and
+                  family celebrations.
+                </span>
+              </p>
+              <div class="card-meta">
+                <span>
+                  <i class="fa-regular fa-clock"></i>
+                  09:00–22:00
+                </span>
+                <span>
+                  <i class="fa-solid fa-location-dot"></i>
+                  Magistrala E65
+                </span>
+                <span>
+                  <i class="fa-solid fa-car"></i>
+                  Parking
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 4. Etno Restoran Ognjište -->
+          <div class="card" data-cat="etno">
+            <div class="card-img-wrap">
+              <img
+                src="images/restaurants/traditional-restaurant-hearth.webp"
+                alt="Etno Restoran Ognjište Rožaje"
+                loading="lazy"
+              />
+              <span class="card-badge">
+                <span class="t-bs">Etno · Tradicija</span>
+                <span class="t-en">Ethno · Tradition</span>
+              </span>
+              <span class="card-rating">
+                <i class="fa-solid fa-star"></i>
+                4.7
+              </span>
+            </div>
+            <div class="card-body">
+              <div class="card-type">
+                <span class="t-bs">Etno Restoran · Bosanska Kuhinja</span>
+                <span class="t-en">Ethno Restaurant · Bosnian Cuisine</span>
+              </div>
+              <div class="card-name">Etno Restoran Ognjište</div>
+              <div class="card-tags">
+                <span class="tag">Bosanski lonac</span>
+                <span class="tag">Pita</span>
+                <span class="tag">Ambijentan</span>
+              </div>
+              <p class="card-desc">
+                <span class="t-bs">
+                  Autentičan etno restoran u drvenoj kući okruženoj borovinom. Dim s ognjišta,
+                  starinski predmeti i bosanska kuhinja — bosanski lonac, mantije, pita i jagnjetina
+                  ispod sača.
+                </span>
+                <span class="t-en">
+                  Authentic ethno restaurant in a log cabin surrounded by pine forest. Hearth smoke,
+                  antique décor and Bosnian cuisine — pot stew, mantije, cheese pie and lamb under
+                  the sač bell.
+                </span>
+              </p>
+              <div class="card-meta">
+                <span>
+                  <i class="fa-regular fa-clock"></i>
+                  10:00–23:00
+                </span>
+                <span>
+                  <i class="fa-solid fa-location-dot"></i>
+                  Rožaje
+                </span>
+                <span>
+                  <i class="fa-solid fa-utensils"></i>
+                  <span class="t-bs">Rezervacija preporučena</span>
+                  <span class="t-en">Reservation recommended</span>
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 5. Saraj Pod Hajlom -->
+          <div class="card" data-cat="planinski">
+            <div class="card-img-wrap">
+              <img
+                src="images/restaurants/palace-under-hajla.webp"
+                alt="Saraj Pod Hajlom Rožaje"
+                loading="lazy"
+              />
+              <span class="card-badge gold">
+                <span class="t-bs">Planinski · Hajla</span>
+                <span class="t-en">Mountain · Hajla</span>
+              </span>
+              <span class="card-rating">
+                <i class="fa-solid fa-star"></i>
+                4.6
+              </span>
+            </div>
+            <div class="card-body">
+              <div class="card-type">
+                <span class="t-bs">Planinski Restoran · Roštilj</span>
+                <span class="t-en">Mountain Restaurant · Grill</span>
+              </div>
+              <div class="card-name">Saraj Pod Hajlom</div>
+              <div class="card-tags">
+                <span class="tag">Planinska hrana</span>
+                <span class="tag">Jagnjetina</span>
+                <span class="tag">Roštilj</span>
+              </div>
+              <p class="card-desc">
+                <span class="t-bs">
+                  Restoran u podnožju Hajle (2.403 m). Svjež planinski vazduh, domaće jagnjeće meso
+                  i planinski specijaliteti u netaknutoj prirodi — omiljeno odredište planinara i
+                  porodica.
+                </span>
+                <span class="t-en">
+                  A restaurant at the foot of Hajla (2,403 m). Fresh mountain air, local lamb and
+                  mountain specialities in unspoilt nature — a favourite destination for hikers and
+                  families.
+                </span>
+              </p>
+              <div class="card-meta">
+                <span>
+                  <i class="fa-regular fa-clock"></i>
+                  10:00–22:00
+                </span>
+                <span>
+                  <i class="fa-solid fa-location-dot"></i>
+                  <span class="t-bs">Pod Hajlom, Rožaje</span>
+                  <span class="t-en">Foot of Hajla, Rožaje</span>
+                </span>
+                <span>
+                  <i class="fa-solid fa-mountain"></i>
+                  2403 m
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 6. Gastroli -->
+          <div class="card" data-cat="bar">
+            <div class="card-img-wrap">
+              <img src="images/restaurants/gastroli.webp" alt="Gastroli Rožaje" loading="lazy" />
+              <span class="card-badge">
+                <span class="t-bs">Domaće · Roštilj</span>
+                <span class="t-en">Home · Grill</span>
+              </span>
+            </div>
+            <div class="card-body">
+              <div class="card-type">
+                <span class="t-bs">Restoran · Domaća Kuhinja</span>
+                <span class="t-en">Restaurant · Home Cuisine</span>
+              </div>
+              <div class="card-name">Gastroli</div>
+              <div class="card-tags">
+                <span class="tag">Domaća jela</span>
+                <span class="tag">Roštilj</span>
+                <span class="tag">Ćevapi</span>
+              </div>
+              <p class="card-desc">
+                <span class="t-bs">
+                  Restoran Gastroli nudi bogatu domaću kuhinju rožajskog kraja — svježa jela s
+                  roštilja, domaće čorbe i tradicionalni specijaliteti. Topla atmosfera i brza
+                  usluga čine ga popularnim izborom u gradu.
+                </span>
+                <span class="t-en">
+                  Gastroli restaurant offers a rich home cuisine from the Rožaje region — fresh
+                  grilled dishes, homemade soups and traditional specialities. Warm atmosphere and
+                  quick service make it a popular choice in town.
+                </span>
+              </p>
+              <div class="card-meta">
+                <span>
+                  <i class="fa-regular fa-clock"></i>
+                  09:00–22:00
+                </span>
+                <span>
+                  <i class="fa-solid fa-location-dot"></i>
+                  Rožaje
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 7. Komitet -->
+          <div class="card" data-cat="bar">
+            <div class="card-img-wrap">
+              <img src="images/restaurants/committee.webp" alt="Komitet Rožaje" loading="lazy" />
+              <span class="card-badge blue">
+                <span class="t-bs">Kafić · Bar</span>
+                <span class="t-en">Café · Bar</span>
+              </span>
+            </div>
+            <div class="card-body">
+              <div class="card-type">
+                <span class="t-bs">Kafić · Restoran · Bar</span>
+                <span class="t-en">Café · Restaurant · Bar</span>
+              </div>
+              <div class="card-name">Komitet</div>
+              <div class="card-tags">
+                <span class="tag">Kafa</span>
+                <span class="tag">Hrana</span>
+                <span class="tag">Kokteli</span>
+              </div>
+              <p class="card-desc">
+                <span class="t-bs">
+                  Komitet je moderan kafić i bar u centru Rožaja, poznat po odličnoj kafi i ugodnoj
+                  atmosferi. Idealno mjesto za jutarnju kafu, poslovni sastanak ili opušteno veče s
+                  prijateljima.
+                </span>
+                <span class="t-en">
+                  Komitet is a modern café and bar in the centre of Rožaje, known for excellent
+                  coffee and a pleasant atmosphere. The ideal place for a morning coffee, a business
+                  meeting or a relaxed evening with friends.
+                </span>
+              </p>
+              <div class="card-meta">
+                <span>
+                  <i class="fa-regular fa-clock"></i>
+                  07:00–00:00
+                </span>
+                <span>
+                  <i class="fa-solid fa-location-dot"></i>
+                  Gradski Trg, Rožaje
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 8. Restoran Ibar -->
+          <div class="card" data-cat="etno">
+            <div class="card-img-wrap">
+              <img
+                src="images/restaurants/restaurant-ibar.webp"
+                alt="Restoran Ibar Rožaje"
+                loading="lazy"
+              />
+              <span class="card-badge">
+                <span class="t-bs">Uz rijeku Ibar</span>
+                <span class="t-en">By the Ibar River</span>
+              </span>
+            </div>
+            <div class="card-body">
+              <div class="card-type">
+                <span class="t-bs">Restoran · Domaća Kuhinja</span>
+                <span class="t-en">Restaurant · Home Cuisine</span>
+              </div>
+              <div class="card-name">Restoran Ibar</div>
+              <div class="card-tags">
+                <span class="tag">Domaća jela</span>
+                <span class="tag">Riba</span>
+                <span class="tag">Roštilj</span>
+              </div>
+              <p class="card-desc">
+                <span class="t-bs">
+                  Restoran Ibar nosi ime po rijeci Ibar čiji izvori se nalaze u okolini Rožaja. Nudi
+                  domaću kuhinju s naglaskom na svježu ribu i jela s roštilja, u mirnom ambijentu
+                  blizu prirode.
+                </span>
+                <span class="t-en">
+                  Restaurant Ibar takes its name from the Ibar river, whose sources are near Rožaje.
+                  It offers home cuisine with an emphasis on fresh fish and grilled dishes, in a
+                  peaceful setting close to nature.
+                </span>
+              </p>
+              <div class="card-meta">
+                <span>
+                  <i class="fa-regular fa-clock"></i>
+                  09:00–22:00
+                </span>
+                <span>
+                  <i class="fa-solid fa-location-dot"></i>
+                  Rožaje
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 9. Restoran Kurtagić -->
+          <div class="card" data-cat="roštilj">
+            <div class="card-img-wrap">
+              <img
+                src="images/restaurants/restaurant-kurtagic.webp"
+                alt="Restoran Kurtagić Rožaje"
+                loading="lazy"
+              />
+              <span class="card-badge">
+                <span class="t-bs">Porodično · Tradicija</span>
+                <span class="t-en">Family · Tradition</span>
+              </span>
+            </div>
+            <div class="card-body">
+              <div class="card-type">
+                <span class="t-bs">Porodični Restoran · Roštilj</span>
+                <span class="t-en">Family Restaurant · Grill</span>
+              </div>
+              <div class="card-name">Restoran Kurtagić</div>
+              <div class="card-tags">
+                <span class="tag">Ćevapi</span>
+                <span class="tag">Roštilj</span>
+                <span class="tag">Domaće</span>
+              </div>
+              <p class="card-desc">
+                <span class="t-bs">
+                  Porodični restoran Kurtagić s dugom tradicijom u Rožajama. Specijaliteti s
+                  roštilja, domaći ćevapi i jela pripremljena po tradicionalnim receptima. Topla,
+                  domaćinska atmosfera i gostoprimstvo u svakom zalogaju.
+                </span>
+                <span class="t-en">
+                  Family restaurant Kurtagić with a long tradition in Rožaje. Grill specialities,
+                  homemade ćevapi and dishes prepared from traditional recipes. Warm, homely
+                  atmosphere and hospitality in every bite.
+                </span>
+              </p>
+              <div class="card-meta">
+                <span>
+                  <i class="fa-regular fa-clock"></i>
+                  10:00–22:00
+                </span>
+                <span>
+                  <i class="fa-solid fa-location-dot"></i>
+                  Rožaje
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 10. Pizzeria City -->
+          <div class="card" data-cat="pizza">
+            <div class="card-img-wrap">
+              <img
+                src="images/restaurants/pizzeria-city.webp"
+                alt="Pizzeria City Rožaje"
+                loading="lazy"
+              />
+              <span class="card-badge blue">
+                <span class="t-bs">Pizza · Brza hrana</span>
+                <span class="t-en">Pizza · Fast Food</span>
+              </span>
+            </div>
+            <div class="card-body">
+              <div class="card-type">
+                <span class="t-bs">Pizzeria · Brza hrana</span>
+                <span class="t-en">Pizzeria · Fast Food</span>
+              </div>
+              <div class="card-name">Pizzeria City</div>
+              <div class="card-tags">
+                <span class="tag">Pizza</span>
+                <span class="tag">Pasta</span>
+                <span class="tag">Dostava</span>
+              </div>
+              <p class="card-desc">
+                <span class="t-bs">
+                  Pizzeria City je popularna pizzeria u centru Rožaja s bogatom ponudom pizza, paste
+                  i brze hrane. Svježe tijesto, kvalitetni sastojci i brza usluga — idealno za
+                  porodice i mlade.
+                </span>
+                <span class="t-en">
+                  Pizzeria City is a popular pizzeria in the centre of Rožaje with a wide selection
+                  of pizzas, pasta and fast food. Fresh dough, quality ingredients and quick service
+                  — ideal for families and young visitors.
+                </span>
+              </p>
+              <div class="card-meta">
+                <span>
+                  <i class="fa-regular fa-clock"></i>
+                  10:00–23:00
+                </span>
+                <span>
+                  <i class="fa-solid fa-location-dot"></i>
+                  <span class="t-bs">Centar Rožaja</span>
+                  <span class="t-en">Rožaje Centre</span>
+                </span>
+                <span>
+                  <i class="fa-solid fa-motorcycle"></i>
+                  <span class="t-bs">Dostava</span>
+                  <span class="t-en">Delivery</span>
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 11. Gracia -->
+          <div class="card" data-cat="bar">
+            <div class="card-img-wrap">
+              <img src="images/restaurants/gracia.webp" alt="Gracia Rožaje" loading="lazy" />
+              <span class="card-badge blue">
+                <span class="t-bs">Kafić · Restoran</span>
+                <span class="t-en">Café · Restaurant</span>
+              </span>
+            </div>
+            <div class="card-body">
+              <div class="card-type">
+                <span class="t-bs">Kafić · Restoran · Desertni bar</span>
+                <span class="t-en">Café · Restaurant · Dessert Bar</span>
+              </div>
+              <div class="card-name">Gracia</div>
+              <div class="card-tags">
+                <span class="tag">Kafa</span>
+                <span class="tag">Deserti</span>
+                <span class="tag">Hrana</span>
+              </div>
+              <p class="card-desc">
+                <span class="t-bs">
+                  Gracia je ugodan kafić i restoran s elegantnom atmosferom u Rožajama. Poznata po
+                  ukusnim desertima, raznovrsnoj hrani i odličnoj kafi — savršeno mjesto za
+                  opuštanje i uživanje u svakom trenutku dana.
+                </span>
+                <span class="t-en">
+                  Gracia is a pleasant café and restaurant with an elegant atmosphere in Rožaje.
+                  Known for delicious desserts, varied food and excellent coffee — the perfect place
+                  to relax and enjoy any time of day.
+                </span>
+              </p>
+              <div class="card-meta">
+                <span>
+                  <i class="fa-regular fa-clock"></i>
+                  08:00–23:00
+                </span>
+                <span>
+                  <i class="fa-solid fa-location-dot"></i>
+                  <span class="t-bs">Centar Rožaja</span>
+                  <span class="t-en">Rožaje Centre</span>
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 12. Dermando -->
+          <div class="card" data-cat="planinski">
+            <div class="card-img-wrap">
+              <img
+                src="images/restaurants/dermando.webp"
+                alt="Dom Kulture Dermando Bandžov Rožaje"
+                loading="lazy"
+              />
+              <span class="card-badge gold">
+                <span class="t-bs">1500 m · Bandžov</span>
+                <span class="t-en">1500 m · Bandžov</span>
+              </span>
+            </div>
+            <div class="card-body">
+              <div class="card-type">
+                <span class="t-bs">Planinski Restoran · Etno · Domaća kuhinja</span>
+                <span class="t-en">Mountain Restaurant · Ethno · Home Cuisine</span>
+              </div>
+              <div class="card-name">Dom Kulture Dermando</div>
+              <div class="card-tags">
+                <span class="tag">Kačamak</span>
+                <span class="tag">Cicvara</span>
+                <span class="tag">Jagnjetina</span>
+                <span class="tag">Roštilj</span>
+              </div>
+              <p class="card-desc">
+                <span class="t-bs">
+                  Planinski restoran i dom kulture u selu Bandžov na 1.500 m nadmorske visine, svega
+                  nekoliko kilometara od Rožaja. Nudi autentičnu planinsku kuhinju — kačamak,
+                  cicvaru, domaću pogaču i pečenje s roštilja — uz predivan pogled na Hajlu i okolne
+                  planine. Kapacitet: 60 mjesta za sjedenje, 30 ležaja.
+                </span>
+                <span class="t-en">
+                  Mountain restaurant and cultural centre in the village of Bandžov at 1,500 m above
+                  sea level, just a few kilometres from Rožaje. Offers authentic mountain cuisine —
+                  kačamak, cicvara, homemade pogača and roasted meats — with a beautiful view of
+                  Hajla and the surrounding mountains. Capacity: 60 seats, 30 beds.
+                </span>
+              </p>
+              <div class="card-meta">
+                <span>
+                  <i class="fa-solid fa-location-dot"></i>
+                  Bandžov, Rožaje
+                </span>
+                <span>
+                  <i class="fa-solid fa-phone"></i>
+                  +382 67 510 999
+                </span>
+                <span>
+                  <i class="fa-solid fa-mountain"></i>
+                  1500 m n.v.
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 13. Lorenza -->
+          <div class="card" data-cat="fast-food">
+            <div class="card-img-wrap">
+              <img src="images/restaurants/lorenza.webp" alt="Lorenza Rožaje" loading="lazy" />
+              <span class="card-badge">
+                <span class="t-bs">Brza hrana</span>
+                <span class="t-en">Fast Food</span>
+              </span>
+            </div>
+            <div class="card-body">
+              <div class="card-type">
+                <span class="t-bs">Brza hrana · Sendviči · Roštilj</span>
+                <span class="t-en">Fast Food · Sandwiches · Grill</span>
+              </div>
+              <div class="card-name">Lorenza</div>
+              <div class="card-tags">
+                <span class="tag">Sendviči</span>
+                <span class="tag">Ćevapi</span>
+                <span class="tag">Brza usluga</span>
+              </div>
+              <p class="card-desc">
+                <span class="t-bs">
+                  Lorenza je popularan fast food objekat u Rožajama s brzom uslugom i povoljnim
+                  cijenama. Nudi sendviče, ćevape, pljeskavice i druge specijalitete s roštilja —
+                  idealno za brzi i ukusni obrok u gradu.
+                </span>
+                <span class="t-en">
+                  Lorenza is a popular fast food spot in Rožaje with quick service and affordable
+                  prices. It offers sandwiches, ćevapi, pljeskavica and other grilled items — ideal
+                  for a quick and tasty meal in town.
+                </span>
+              </p>
+              <div class="card-meta">
+                <span>
+                  <i class="fa-solid fa-location-dot"></i>
+                  Rožaje
+                </span>
+                <span>
+                  <i class="fa-solid fa-bolt"></i>
+                  <span class="t-bs">Brza usluga</span>
+                  <span class="t-en">Quick service</span>
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 14. Little Italy -->
+          <div class="card" data-cat="fast-food pizza">
+            <div class="card-img-wrap">
+              <img
+                src="images/restaurants/little-italy.webp"
+                alt="Little Italy Rožaje"
+                loading="lazy"
+              />
+              <span class="card-badge blue">
+                <span class="t-bs">Pizza · Italijanska</span>
+                <span class="t-en">Pizza · Italian</span>
+              </span>
+            </div>
+            <div class="card-body">
+              <div class="card-type">
+                <span class="t-bs">Fast Food · Pizza · Italijanska kuhinja</span>
+                <span class="t-en">Fast Food · Pizza · Italian Cuisine</span>
+              </div>
+              <div class="card-name">Little Italy</div>
+              <div class="card-tags">
+                <span class="tag">Pizza</span>
+                <span class="tag">Pasta</span>
+                <span class="tag">Brza hrana</span>
+              </div>
+              <p class="card-desc">
+                <span class="t-bs">
+                  Little Italy nudi autentičan italijanski fast food ukus u Rožajama — svježe pečene
+                  pizze na tankom tijestu, pasta i italijanski sendviči. Brza usluga i bogat izbor
+                  okusa za svakoga.
+                </span>
+                <span class="t-en">
+                  Little Italy brings an authentic Italian fast food taste to Rožaje — freshly baked
+                  thin-crust pizzas, pasta and Italian sandwiches. Quick service and a rich variety
+                  of flavours for everyone.
+                </span>
+              </p>
+              <div class="card-meta">
+                <span>
+                  <i class="fa-solid fa-location-dot"></i>
+                  Rožaje
+                </span>
+                <span>
+                  <i class="fa-solid fa-pizza-slice"></i>
+                  <span class="t-bs">Pizza & Pasta</span>
+                  <span class="t-en">Pizza & Pasta</span>
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 15. Bereket -->
+          <div class="card" data-cat="fast-food">
+            <div class="card-img-wrap">
+              <img
+                src="images/restaurants/bereket.webp"
+                alt="Fast Food Bereket Rožaje"
+                loading="lazy"
+              />
+              <span class="card-badge">
+                <span class="t-bs">Burek · Pečenje</span>
+                <span class="t-en">Burek · Roasted Meat</span>
+              </span>
+            </div>
+            <div class="card-body">
+              <div class="card-type">
+                <span class="t-bs">Fast Food · Burekdžinica · Pečenjara</span>
+                <span class="t-en">Fast Food · Burek · Roast House</span>
+              </div>
+              <div class="card-name">Fast Food Bereket</div>
+              <div class="card-tags">
+                <span class="tag">Burek</span>
+                <span class="tag">Pita</span>
+                <span class="tag">Pečenje</span>
+              </div>
+              <p class="card-desc">
+                <span class="t-bs">
+                  Fast Food Bereket smješten je na Trgu IX Crnogorske Brigade u Rožajama. Nudi
+                  svježe pečen burek, pite s različitim nadjevima i toplo pečenje — dobar izbor za
+                  brz i izdašan obrok u centru grada.
+                </span>
+                <span class="t-en">
+                  Fast Food Bereket is located on Trg IX Crnogorske Brigade in Rožaje. It offers
+                  freshly baked burek, pies with various fillings and warm roasted meats — a good
+                  choice for a quick and filling meal in the city centre.
+                </span>
+              </p>
+              <div class="card-meta">
+                <span>
+                  <i class="fa-solid fa-location-dot"></i>
+                  Trg IX Crnogorske Brigade bb
+                </span>
+                <span>
+                  <i class="fa-solid fa-phone"></i>
+                  063 260 261
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 16. PC Diyaz -->
+          <div class="card" data-cat="bar">
+            <div class="card-img-wrap">
+              <img src="images/restaurants/pc-diyaz.webp" alt="PC Diyaz Rožaje" loading="lazy" />
+              <span class="card-badge blue">
+                <span class="t-bs">Kafić · Lounge</span>
+                <span class="t-en">Café · Lounge</span>
+              </span>
+            </div>
+            <div class="card-body">
+              <div class="card-type">
+                <span class="t-bs">Kafić · Lounge Bar</span>
+                <span class="t-en">Café · Lounge Bar</span>
+              </div>
+              <div class="card-name">PC Diyaz</div>
+              <div class="card-tags">
+                <span class="tag">Kafa</span>
+                <span class="tag">Pića</span>
+                <span class="tag">Lounge</span>
+              </div>
+              <p class="card-desc">
+                <span class="t-bs">
+                  PC Diyaz je kafić i lounge bar u Rožajama, poznat po ugodnoj atmosferi i dobrom
+                  izboru pića. Omiljeno okupljalište mještana za jutarnju kafu, opušteno
+                  poslijepodne ili večernji izlazak s društvom.
+                </span>
+                <span class="t-en">
+                  PC Diyaz is a café and lounge bar in Rožaje, known for its pleasant atmosphere and
+                  good selection of drinks. A favourite gathering place for locals for a morning
+                  coffee, a relaxed afternoon or an evening out with friends.
+                </span>
+              </p>
+              <div class="card-meta">
+                <span>
+                  <i class="fa-solid fa-location-dot"></i>
+                  Rožaje
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 17. Osmica -->
+          <div class="card" data-cat="fast-food">
+            <div class="card-img-wrap">
+              <img src="images/restaurants/the-eight.webp" alt="Osmica Rožaje" loading="lazy" />
+              <span class="card-badge">
+                <span class="t-bs">Brza hrana</span>
+                <span class="t-en">Fast Food</span>
+              </span>
+            </div>
+            <div class="card-body">
+              <div class="card-type">
+                <span class="t-bs">Fast Food · Brza hrana</span>
+                <span class="t-en">Fast Food</span>
+              </div>
+              <div class="card-name">Osmica</div>
+              <div class="card-tags">
+                <span class="tag">Brza hrana</span>
+                <span class="tag">Ćevapi</span>
+                <span class="tag">Sendviči</span>
+              </div>
+              <p class="card-desc">
+                <span class="t-bs">
+                  Osmica je prepoznatljivi fast food objekat u Rožajama, poznat po brzoj usluzi i
+                  domaćim ukusima. Omiljen među lokalnim stanovništvom zahvaljujući kvalitetnoj
+                  hrani po pristupačnim cijenama — dobar izbor za brzi obrok u bilo koje doba dana.
+                </span>
+                <span class="t-en">
+                  Osmica is a well-known fast food spot in Rožaje, appreciated for quick service and
+                  homemade flavours. A favourite among locals thanks to quality food at affordable
+                  prices — a solid choice for a quick meal at any time of day.
+                </span>
+              </p>
+              <div class="card-meta">
+                <span>
+                  <i class="fa-solid fa-location-dot"></i>
+                  Rožaje
+                </span>
+                <span>
+                  <i class="fa-solid fa-bolt"></i>
+                  <span class="t-bs">Brza usluga</span>
+                  <span class="t-en">Quick service</span>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SAVJETI ZA POSJETIOCE -->
+      <section class="savjeti-strip">
+        <div class="section-label">
+          <span class="t-bs">Korisne informacije</span>
+          <span class="t-en">Useful Information</span>
+        </div>
+        <h2 class="section-title">
+          <span class="t-bs">
+            Savjeti za
+            <br />
+            <span class="line2">posjetioce</span>
+          </span>
+          <span class="t-en">
+            Tips for
+            <br />
+            <span class="line2">Visitors</span>
+          </span>
+        </h2>
+        <div class="savjeti-grid">
+          <div class="savjet">
+            <div class="savjet-icon"><i class="fa-solid fa-calendar-check"></i></div>
+            <div>
+              <h4>
+                <span class="t-bs">Rezervišite unaprijed</span>
+                <span class="t-en">Book in Advance</span>
+              </h4>
+              <p>
+                <span class="t-bs">
+                  Rožajski restorani, posebno etno kuće i planinska odmarališta, često su popunjeni
+                  vikendom i tokom ljetne sezone (juli–august). Preporučujemo rezervaciju barem dan
+                  ranije.
+                </span>
+                <span class="t-en">
+                  Rožaje restaurants, especially ethno houses and mountain retreats, are often full
+                  on weekends and during the summer season (July–August). We recommend booking at
+                  least a day in advance.
+                </span>
+              </p>
+            </div>
+          </div>
+          <div class="savjet">
+            <div class="savjet-icon"><i class="fa-solid fa-coins"></i></div>
+            <div>
+              <h4>
+                <span class="t-bs">Plaćanje i cijene</span>
+                <span class="t-en">Payment &amp; Prices</span>
+              </h4>
+              <p>
+                <span class="t-bs">
+                  Valuta je euro (€). Većina restorana prihvata kartično plaćanje, ali planinski
+                  objekti poput Saraja Pod Hajlom mogu raditi isključivo s gotovinom — ponijeti
+                  sitniš.
+                </span>
+                <span class="t-en">
+                  The currency is euro (€). Most restaurants accept card payments, but mountain
+                  venues like Saraj Pod Hajlom may operate cash-only — bring change.
+                </span>
+              </p>
+            </div>
+          </div>
+          <div class="savjet">
+            <div class="savjet-icon"><i class="fa-solid fa-utensils"></i></div>
+            <div>
+              <h4>
+                <span class="t-bs">Što naručiti</span>
+                <span class="t-en">What to Order</span>
+              </h4>
+              <p>
+                <span class="t-bs">
+                  U Rožajama obavezno probajte: ćevape (Kero), bosanski lonac i mantije (Ognjište),
+                  jagnjetinu s ražnja (Saraj Pod Hajlom) i domaći kajmak koji prate gotovo sva jela.
+                </span>
+                <span class="t-en">
+                  In Rožaje be sure to try: ćevapi (Kero), Bosnian pot stew and mantije (Ognjište),
+                  spit-roasted lamb (Saraj Pod Hajlom) and homemade kajmak cream served alongside
+                  almost every dish.
+                </span>
+              </p>
+            </div>
+          </div>
+          <div class="savjet">
+            <div class="savjet-icon"><i class="fa-solid fa-sun"></i></div>
+            <div>
+              <h4>
+                <span class="t-bs">Sezona i radno vrijeme</span>
+                <span class="t-en">Season &amp; Opening Hours</span>
+              </h4>
+              <p>
+                <span class="t-bs">
+                  Planinski objekti (Saraj Pod Hajlom) mogu imati skraćeno radno vrijeme ili
+                  zatvoreni biti van sezone (oktobar–maj). Restorani u centru rade cijele godine.
+                  Uvijek provjerite radno vrijeme telefonski.
+                </span>
+                <span class="t-en">
+                  Mountain venues (Saraj Pod Hajlom) may have reduced hours or be closed out of
+                  season (October–May). Restaurants in the centre operate year-round. Always check
+                  opening hours by phone.
+                </span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- INFO STRIP -->
+      <div class="info-strip">
+        <div class="info-item">
+          <div class="info-icon"><i class="fa-solid fa-award"></i></div>
+          <h3>
+            <span class="t-bs">Pažljivo biran odabir</span>
+            <span class="t-en">Carefully Curated</span>
+          </h3>
+          <p>
+            <span class="t-bs">
+              Svi restorani su odabrani na temelju recenzija posjetilaca, lokalnih preporuka i
+              dugogodišnje tradicije.
+            </span>
+            <span class="t-en">
+              All restaurants are selected based on visitor reviews, local recommendations and
+              long-standing tradition.
+            </span>
+          </p>
+        </div>
+        <div class="info-item">
+          <div class="info-icon"><i class="fa-solid fa-mountain-sun"></i></div>
+          <h3>
+            <span class="t-bs">Planinska hrana</span>
+            <span class="t-en">Mountain Food</span>
+          </h3>
+          <p>
+            <span class="t-bs">
+              Kuhinja Rožaja je odraz planinske tradicije — svježe, domaće, hranjivo. Hajla na 2.403
+              m oblikuje lokalni identitet i ukus.
+            </span>
+            <span class="t-en">
+              Rožaje cuisine reflects mountain tradition — fresh, homemade, nourishing. Hajla at
+              2,403 m shapes local identity and flavour.
+            </span>
+          </p>
+        </div>
+        <div class="info-item">
+          <div class="info-icon"><i class="fa-solid fa-circle-info"></i></div>
+          <h3>
+            <span class="t-bs">Turistička organizacija</span>
+            <span class="t-en">Tourist Organisation</span>
+          </h3>
+          <p>
+            <span class="t-bs">
+              Za više preporuka o restoranima kontaktirajte Turističku organizaciju Rožaje:
+              <br />
+              torozaje.me
+            </span>
+            <span class="t-en">
+              For more restaurant recommendations contact the Tourist Organisation of Rožaje:
+              <br />
+              torozaje.me
+            </span>
+          </p>
+        </div>
+      </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="nav-logo">Doživi Rožaje</div>
+          <p>
+            <span class="t-bs">
+              Tvoj vodič kroz najbolja ugostiteljska mjesta Rožaja. Lokalno, autentično, planinski
+              svježe.
+            </span>
+            <span class="t-en">
+              Your guide to the best hospitality spots in Rožaje. Local, authentic, mountain fresh.
+            </span>
+          </p>
+          <div class="footer-social">
+            <a
+              href="https://www.instagram.com/"
+              target="_blank"
+              rel="noopener"
+              aria-label="Instagram"
+            >
+              <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a
+              href="https://www.facebook.com/"
+              target="_blank"
+              rel="noopener"
+              aria-label="Facebook"
+            >
+              <i class="fa-brands fa-facebook-f"></i>
+            </a>
+            <a href="https://www.tiktok.com/" target="_blank" rel="noopener" aria-label="TikTok">
+              <i class="fa-brands fa-tiktok"></i>
+            </a>
+          </div>
+        </div>
+        <div class="footer-links">
+          <ul>
+            <li>
+              <a href="index.html">
+                <span class="t-bs">Početna</span>
+                <span class="t-en">Home</span>
+              </a>
+            </li>
+            <li>
+              <a href="accommodations.html">
+                <span class="t-bs">Smještaji</span>
+                <span class="t-en">Accommodations</span>
+              </a>
+            </li>
+            <li>
+              <a href="restaurants.html">
+                <span class="t-bs">Restorani</span>
+                <span class="t-en">Restaurants</span>
+              </a>
+            </li>
+            <li>
+              <a href="dishes.html">
+                <span class="t-bs">Tradicionalna Jela</span>
+                <span class="t-en">Traditional Food</span>
+              </a>
+            </li>
+            <li>
+              <a href="o-rozajama.html">
+                <span class="t-bs">O Rožajama</span>
+                <span class="t-en">About</span>
+              </a>
+            </li>
+            <li>
+              <a href="kontakt.html">
+                <span class="t-bs">Kontakt</span>
+                <span class="t-en">Contact</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>
+          &copy; 2026 Doživi Rožaje.
+          <span class="t-bs">Sva prava zadržana. Napravljeno s ljubavlju za Rožaje.</span>
+          <span class="t-en">All rights reserved. Made with love for Rožaje.</span>
+        </p>
+      </div>
+    </footer>
+
+    <script src="js/restaurants.js"></script>
+  </body>
 </html>
