@@ -584,6 +584,62 @@
     }
     .footer-social a:hover { background:rgba(63,160,96,.22); color:var(--meadow); }
 
+    /* ─── SMJEŠTAJ MODAL ─── */
+    .smodal {
+      background: #fff; border-radius: 24px; max-width: 620px; width: 100%;
+      max-height: 88vh; overflow-y: auto; position: relative;
+      animation: slideUp .35s cubic-bezier(.34,1.56,.64,1) both;
+    }
+    .smodal-img {
+      width: 100%; height: 220px; object-fit: cover;
+      border-radius: 24px 24px 0 0; display: block;
+    }
+    .smodal-body { padding: 28px 32px 32px; }
+    .smodal-type {
+      font-size: .75rem; font-weight: 700; letter-spacing: .14em;
+      text-transform: uppercase; color: var(--forest-lt); margin-bottom: 6px;
+    }
+    .smodal-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem; font-weight: 800; letter-spacing: -0.02em;
+      color: var(--text); margin-bottom: 10px;
+    }
+    .smodal-rating {
+      display: inline-flex; align-items: center; gap: 5px;
+      background: #f0faf5; border: 1px solid #C8E6D0;
+      padding: 4px 12px; border-radius: 50px;
+      font-size: .82rem; font-weight: 700; color: var(--forest-lt);
+      margin-bottom: 14px;
+    }
+    .smodal-desc {
+      font-size: .9rem; color: #4A6A55; line-height: 1.68;
+      margin-bottom: 22px; border-bottom: 1px solid #E8F5EE; padding-bottom: 20px;
+    }
+    .smodal-amenities {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 22px;
+    }
+    .smodal-amenity {
+      display: flex; align-items: center; gap: 10px;
+      background: #f5fbf7; border: 1px solid #D8EFDF;
+      border-radius: 10px; padding: 10px 14px;
+      font-size: .83rem; color: var(--text); font-weight: 500;
+    }
+    .smodal-amenity i { color: var(--forest-lt); width: 16px; text-align: center; }
+    .smodal-location {
+      display: flex; align-items: center; gap: 8px;
+      font-size: .84rem; color: #6A8A70; margin-bottom: 22px;
+    }
+    .smodal-location i { color: var(--forest-lt); }
+    .smodal-close {
+      position: absolute; top: 14px; right: 14px;
+      width: 36px; height: 36px; border-radius: 50%;
+      background: rgba(9,9,11,0.45); backdrop-filter: blur(6px);
+      border: none; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem; color: #fff; transition: background .2s; z-index: 2;
+    }
+    .smodal-close:hover { background: rgba(9,9,11,0.7); }
+
     /* ─── RESPONSIVE ─── */
     @media(max-width:900px){
       nav { padding:16px 22px; }
@@ -621,8 +677,8 @@
     <li><a href="kontakt.html"><span class="t-bs">Kontakt</span><span class="t-en">Contact</span></a></li>
   </ul>
   <div class="nav-right">
-    <a href="https://www.instagram.com/" target="_blank" rel="noopener" class="nav-social" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-    <a href="https://www.facebook.com/" target="_blank" rel="noopener" class="nav-social" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+    <a href="https://www.instagram.com/visit_rozaje/" target="_blank" rel="noopener" class="nav-social" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+    <a href="https://www.facebook.com/p/Turisticka-organizacija-Rozaje-100082855320254/" target="_blank" rel="noopener" class="nav-social" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
     <button class="lang-toggle" onclick="toggleLang()" id="langBtn">EN</button>
   </div>
 </nav>
@@ -714,7 +770,7 @@
 
 <!-- FEATURES / NAVIGATION CARDS -->
 <div id="features">
-  <div class="feat" onclick="location.href='smjestaji.html'">
+  <div class="feat" onclick="location.href='#smjestaji'">
     <div class="feat-icon res">
       <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
         <rect x="2" y="8" width="24" height="18" rx="2" stroke="#3FA060" stroke-width="1.6"/>
@@ -727,7 +783,7 @@
     </div>
     <h3>Smještaji</h3>
     <p>Pronađi savršen smještaj u Rožajama — od udobnih hotela do planinarskih bungalova u prirodi.</p>
-    <a href="smjestaji.html" class="feat-btn res">Pregled Smještaja</a>
+    <a href="#smjestaji" class="feat-btn res">Pregled Smještaja</a>
   </div>
   <div class="feat" onclick="location.href='jela.html'">
     <div class="feat-icon food">
@@ -741,7 +797,7 @@
     <p>Upoznajte autentičnu kuhinju Rožaja — pite, tarhana, bosanski lonac i druge planinske specijalitete.</p>
     <a href="jela.html" class="feat-btn food">Vidi Jela</a>
   </div>
-  <div class="feat" onclick="location.href='restorani.html'">
+  <div class="feat" onclick="location.href='#restaurants'">
     <div class="feat-icon res">
       <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M8 3v8M6 3v5a2 2 0 004 0V3" stroke="#3FA060" stroke-width="1.6" stroke-linecap="round"/>
@@ -752,7 +808,7 @@
     </div>
     <h3>Restorani</h3>
     <p>Pronađite najbolje restorane u Rožajama — od tradicionalnih ćevabdžinica do elegantnih etno restorana.</p>
-    <a href="restorani.html" class="feat-btn res">Vidi Restorane</a>
+    <a href="#restaurants" class="feat-btn res">Vidi Restorane</a>
   </div>
   <div class="feat" onclick="location.href='o-rozajama.html'">
     <div class="feat-icon city">
@@ -814,7 +870,7 @@
           <span><i class="fa-solid fa-wifi"></i> Besplatni WiFi</span>
           <span><i class="fa-solid fa-water"></i> Bazen & Sauna</span>
         </div>
-        <a href="hotel-rozaje.html" class="smjestaj-btn">Saznaj više <i class="fa-solid fa-arrow-right"></i></a>
+        <button onclick="openModal('hotel-rozaje')" class="smjestaj-btn">Saznaj više <i class="fa-solid fa-arrow-right"></i></button>
       </div>
     </div>
 
@@ -831,11 +887,11 @@
         <div class="card-name">Hotel Aldi</div>
         <p class="card-desc">Smješten na Suhom Polju, 3 km od centra Rožaja, na raskrsnici prema planini Hajla i izvorima Ibra. Podzemni parking za 100 vozila, banjket sala i vlastiti restoran. U blizini ski-centra Turjak.</p>
         <div class="card-meta">
-          <span><i class="fa-solid fa-bed"></i> 36 kreveta</span>
+          <span><i class="fa-solid fa-bed"></i> 6 soba · 36 kreveta</span>
           <span><i class="fa-solid fa-car"></i> Parking 100 mjesta</span>
           <span><i class="fa-solid fa-snowflake"></i> Blizu ski-centra</span>
         </div>
-        <a href="hotel-aldi.html" class="smjestaj-btn">Saznaj više <i class="fa-solid fa-arrow-right"></i></a>
+        <button onclick="openModal('hotel-aldi')" class="smjestaj-btn">Saznaj više <i class="fa-solid fa-arrow-right"></i></button>
       </div>
     </div>
 
@@ -856,7 +912,7 @@
           <span><i class="fa-solid fa-utensils"></i> 2 restorana</span>
           <span><i class="fa-solid fa-mountain-sun"></i> Planinarenje</span>
         </div>
-        <a href="jela-resort.html" class="smjestaj-btn">Saznaj više <i class="fa-solid fa-arrow-right"></i></a>
+        <button onclick="openModal('jela-resort')" class="smjestaj-btn">Saznaj više <i class="fa-solid fa-arrow-right"></i></button>
       </div>
     </div>
 
@@ -1040,28 +1096,28 @@
           <div class="to-icon"><i class="fa-solid fa-location-dot"></i></div>
           <div>
             <div class="to-label"><span class="t-bs">Adresa</span><span class="t-en">Address</span></div>
-            <div class="to-value">Ul. 29. novembra bb, 84310 Rožaje</div>
+            <div class="to-value">Maršala Tita bb, 84310 Rožaje, Crna Gora</div>
           </div>
         </div>
         <div class="to-item">
           <div class="to-icon"><i class="fa-solid fa-phone"></i></div>
           <div>
             <div class="to-label"><span class="t-bs">Telefon</span><span class="t-en">Phone</span></div>
-            <div class="to-value"><a href="tel:+38251271180">+382 51 271 180</a></div>
+            <div class="to-value"><a href="tel:+38251270158">+382 51 270 158</a></div>
           </div>
         </div>
         <div class="to-item">
           <div class="to-icon"><i class="fa-solid fa-envelope"></i></div>
           <div>
             <div class="to-label">Email</div>
-            <div class="to-value"><a href="mailto:info@torozaje.me">info@torozaje.me</a></div>
+            <div class="to-value"><a href="mailto:info@turistickaorganizacijarozaje.me">info@turistickaorganizacijarozaje.me</a></div>
           </div>
         </div>
         <div class="to-item">
           <div class="to-icon"><i class="fa-solid fa-globe"></i></div>
           <div>
             <div class="to-label"><span class="t-bs">Web stranica</span><span class="t-en">Website</span></div>
-            <div class="to-value"><a href="https://www.torozaje.me" target="_blank" rel="noopener">www.torozaje.me</a></div>
+            <div class="to-value"><a href="https://turistickaorganizacijarozaje.me" target="_blank" rel="noopener">turistickaorganizacijarozaje.me</a></div>
           </div>
         </div>
         <div class="to-item">
@@ -1105,9 +1161,9 @@
       <div class="nav-logo">Doživi Rožaje</div>
       <p><span class="t-bs">Tvoj vodič kroz najbolja ugostiteljska mjesta Rožaja. Lokalno, autentično, planinski svježe.</span><span class="t-en">Your guide to the best hospitality spots in Rožaje. Local, authentic, mountain fresh.</span></p>
       <div class="footer-social">
-        <a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-        <a href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-        <a href="https://www.tiktok.com/" target="_blank" rel="noopener" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+        <a href="https://www.instagram.com/visit_rozaje/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://www.facebook.com/p/Turisticka-organizacija-Rozaje-100082855320254/" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="https://www.tiktok.com/@visit_rozaje" target="_blank" rel="noopener" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
       </div>
     </div>
     <div class="footer-links">
@@ -1127,6 +1183,75 @@
 </footer>
 
 <!-- MODALS -->
+
+<!-- Hotel Rožaje -->
+<div class="modal-overlay" id="modal-hotel-rozaje">
+  <div class="smodal">
+    <button class="smodal-close" onclick="closeModal('hotel-rozaje')"><i class="fa-solid fa-xmark"></i></button>
+    <img src="images/accommodations/hotel-rozaje.webp" alt="Hotel Rožaje" class="smodal-img">
+    <div class="smodal-body">
+      <div class="smodal-type">Hotel · Wellness · Spa</div>
+      <div class="smodal-name">Hotel Rožaje</div>
+      <div class="smodal-rating"><i class="fa-solid fa-star"></i> 9.3 / 10</div>
+      <div class="smodal-location"><i class="fa-solid fa-location-dot"></i> Centar Rožaja, Crna Gora</div>
+      <p class="smodal-desc">Moderan hotel u srcu Rožaja s 33 smještajne jedinice — sobe i apartmani. Wellness centar s unutrašnjim bazenom i saunom, vlastiti restoran i sve što vam je potrebno za udoban boravak.</p>
+      <div class="smodal-amenities">
+        <div class="smodal-amenity"><i class="fa-solid fa-bed"></i> 33 sobe & apartmani</div>
+        <div class="smodal-amenity"><i class="fa-solid fa-wifi"></i> Besplatni WiFi</div>
+        <div class="smodal-amenity"><i class="fa-solid fa-water"></i> Unutrašnji bazen</div>
+        <div class="smodal-amenity"><i class="fa-solid fa-hot-tub-person"></i> Sauna & Wellness</div>
+        <div class="smodal-amenity"><i class="fa-solid fa-utensils"></i> Vlastiti restoran</div>
+        <div class="smodal-amenity"><i class="fa-solid fa-car"></i> Parking</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Hotel Aldi -->
+<div class="modal-overlay" id="modal-hotel-aldi">
+  <div class="smodal">
+    <button class="smodal-close" onclick="closeModal('hotel-aldi')"><i class="fa-solid fa-xmark"></i></button>
+    <img src="images/accommodations/hotel-aldi.webp" alt="Hotel Aldi" class="smodal-img">
+    <div class="smodal-body">
+      <div class="smodal-type">Hotel · Planinski · Blizu ski-centra</div>
+      <div class="smodal-name">Hotel Aldi</div>
+      <div class="smodal-rating"><i class="fa-solid fa-star"></i> 4.2 / 5</div>
+      <div class="smodal-location"><i class="fa-solid fa-location-dot"></i> Suho Polje, 3 km od centra Rožaja</div>
+      <p class="smodal-desc">Smješten na Suhom Polju na raskrsnici prema planini Hajla i izvorima Ibra. Podzemni parking za 100 vozila, banjket sala za proslave i vlastiti restoran. U blizini ski-centra Turjak — idealan izbor zimi i ljeti.</p>
+      <div class="smodal-amenities">
+        <div class="smodal-amenity"><i class="fa-solid fa-bed"></i> 6 soba · 36 kreveta</div>
+        <div class="smodal-amenity"><i class="fa-solid fa-wifi"></i> Besplatni WiFi</div>
+        <div class="smodal-amenity"><i class="fa-solid fa-car"></i> Parking za 100 vozila</div>
+        <div class="smodal-amenity"><i class="fa-solid fa-snowflake"></i> Blizu ski-centra Turjak</div>
+        <div class="smodal-amenity"><i class="fa-solid fa-utensils"></i> Vlastiti restoran</div>
+        <div class="smodal-amenity"><i class="fa-solid fa-champagne-glasses"></i> Banjket sala</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Jela Natural Resort -->
+<div class="modal-overlay" id="modal-jela-resort">
+  <div class="smodal">
+    <button class="smodal-close" onclick="closeModal('jela-resort')"><i class="fa-solid fa-xmark"></i></button>
+    <img src="images/accommodations/jela-resort.webp" alt="Jela Natural Resort" class="smodal-img">
+    <div class="smodal-body">
+      <div class="smodal-type">Planinski Resort · Bungalovi & Kolibe</div>
+      <div class="smodal-name">Jela Natural Resort</div>
+      <div class="smodal-rating"><i class="fa-solid fa-star"></i> 7.8 / 10</div>
+      <div class="smodal-location"><i class="fa-solid fa-location-dot"></i> Rožaje, 1.070 m nadmorske visine</div>
+      <p class="smodal-desc">Planinski resort okružen borovom šumom na 1.070 m n.v. sa 36 smještajnih jedinica — bungalovi za 4 osobe, porodične kuće za 6 osoba i planinarske kolibe. Savršen spoj prirode i komfora.</p>
+      <div class="smodal-amenities">
+        <div class="smodal-amenity"><i class="fa-solid fa-house"></i> 36 smještajnih jedinica</div>
+        <div class="smodal-amenity"><i class="fa-solid fa-wifi"></i> Besplatni WiFi</div>
+        <div class="smodal-amenity"><i class="fa-solid fa-utensils"></i> 2 restorana u kompleksu</div>
+        <div class="smodal-amenity"><i class="fa-solid fa-person-hiking"></i> Planinarenje</div>
+        <div class="smodal-amenity"><i class="fa-solid fa-children"></i> Dječije igralište</div>
+        <div class="smodal-amenity"><i class="fa-solid fa-bicycle"></i> Bicikli u kompleksu</div>
+      </div>
+    </div>
+  </div>
+</div>
 
 <div class="modal-overlay" id="modal-menu">
   <div class="modal">
@@ -1201,21 +1326,25 @@
     const email = document.getElementById('cf-email').value;
     const msg  = document.getElementById('cf-msg').value;
     window.location.href =
-      `mailto:info@visitrozaje.me?subject=${encodeURIComponent('Poruka od '+name)}&body=${encodeURIComponent(msg+'\n\nEmail: '+email)}`;
+      `mailto:info@turistickaorganizacijarozaje.me?subject=${encodeURIComponent('Poruka od '+name)}&body=${encodeURIComponent(msg+'\n\nEmail: '+email)}`;
     e.target.reset();
     const succ = document.getElementById('contact-success');
     succ.style.display='block';
     setTimeout(()=>succ.style.display='none', 5000);
   }
 
-  /* language toggle BS ↔ EN */
-  let isEn = false;
-  function toggleLang(){
-    isEn = !isEn;
+  /* language toggle BS ↔ EN — persists across pages */
+  function applyLang(isEn){
     document.documentElement.className = isEn ? 'en' : 'bs';
-    document.documentElement.lang     = isEn ? 'en' : 'bs';
-    document.getElementById('langBtn').textContent = isEn ? 'BS' : 'EN';
+    document.documentElement.lang      = isEn ? 'en' : 'bs';
+    const btn = document.getElementById('langBtn');
+    if(btn) btn.textContent = isEn ? 'EN' : 'CG';
+    localStorage.setItem('lang', isEn ? 'en' : 'bs');
   }
+  function toggleLang(){
+    applyLang(document.documentElement.className !== 'en');
+  }
+  applyLang(localStorage.getItem('lang') === 'en');
 </script>
 </body>
 </html>
