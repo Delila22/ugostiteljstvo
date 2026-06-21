@@ -1,0 +1,533 @@
+<!doctype html>
+<html lang="bs" class="bs">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>O Rožajama — Doživi Rožaje</title>
+    <meta
+      name="description"
+      content="Upoznajte Rožaje — grad pod Hajlom u srcu Crne Gore. Istorija, kultura, priroda i sve što ovaj planinski biser čini posebnim."
+    />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='18' fill='%233FA060'/><path d='M12 82 L40 34 L58 60 L70 44 L88 82 Z' fill='%23fff'/><path d='M40 34 L34 44 L46 44 Z' fill='%235FB0CE'/></svg>"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="css/o-rozajama.css" />
+    <link rel="stylesheet" href="css/nav.css" />
+  </head>
+
+  <body>
+    <!-- NAV -->
+    <nav>
+      <div class="nav-logo">Doživi Rožaje</div>
+      <ul class="nav-links">
+        <li>
+          <a href="accommodations.html">
+            <span class="t-bs">Smještaji</span>
+            <span class="t-en">Accommodations</span>
+          </a>
+        </li>
+        <li>
+          <a href="restaurants.html">
+            <span class="t-bs">Restorani</span>
+            <span class="t-en">Restaurants</span>
+          </a>
+        </li>
+        <li>
+          <a href="dishes.html">
+            <span class="t-bs">Jela</span>
+            <span class="t-en">Food</span>
+          </a>
+        </li>
+        <li>
+          <a href="o-rozajama.html" class="nav-active">
+            <span class="t-bs">O Rožajama</span>
+            <span class="t-en">About</span>
+          </a>
+        </li>
+        <li>
+          <a href="kontakt.html">
+            <span class="t-bs">Kontakt</span>
+            <span class="t-en">Contact</span>
+          </a>
+        </li>
+      </ul>
+      <div class="nav-right">
+        <a
+          href="https://www.instagram.com/visit_rozaje/"
+          target="_blank"
+          rel="noopener"
+          class="nav-social"
+          aria-label="Instagram"
+        >
+          <i class="fa-brands fa-instagram"></i>
+        </a>
+        <a
+          href="https://www.facebook.com/p/Turisticka-organizacija-Rozaje-100082855320254/"
+          target="_blank"
+          rel="noopener"
+          class="nav-social"
+          aria-label="Facebook"
+        >
+          <i class="fa-brands fa-facebook-f"></i>
+        </a>
+        <button class="lang-toggle" onclick="toggleLang()" id="langBtn">EN</button>
+        <button class="hamburger" id="hamburger" aria-label="Otvori meni" aria-expanded="false"><span></span><span></span><span></span></button>
+      </div>
+    </nav>
+
+    <main>
+      <!-- HERO -->
+      <section id="hero-rozaje">
+        <div class="hero-overlay"></div>
+        <div class="hero-rz-content">
+          <div class="hero-badge">
+            <span class="t-bs">Rožaje, Crna Gora</span>
+            <span class="t-en">Rožaje, Montenegro</span>
+          </div>
+          <h1 class="hero-rz-title">
+            <span class="t-bs">O<br /><span class="accent">Rožajama</span></span>
+            <span class="t-en">About<br /><span class="accent">Rožaje</span></span>
+          </h1>
+          <p class="hero-rz-sub">
+            <span class="t-bs">Grad pod Hajlom — istorija, kultura i priroda planinske Crne Gore</span>
+            <span class="t-en">The city beneath Hajla — history, culture and nature of mountain Montenegro</span>
+          </p>
+        </div>
+        <div class="hero-rz-scroll">
+          <div class="scroll-arrow"></div>
+        </div>
+      </section>
+
+      <!-- QUICK FACTS -->
+      <section id="quick-facts">
+        <div class="facts-grid">
+          <div class="fact-card reveal">
+            <div class="fact-icon"><i class="fa-solid fa-mountain"></i></div>
+            <div class="fact-num">2 403 m</div>
+            <div class="fact-label">
+              <span class="t-bs">Hajla — najviši vrh</span>
+              <span class="t-en">Hajla — highest peak</span>
+            </div>
+          </div>
+          <div class="fact-card reveal">
+            <div class="fact-icon"><i class="fa-solid fa-person-running"></i></div>
+            <div class="fact-num">~23 000</div>
+            <div class="fact-label">
+              <span class="t-bs">Stanovnika</span>
+              <span class="t-en">Inhabitants</span>
+            </div>
+          </div>
+          <div class="fact-card reveal">
+            <div class="fact-icon"><i class="fa-solid fa-location-dot"></i></div>
+            <div class="fact-num">860 m</div>
+            <div class="fact-label">
+              <span class="t-bs">Nadmorska visina grada</span>
+              <span class="t-en">City elevation</span>
+            </div>
+          </div>
+          <div class="fact-card reveal">
+            <div class="fact-icon"><i class="fa-solid fa-water"></i></div>
+            <div class="fact-num">Ibar</div>
+            <div class="fact-label">
+              <span class="t-bs">Rijeka — izvire blizu Rožaja</span>
+              <span class="t-en">River — springs near Rožaje</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- INTRO -->
+      <section id="intro">
+        <div class="intro-inner">
+          <div class="intro-text reveal">
+            <div class="section-label">
+              <span class="t-bs">Upoznaj grad</span>
+              <span class="t-en">Meet the city</span>
+            </div>
+            <h2 class="section-title">
+              <span class="t-bs">Srce planinske<br /><span class="accent-txt">Crne Gore</span></span>
+              <span class="t-en">Heart of mountain<br /><span class="accent-txt">Montenegro</span></span>
+            </h2>
+            <p>
+              <span class="t-bs">
+                Rožaje je grad smješten u dolini rijeke Ibar, u sjeveroistočnom dijelu Crne Gore,
+                okružen planinskim masivima Hajle, Turjaka i Cmiljevice. Na nadmorskoj visini od
+                oko 860 metara, grad diše svježim planinskim vazduhom i čuva duh stare bosanske
+                i osmanlijske tradicije. Rožaje graniči sa Srbijom i Kosovom, što mu je kroz
+                vjekove davalo poseban geopolitički i kulturni položaj.
+              </span>
+              <span class="t-en">
+                Rožaje is a city situated in the valley of the Ibar river, in the northeastern
+                part of Montenegro, surrounded by the mountain massifs of Hajla, Turjak and
+                Cmiljevica. At an elevation of around 860 metres, the city breathes fresh mountain
+                air and preserves the spirit of old Bosnian and Ottoman tradition. Rožaje borders
+                Serbia and Kosovo, which has given it a unique geopolitical and cultural position
+                throughout the centuries.
+              </span>
+            </p>
+            <p>
+              <span class="t-bs">
+                Grad je poznat po netaknutoj prirodi — gustim borovim šumama, bistrim planinskim
+                potocima i moćnim vrhovima koji ga okružuju poput tvrđave. Izvorišta rijeke Ibar
+                nalaze se svega nekoliko kilometara od centra, a planina Hajla (2.403 m) dominira
+                horizontom i poziva planinare svake sezone.
+              </span>
+              <span class="t-en">
+                The city is known for its untouched nature — dense pine forests, clear mountain
+                streams and mighty peaks that surround it like a fortress. The springs of the Ibar
+                river are located just a few kilometres from the centre, and Hajla mountain
+                (2,403 m) dominates the horizon and invites hikers every season.
+              </span>
+            </p>
+          </div>
+          <div class="intro-img-wrap reveal">
+            <img src="images/rozaje/hajla-zima.webp" alt="Hajla zimi — ski centar Turjak" class="intro-img-main" />
+            <img src="images/rozaje/hajla-ljeto.webp" alt="Hajla ljeti — planinarenje" class="intro-img-sm" />
+          </div>
+        </div>
+      </section>
+
+      <!-- HISTORY TIMELINE -->
+      <section id="historija">
+        <div class="section-bg-mountains" aria-hidden="true">
+          <svg viewBox="0 0 1440 260" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+            <path d="M0,180 L200,110 L400,155 L600,70 L800,140 L1000,50 L1200,130 L1440,90 L1440,260 L0,260Z"
+              fill="#3FA060" opacity="0.06" />
+            <path d="M0,215 L160,162 L320,205 L480,148 L640,192 L800,125 L960,178 L1120,148 L1280,185 L1440,158 L1440,260 L0,260Z"
+              fill="#2D6A4F" opacity="0.05" />
+          </svg>
+        </div>
+
+        <div class="hist-header reveal">
+          <div class="section-label">
+            <span class="t-bs">Kroz vjekove</span>
+            <span class="t-en">Through the centuries</span>
+          </div>
+          <h2 class="section-title">
+            <span class="t-bs">Kratka istorija<br /><span class="accent-txt">Rožaja</span></span>
+            <span class="t-en">A brief history<br /><span class="accent-txt">of Rožaje</span></span>
+          </h2>
+        </div>
+
+        <div class="timeline">
+
+          <div class="tl-item reveal">
+            <div class="tl-dot"></div>
+            <div class="tl-year">XIV–XV v.</div>
+            <div class="tl-card">
+              <h3>
+                <span class="t-bs">Osmanski korijeni</span>
+                <span class="t-en">Ottoman roots</span>
+              </h3>
+              <p>
+                <span class="t-bs">
+                  Područje Rožaja ulazi u sferu osmanlijske uprave u 15. vijeku. Dolina Ibra
+                  postaje važan tranzitni pravac koji povezuje Jadransko primorje s unutrašnjošću
+                  Balkana. Postepeno se formira naselje koje će postati budući grad.
+                </span>
+                <span class="t-en">
+                  The area of Rožaje came under Ottoman administration in the 15th century. The
+                  Ibar valley became an important transit route connecting the Adriatic coast with
+                  the interior of the Balkans. A settlement gradually formed that would become
+                  the future city.
+                </span>
+              </p>
+            </div>
+          </div>
+
+          <div class="tl-item reveal">
+            <div class="tl-dot"></div>
+            <div class="tl-year">XVIII v.</div>
+            <div class="tl-card">
+              <h3>
+                <span class="t-bs">Razvoj kao trgovačko središte</span>
+                <span class="t-en">Development as a trading centre</span>
+              </h3>
+              <p>
+                <span class="t-bs">
+                  Tokom 18. vijeka Rožaje se razvijaju kao živahno trgovačko i zanatsko središte.
+                  Karavanski putevi prolaze kroz grad, donoseći robu i kulturne uticaje s raznih
+                  strana. Džamije, čaršija i karakteristična planinska arhitektura postaju dio
+                  gradske slike.
+                </span>
+                <span class="t-en">
+                  During the 18th century, Rožaje developed into a lively trading and craft centre.
+                  Caravan routes passed through the city, bringing goods and cultural influences
+                  from various directions. Mosques, the bazaar and characteristic mountain
+                  architecture became part of the city's image.
+                </span>
+              </p>
+            </div>
+          </div>
+
+          <div class="tl-item reveal">
+            <div class="tl-dot"></div>
+            <div class="tl-year">1912.</div>
+            <div class="tl-card">
+              <h3>
+                <span class="t-bs">Ulazak u Crnu Goru</span>
+                <span class="t-en">Joining Montenegro</span>
+              </h3>
+              <p>
+                <span class="t-bs">
+                  Nakon Prvog balkanskog rata 1912. godine, Rožaje postaju dio Crne Gore.
+                  Ovaj period donosi značajne promjene u upravljanju i društvenoj strukturi,
+                  ali lokalna kulturna i vjerska tradicija ostaje duboko ukorijenjena.
+                </span>
+                <span class="t-en">
+                  After the First Balkan War in 1912, Rožaje became part of Montenegro. This
+                  period brought significant changes in governance and social structure, but the
+                  local cultural and religious tradition remained deeply rooted.
+                </span>
+              </p>
+            </div>
+          </div>
+
+          <div class="tl-item reveal">
+            <div class="tl-dot"></div>
+            <div class="tl-year">XX v.</div>
+            <div class="tl-card">
+              <h3>
+                <span class="t-bs">Moderni razvoj</span>
+                <span class="t-en">Modern development</span>
+              </h3>
+              <p>
+                <span class="t-bs">
+                  Tokom druge polovine 20. vijeka Rožaje doživljavaju ubrzani razvoj —
+                  industrija, obrazovanje i infrastruktura napreduju. Grad se širi, a
+                  planinska priroda postaje sve prepoznatljiviji turistički adut koji privlači
+                  posjetioce iz cijele regije.
+                </span>
+                <span class="t-en">
+                  During the second half of the 20th century, Rožaje experienced rapid
+                  development — industry, education and infrastructure advanced. The city
+                  expanded, and the mountain nature became an increasingly recognised tourist
+                  asset attracting visitors from across the region.
+                </span>
+              </p>
+            </div>
+          </div>
+
+          <div class="tl-item reveal">
+            <div class="tl-dot"></div>
+            <div class="tl-year">Danas</div>
+            <div class="tl-card">
+              <h3>
+                <span class="t-bs">Planinski biser Crne Gore</span>
+                <span class="t-en">Mountain gem of Montenegro</span>
+              </h3>
+              <p>
+                <span class="t-bs">
+                  Rožaje su danas prepoznatljiva turistička destinacija koja nudi planinarenje,
+                  skijaški centar Turjak, autentičnu gastronomiju i toplo gostoprimstvo.
+                  Grad čuva svoju kulturnu posebnost dok istovremeno gradi modernu turističku
+                  ponudu vrijednu svake posjete.
+                </span>
+                <span class="t-en">
+                  Today, Rožaje is a recognisable tourist destination offering hiking, the Turjak
+                  ski resort, authentic gastronomy and warm hospitality. The city preserves its
+                  cultural uniqueness while simultaneously building a modern tourist offer
+                  worth every visit.
+                </span>
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- PHOTO GALLERY -->
+      <section id="galerija">
+        <div class="gal-header reveal">
+          <div class="section-label">
+            <span class="t-bs">Prizori grada</span>
+            <span class="t-en">City scenes</span>
+          </div>
+          <h2 class="section-title">
+            <span class="t-bs">Rožaje u<br /><span class="accent-txt">slikama</span></span>
+            <span class="t-en">Rožaje in<br /><span class="accent-txt">pictures</span></span>
+          </h2>
+        </div>
+
+        <div class="gal-grid">
+          <div class="gal-item gal-large reveal">
+            <img src="images/rozaje/hajla-mountain.webp" alt="Krovni vrh Rožaja — Hajla" loading="lazy" />
+            <div class="gal-caption">
+              <span class="t-bs">Hajla (2 403 m) — krovni vrh Rožaja</span>
+              <span class="t-en">Hajla (2,403 m) — the roof of Rožaje</span>
+            </div>
+          </div>
+          <div class="gal-item reveal">
+            <img src="images/rozaje/rozaje-city.webp" alt="Panorama Rožaja" loading="lazy" />
+            <div class="gal-caption">
+              <span class="t-bs">Panorama grada na 860 m n.v.</span>
+              <span class="t-en">City panorama at 860 m a.s.l.</span>
+            </div>
+          </div>
+          <div class="gal-item reveal">
+            <img src="images/rozaje/pine-forest.webp" alt="Šume oko Rožaja" loading="lazy" />
+            <div class="gal-caption">
+              <span class="t-bs">Netaknute planinske šume</span>
+              <span class="t-en">Untouched mountain forests</span>
+            </div>
+          </div>
+          <div class="gal-item reveal">
+            <img src="images/rozaje/mosque-culture.webp" alt="Kulturno naslijeđe Rožaja" loading="lazy" />
+            <div class="gal-caption">
+              <span class="t-bs">Kulturno naslijeđe Rožaja</span>
+              <span class="t-en">Cultural heritage of Rožaje</span>
+            </div>
+          </div>
+          <div class="gal-item reveal">
+            <img src="images/rozaje/ibar-river.webp" alt="Rijeka Ibar" loading="lazy" />
+            <div class="gal-caption">
+              <span class="t-bs">Kanjon rijeke Ibar</span>
+              <span class="t-en">The Ibar river canyon</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- NATURE & TOURISM -->
+      <section id="priroda">
+        <div class="priroda-inner">
+          <div class="priroda-imgs reveal">
+            <img src="images/rozaje/pine-forest.webp" alt="Šuma oko Rožaja" />
+            <img src="images/rozaje/hajla-mountain.webp" alt="Vrh Hajle" />
+          </div>
+          <div class="priroda-text reveal">
+            <div class="section-label">
+              <span class="t-bs">Priroda i turizam</span>
+              <span class="t-en">Nature &amp; tourism</span>
+            </div>
+            <h2 class="section-title white">
+              <span class="t-bs">Planinski raj<br /><span style="color:var(--meadow)">na dohvat ruke</span></span>
+              <span class="t-en">Mountain paradise<br /><span style="color:var(--meadow)">within reach</span></span>
+            </h2>
+            <p>
+              <span class="t-bs">
+                Rožaje nude jedinstven spoj divlje prirode i savremene turističke infrastrukture.
+                Skijaški centar Turjak zimi privlači ljubitelje snijega, dok ljeto otvara staze
+                za planinarenje prema Hajli, rafting na Ibru i boravak u planinskim bungalovima.
+                Gusta borova šuma čista je kao kristal — vazduh bez zagađenja, tišina prekinuta
+                samo žuborem potoka.
+              </span>
+              <span class="t-en">
+                Rožaje offers a unique blend of wild nature and modern tourist infrastructure.
+                The Turjak ski resort attracts snow lovers in winter, while summer opens up hiking
+                trails towards Hajla, rafting on the Ibar and stays in mountain bungalows.
+                The dense pine forest is as pure as crystal — pollution-free air, silence broken
+                only by the murmur of streams.
+              </span>
+            </p>
+            <div class="priroda-tags">
+              <span class="tag">
+                <i class="fa-solid fa-snowflake"></i>
+                <span class="t-bs">Ski centar Turjak</span>
+                <span class="t-en">Turjak ski resort</span>
+              </span>
+              <span class="tag">
+                <i class="fa-solid fa-person-hiking"></i>
+                <span class="t-bs">Planinarenje</span>
+                <span class="t-en">Hiking</span>
+              </span>
+              <span class="tag">
+                <i class="fa-solid fa-water"></i>
+                <span class="t-bs">Rafting — Ibar</span>
+                <span class="t-en">Rafting — Ibar</span>
+              </span>
+              <span class="tag">
+                <i class="fa-solid fa-tree"></i>
+                <span class="t-bs">Borova šuma</span>
+                <span class="t-en">Pine forest</span>
+              </span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA STRIP -->
+      <section id="cta-strip">
+        <div class="cta-inner reveal">
+          <h2 class="cta-title">
+            <span class="t-bs">Spreman/a za Rožaje?</span>
+            <span class="t-en">Ready for Rožaje?</span>
+          </h2>
+          <p>
+            <span class="t-bs">Pronađi smještaj, odaberi restoran i upoznaj planinski grad koji ostaje u srcu.</span>
+            <span class="t-en">Find accommodation, choose a restaurant and discover the mountain city that stays in your heart.</span>
+          </p>
+          <div class="cta-btns">
+            <a href="accommodations.html" class="btn btn-primary">
+              <i class="fa-solid fa-bed"></i>
+              <span class="t-bs">Smještaji</span>
+              <span class="t-en">Accommodations</span>
+            </a>
+            <a href="restaurants.html" class="btn btn-outline">
+              <i class="fa-solid fa-utensils"></i>
+              <span class="t-bs">Restorani</span>
+              <span class="t-en">Restaurants</span>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="nav-logo">Doživi Rožaje</div>
+          <p>
+            <span class="t-bs">
+              Tvoj vodič kroz najbolja ugostiteljska mjesta Rožaja. Lokalno, autentično, planinski svježe.
+            </span>
+            <span class="t-en">
+              Your guide to the best hospitality spots in Rožaje. Local, authentic, mountain fresh.
+            </span>
+          </p>
+          <div class="footer-social">
+            <a href="https://www.instagram.com/visit_rozaje/" target="_blank" rel="noopener" aria-label="Instagram">
+              <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a href="https://www.facebook.com/p/Turisticka-organizacija-Rozaje-100082855320254/" target="_blank" rel="noopener" aria-label="Facebook">
+              <i class="fa-brands fa-facebook-f"></i>
+            </a>
+            <a href="https://www.tiktok.com/@visit_rozaje" target="_blank" rel="noopener" aria-label="TikTok">
+              <i class="fa-brands fa-tiktok"></i>
+            </a>
+          </div>
+        </div>
+        <div class="footer-links">
+          <ul>
+            <li><a href="index.html"><span class="t-bs">Početna</span><span class="t-en">Home</span></a></li>
+            <li><a href="accommodations.html"><span class="t-bs">Smještaji</span><span class="t-en">Accommodations</span></a></li>
+            <li><a href="restaurants.html"><span class="t-bs">Restorani</span><span class="t-en">Restaurants</span></a></li>
+            <li><a href="dishes.html"><span class="t-bs">Tradicionalna Jela</span><span class="t-en">Traditional Dishes</span></a></li>
+            <li><a href="o-rozajama.html"><span class="t-bs">O Rožajama</span><span class="t-en">About Rožaje</span></a></li>
+            <li><a href="kontakt.html"><span class="t-bs">Kontakt</span><span class="t-en">Contact</span></a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>
+          &copy; 2026 Doživi Rožaje.
+          <span class="t-bs">Sva prava zadržana. Napravljeno s ljubavlju za Rožaje.</span>
+          <span class="t-en">All rights reserved. Made with love for Rožaje.</span>
+        </p>
+      </div>
+    </footer>
+
+    <script src="js/nav.js"></script>
+    <script src="js/o-rozajama.js"></script>
+  </body>
+</html>
