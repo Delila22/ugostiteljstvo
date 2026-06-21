@@ -142,7 +142,7 @@ nav {
 
 /* ─── CARDS ─── */
 .smjestaji-grid {
-  display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px;
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px;
 }
 .card {
   background: #fff; border-radius: 22px; overflow: hidden;
@@ -279,7 +279,6 @@ footer {
   .nav-links { gap:18px; }
   .breadcrumb { padding:12px 22px; }
   .smjestaji-section { padding:60px 22px 80px; }
-  .smjestaji-grid { grid-template-columns: 1fr 1fr; }
   .info-strip { grid-template-columns:1fr; padding:40px 22px; }
   .info-item:not(:last-child)::after { display:none; }
   footer { padding:40px 22px 24px; }
