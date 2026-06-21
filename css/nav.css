@@ -91,6 +91,30 @@
 }
 .mobile-nav-social a:hover { background: rgba(63,160,96,.22); color: #3FA060; }
 
+/* ─── CLOSE BUTTON inside overlay ─── */
+.mobile-nav-close {
+  position: absolute;
+  top: 22px;
+  right: 22px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(63,160,96,.1);
+  border: 1.5px solid rgba(63,160,96,.3);
+  color: rgba(200,240,220,.8);
+  font-size: 1.3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background .2s, color .2s, transform .2s;
+}
+.mobile-nav-close:hover {
+  background: rgba(63,160,96,.25);
+  color: #fff;
+  transform: rotate(90deg);
+}
+
 /* ─── RESPONSIVE: show hamburger, hide desktop nav ─── */
 @media (max-width: 900px) {
   .hamburger { display: flex; }

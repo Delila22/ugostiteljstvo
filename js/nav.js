@@ -11,6 +11,13 @@
   overlay.className = 'mobile-nav';
   overlay.id = 'mobile-nav';
 
+  /* close button inside overlay */
+  const closeBtn = document.createElement('button');
+  closeBtn.className = 'mobile-nav-close';
+  closeBtn.setAttribute('aria-label', 'Zatvori meni');
+  closeBtn.innerHTML = '<i class="fa-solid fa-xmark"></i>';
+  overlay.appendChild(closeBtn);
+
   navLinks.forEach(link => {
     const a = document.createElement('a');
     a.href = link.href;
@@ -64,6 +71,8 @@
   hamburger.addEventListener('click', () => {
     hamburger.classList.contains('open') ? closeMenu() : openMenu();
   });
+
+  closeBtn.addEventListener('click', closeMenu);
 
   overlay.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
 
