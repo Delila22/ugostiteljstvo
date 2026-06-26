@@ -445,8 +445,8 @@ nav {
 }
 
 /* ─── SMJEŠTAJI ─── */
-#smjestaji { background: #f0faf5; padding: 90px 60px 70px; border-top: 1px solid #C8E6D0; }
-@media(max-width:900px){ #smjestaji { padding:70px 22px; } }
+#smjestaji { background: #f0faf5; padding: 50px 60px 70px; border-top: 1px solid #C8E6D0; }
+@media(max-width:900px){ #smjestaji { padding:40px 22px 60px; } }
 .smjestaj-btn {
   display: inline-flex; align-items: center; gap: 6px;
   margin-top: 16px; padding: 10px 22px; border-radius: 50px;
