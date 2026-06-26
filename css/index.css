@@ -54,6 +54,8 @@ nav {
 }
 .nav-links a:hover { color: var(--meadow); }
 .nav-links a:hover::after { width: 100%; }
+.nav-links a.active { color: var(--meadow); }
+.nav-links a.active::after { width: 100%; }
 
 /* ─── HERO ─── */
 #hero {
@@ -250,7 +252,7 @@ nav {
 .feat h3 { font-size: 1.05rem; font-weight: 700; color: #e8f5ee; margin-bottom: 10px; letter-spacing: -.01em; }
 .feat p  { font-size: .86rem; color: rgba(200,240,220,.45); line-height: 1.7; max-width: 220px; }
 .feat-btn {
-  margin-top: auto; padding: 9px 22px; border-radius: 8px;
+  margin-top: 20px; padding: 9px 22px; border-radius: 8px;
   font-size: .8rem; font-weight: 600; text-decoration: none;
   transition: opacity .2s, transform .2s; cursor: pointer;
   display: inline-flex; align-items: center; gap: 6px;
@@ -306,7 +308,7 @@ nav {
   background: #fff; border-radius: 22px; overflow: hidden;
   box-shadow: 0 4px 28px rgba(20,18,14,.09);
   transition: transform .35s cubic-bezier(.34,1.56,.64,1), box-shadow .35s;
-  cursor: pointer;
+  cursor: pointer; text-decoration: none; color: inherit; display: block;
 }
 .card:hover {
   transform: translateY(-10px);
@@ -443,8 +445,8 @@ nav {
 }
 
 /* ─── SMJEŠTAJI ─── */
-#smjestaji { background: #f0faf5; padding: 90px 60px 70px; border-top: 1px solid #C8E6D0; }
-@media(max-width:900px){ #smjestaji { padding:70px 22px; } }
+#smjestaji { background: #f0faf5; padding: 50px 60px 70px; border-top: 1px solid #C8E6D0; }
+@media(max-width:900px){ #smjestaji { padding:40px 22px 60px; } }
 .smjestaj-btn {
   display: inline-flex; align-items: center; gap: 6px;
   margin-top: 16px; padding: 10px 22px; border-radius: 50px;
@@ -632,6 +634,7 @@ html.bs .t-en { display: none !important; }
   .kontakt-grid { grid-template-columns:1fr; }
   #features { grid-template-columns: repeat(2,1fr); padding:0 22px; }
   .feat:not(:last-child)::after { display:none; }
+  .feat { padding: 36px 24px; }
   #restaurants { padding:70px 22px; }
   .rest-grid { grid-template-columns:1fr 1fr; }
   .rest-row2 { max-width:100%; }
@@ -641,6 +644,7 @@ html.bs .t-en { display: none !important; }
 }
 @media(max-width:600px){
   #features { grid-template-columns:1fr; }
+  .feat { padding: 28px 20px; }
   .rest-grid { grid-template-columns:1fr; }
   .rest-row2 { grid-template-columns:1fr; }
   .hero-cta { flex-direction:column; align-items:center; }

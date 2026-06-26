@@ -8,17 +8,38 @@
       name="description"
       content="Otkrij autentičnu planinu Rožaje — restorani, smještaji i tradicija u srcu Crne Gore pod vrhom Hajle (2403 m)."
     />
+    <!-- Open Graph / društvene mreže -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Doživi Rožaje" />
+    <meta property="og:locale" content="bs_BA" />
     <meta property="og:title" content="Doživi Rožaje — Ugostiteljstvo i turizam" />
     <meta
       property="og:description"
       content="Autentična planinska kuhinja, hoteli i atrakcije u Rožajama, Crna Gora."
     />
-    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://dozivirozaje.me/" />
     <meta
       property="og:image"
       content="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=1200&q=80"
     />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="800" />
+    <meta
+      property="og:image:alt"
+      content="Planina Hajla iznad Rožaja, Crna Gora"
+    />
+
+    <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Doživi Rožaje — Ugostiteljstvo i turizam" />
+    <meta
+      name="twitter:description"
+      content="Autentična planinska kuhinja, hoteli i atrakcije u Rožajama, Crna Gora."
+    />
+    <meta
+      name="twitter:image"
+      content="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=1200&q=80"
+    />
     <link
       rel="icon"
       href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='18' fill='%233FA060'/><path d='M12 82 L40 34 L58 60 L70 44 L88 82 Z' fill='%23fff'/><path d='M40 34 L34 44 L46 44 Z' fill='%235FB0CE'/></svg>"
@@ -38,8 +59,14 @@
   <body>
     <!-- NAV -->
     <nav>
-      <div class="nav-logo">Doživi Rožaje</div>
+      <a href="index.html" class="nav-logo">Doživi Rožaje</a>
       <ul class="nav-links">
+        <li>
+          <a href="index.html" class="active">
+            <span class="t-bs">Početna</span>
+            <span class="t-en">Home</span>
+          </a>
+        </li>
         <li>
           <a href="accommodations.html">
             <span class="t-bs">Smještaji</span>
@@ -120,20 +147,12 @@
           <div class="hero-divider"><span></span></div>
           <p class="hero-sub">
             <span class="t-bs">
-              Autentična domaća kuhinja iz srca planina —
-              <br />
-              gdje se
-              <span class="hero-highlight">tradicija</span>
-              , miris dima i čist planinski vazduh sreću na jednoj trpezi.
+              Probaj Rožaje kroz miris domaće hrane, planinski vazduh i
+              gostoprimstvo koje se pamti.
             </span>
             <span class="t-en">
-              Authentic mountain cuisine from the heart of Montenegro —
-              <br />
-              where
-              <span class="hero-highlight">tradition</span>
-              , the scent of smoke and pure mountain air
-              <br />
-              meet at one table.
+              Explore Rožaje through the scent of homemade food, mountain air
+              and hospitality you'll never forget.
             </span>
           </p>
           <div class="hero-cta">
@@ -416,6 +435,92 @@
       <!-- Mountain divider between features and restaurants -->
       <div class="section-divider"></div>
 
+      <!-- ABOUT / NATURE STRIP -->
+      <section id="nature-strip">
+        <!-- decorative bg mountains -->
+        <div class="nature-bg-mountains">
+          <svg viewBox="0 0 1440 300" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+            <path
+              d="M0,200 L200,120 L400,180 L600,80 L800,160 L1000,60 L1200,150 L1440,100 L1440,300 L0,300Z"
+              fill="#52B788"
+              opacity="0.15"
+            />
+            <path
+              d="M0,235 L160,172 L320,218 L480,150 L640,198 L800,132 L960,185 L1120,155 L1280,192 L1440,165 L1440,300 L0,300Z"
+              fill="#40916C"
+              opacity="0.12"
+            />
+            <path
+              d="M0,262 L120,238 L240,255 L360,232 L480,252 L600,228 L720,250 L840,230 L960,254 L1080,235 L1200,256 L1320,238 L1440,258 L1440,300 L0,300Z"
+              fill="#2D6A4F"
+              opacity="0.1"
+            />
+          </svg>
+        </div>
+
+        <div class="nature-text">
+          <div class="section-label">
+            <span class="t-bs">O Projektu</span>
+            <span class="t-en">About the Project</span>
+          </div>
+          <h2 class="section-title">
+            <span class="t-bs">
+              Rožaje ima
+              <br />
+              <span style="color: var(--meadow)">svoju priču</span>
+            </span>
+            <span class="t-en">
+              Rožaje has
+              <br />
+              <span style="color: var(--meadow)">its own story</span>
+            </span>
+          </h2>
+          <p>
+            <span class="t-bs">
+              Rožaje je grad okružen planinama, doma Hajle (2.403 m) — najvišeg vrha Rožajske
+              opštine. Ta planinska veličanstvenost oduvijek je oblikovala lokalnu kuhinju i način
+              života: svježe, domaće, hranjivo. Naš cilj je da tu tradiciju dovedemo na dohvat ruke
+              svakome — bilo da si mještanin ili putnik namjernik.
+            </span>
+            <span class="t-en">
+              Rožaje is a city surrounded by mountains, home to Hajla (2,403 m) — the highest peak
+              of Rožaje municipality. That mountain grandeur has always shaped the local cuisine and
+              way of life: fresh, homemade, nourishing. Our goal is to bring that tradition within
+              reach of everyone — whether you are a local or a traveller passing through.
+            </span>
+          </p>
+          <div class="nature-stats">
+            <div class="stat">
+              <span class="stat-num">15+</span>
+              <span class="stat-lab">
+                <span class="t-bs">Restorana</span>
+                <span class="t-en">Restaurants</span>
+              </span>
+            </div>
+            <div class="stat">
+              <span class="stat-num">2403m</span>
+              <span class="stat-lab">
+                <span class="t-bs">Hajla vrh</span>
+                <span class="t-en">Hajla Peak</span>
+              </span>
+            </div>
+            <div class="stat">
+              <span class="stat-num">40+</span>
+              <span class="stat-lab">
+                <span class="t-bs">Specijaliteta</span>
+                <span class="t-en">Specialties</span>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div class="nature-imgs">
+          <img src="images/hero/dermandoo.webp" alt="Restorani" />
+          <img src="images/hero/hotel-lozaje-hero.webp" alt="Smještaji" />
+          <img src="images/food/hero-food.webp" alt="Jela" />
+        </div>
+      </section>
+
       <!-- ACCOMMODATIONS -->
       <section id="smjestaji">
         <div class="section-mountain-bg" aria-hidden="true">
@@ -473,7 +578,7 @@
 
         <div class="rest-grid">
           <!-- Hotel Rožaje -->
-          <div class="card">
+          <a class="card" href="https://www.booking.com/hotel/me/rozaje.html" target="_blank" rel="noopener">
             <div class="card-img-wrap">
               <img
                 src="images/accommodations/hotel-rozaje.webp"
@@ -519,21 +624,16 @@
                   <span class="t-en">Pool & Sauna</span>
                 </span>
               </div>
-              <a
-                href="https://www.booking.com/hotel/me/rozaje.html"
-                target="_blank"
-                rel="noopener"
-                class="smjestaj-btn"
-              >
+              <span class="smjestaj-btn">
                 <span class="t-bs">Rezerviši</span>
                 <span class="t-en">Book now</span>
                 <i class="fa-solid fa-arrow-right"></i>
-              </a>
+              </span>
             </div>
-          </div>
+          </a>
 
           <!-- Hotel Aldi -->
-          <div class="card">
+          <a class="card" href="https://www.booking.com/hotel/me/aldi-rozaje.html" target="_blank" rel="noopener">
             <div class="card-img-wrap">
               <img
                 src="images/accommodations/hotel-aldi.webp"
@@ -584,21 +684,16 @@
                   <span class="t-en">Near ski resort</span>
                 </span>
               </div>
-              <a
-                href="https://www.booking.com/hotel/me/aldi-rozaje.html"
-                target="_blank"
-                rel="noopener"
-                class="smjestaj-btn"
-              >
+              <span class="smjestaj-btn">
                 <span class="t-bs">Rezerviši</span>
                 <span class="t-en">Book now</span>
                 <i class="fa-solid fa-arrow-right"></i>
-              </a>
+              </span>
             </div>
-          </div>
+          </a>
 
           <!-- Jela Natural Resort -->
-          <div class="card">
+          <a class="card" href="https://www.booking.com/hotel/me/jela-natural-resort-rozaje.html" target="_blank" rel="noopener">
             <div class="card-img-wrap">
               <img
                 src="images/accommodations/fir-resort.webp"
@@ -649,21 +744,16 @@
                   <span class="t-en">Hiking</span>
                 </span>
               </div>
-              <a
-                href="https://www.booking.com/hotel/me/jela-natural-resort-rozaje.html"
-                target="_blank"
-                rel="noopener"
-                class="smjestaj-btn"
-              >
+              <span class="smjestaj-btn">
                 <span class="t-bs">Rezerviši</span>
                 <span class="t-en">Book now</span>
                 <i class="fa-solid fa-arrow-right"></i>
-              </a>
+              </span>
             </div>
-          </div>
+          </a>
 
           <!-- Wahels Hotel -->
-          <div class="card">
+          <a class="card" href="https://www.facebook.com/hotelwahels/" target="_blank" rel="noopener">
             <div class="card-img-wrap">
               <img
                 src="images/accommodations/wahels-hotel.webp"
@@ -712,18 +802,13 @@
                   <span class="t-en">Own restaurant</span>
                 </span>
               </div>
-              <a
-                href="https://www.facebook.com/hotelwahels/"
-                target="_blank"
-                rel="noopener"
-                class="smjestaj-btn"
-              >
+              <span class="smjestaj-btn">
                 <span class="t-bs">Posjeti stranicu</span>
                 <span class="t-en">Visit page</span>
                 <i class="fa-brands fa-facebook-f"></i>
-              </a>
+              </span>
             </div>
-          </div>
+          </a>
         </div>
       </section>
 
@@ -1029,92 +1114,6 @@
         </div>
       </section>
 
-      <!-- ABOUT / NATURE STRIP -->
-      <section id="nature-strip">
-        <!-- decorative bg mountains -->
-        <div class="nature-bg-mountains">
-          <svg viewBox="0 0 1440 300" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-            <path
-              d="M0,200 L200,120 L400,180 L600,80 L800,160 L1000,60 L1200,150 L1440,100 L1440,300 L0,300Z"
-              fill="#52B788"
-              opacity="0.15"
-            />
-            <path
-              d="M0,235 L160,172 L320,218 L480,150 L640,198 L800,132 L960,185 L1120,155 L1280,192 L1440,165 L1440,300 L0,300Z"
-              fill="#40916C"
-              opacity="0.12"
-            />
-            <path
-              d="M0,262 L120,238 L240,255 L360,232 L480,252 L600,228 L720,250 L840,230 L960,254 L1080,235 L1200,256 L1320,238 L1440,258 L1440,300 L0,300Z"
-              fill="#2D6A4F"
-              opacity="0.1"
-            />
-          </svg>
-        </div>
-
-        <div class="nature-text">
-          <div class="section-label">
-            <span class="t-bs">O Projektu</span>
-            <span class="t-en">About the Project</span>
-          </div>
-          <h2 class="section-title">
-            <span class="t-bs">
-              Rožaje ima
-              <br />
-              <span style="color: var(--meadow)">svoju priču</span>
-            </span>
-            <span class="t-en">
-              Rožaje has
-              <br />
-              <span style="color: var(--meadow)">its own story</span>
-            </span>
-          </h2>
-          <p>
-            <span class="t-bs">
-              Rožaje je grad okružen planinama, doma Hajle (2.403 m) — najvišeg vrha Rožajske
-              opštine. Ta planinska veličanstvenost oduvijek je oblikovala lokalnu kuhinju i način
-              života: svježe, domaće, hranjivo. Naš cilj je da tu tradiciju dovedemo na dohvat ruke
-              svakome — bilo da si mještanin ili putnik namjernik.
-            </span>
-            <span class="t-en">
-              Rožaje is a city surrounded by mountains, home to Hajla (2,403 m) — the highest peak
-              of Rožaje municipality. That mountain grandeur has always shaped the local cuisine and
-              way of life: fresh, homemade, nourishing. Our goal is to bring that tradition within
-              reach of everyone — whether you are a local or a traveller passing through.
-            </span>
-          </p>
-          <div class="nature-stats">
-            <div class="stat">
-              <span class="stat-num">15+</span>
-              <span class="stat-lab">
-                <span class="t-bs">Restorana</span>
-                <span class="t-en">Restaurants</span>
-              </span>
-            </div>
-            <div class="stat">
-              <span class="stat-num">2403m</span>
-              <span class="stat-lab">
-                <span class="t-bs">Hajla vrh</span>
-                <span class="t-en">Hajla Peak</span>
-              </span>
-            </div>
-            <div class="stat">
-              <span class="stat-num">40+</span>
-              <span class="stat-lab">
-                <span class="t-bs">Specijaliteta</span>
-                <span class="t-en">Specialties</span>
-              </span>
-            </div>
-          </div>
-        </div>
-
-        <div class="nature-imgs">
-          <img src="images/hero/dermandoo.webp" alt="Restorani" />
-          <img src="images/hero/hotel-lozaje-hero.webp" alt="Smještaji" />
-          <img src="images/food/hero-food.webp" alt="Jela" />
-        </div>
-      </section>
-
       <!-- KONTAKT + MAPA -->
       <section id="kontakt">
         <div class="kontakt-grid">
@@ -1233,7 +1232,7 @@
                 </span>
                 <span class="map-info-item">
                   <i class="fa-solid fa-mountain"></i>
-                  42°50′N 20°10′E · 860 m n.v.
+                  42°50′N 20°10′E · 1.000 m n.v.
                 </span>
                 <span class="map-info-item">
                   <i class="fa-solid fa-road"></i>
@@ -1329,6 +1328,24 @@
           </ul>
         </div>
       </div>
+
+      <!-- SPONZORI / DONATORI -->
+      <div class="footer-sponsors">
+        <p class="sponsors-text">
+          Kreiranje web stranice je finansijski podržano u okviru programa
+          „De facto za mlade“, koji sprovodi Fond za aktivno građanstvo, uz
+          podršku Evropske unije i kofinansiranja Ministarstva regionalno –
+          investicionog razvoja i saradnje sa nevladinim organizacijama.
+        </p>
+        <div class="sponsors-logos">
+          <img src="images/sponsors/sponsor1.webp" alt="Finansira Evropska unija" />
+          <img src="images/sponsors/sponsor2.webp" alt="Fond za aktivno građanstvo — Fund for Active Citizenship" />
+          <img src="images/sponsors/sponsor3.webp" alt="De facto za Mlade!" />
+          <img src="images/sponsors/sponsor4.webp" alt="ALFA Centar" />
+          <img src="images/sponsors/sponsor5.webp" alt="Ministarstvo regionalno-investicionog razvoja i saradnje sa nevladinim organizacijama" />
+        </div>
+      </div>
+
       <div class="footer-bottom">
         <p>
           &copy; 2026 Doživi Rožaje.

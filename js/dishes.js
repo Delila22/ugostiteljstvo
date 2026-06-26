@@ -15,6 +15,13 @@ document.querySelectorAll('.dish-card, .rest-card, .stat').forEach(el => {
   observer.observe(el);
 });
 
+/* rest-card click → open Google search */
+document.querySelectorAll('.rest-card[data-url]').forEach(card => {
+  card.addEventListener('click', () => {
+    window.open(card.dataset.url, '_blank', 'noopener');
+  });
+});
+
 /* lang toggle */
 let isEn = false;
 function toggleLang() {
