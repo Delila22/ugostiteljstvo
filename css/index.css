@@ -634,6 +634,7 @@ html.bs .t-en { display: none !important; }
   .kontakt-grid { grid-template-columns:1fr; }
   #features { grid-template-columns: repeat(2,1fr); padding:0 22px; }
   .feat:not(:last-child)::after { display:none; }
+  .feat { padding: 36px 24px; }
   #restaurants { padding:70px 22px; }
   .rest-grid { grid-template-columns:1fr 1fr; }
   .rest-row2 { max-width:100%; }
@@ -643,6 +644,7 @@ html.bs .t-en { display: none !important; }
 }
 @media(max-width:600px){
   #features { grid-template-columns:1fr; }
+  .feat { padding: 28px 20px; }
   .rest-grid { grid-template-columns:1fr; }
   .rest-row2 { grid-template-columns:1fr; }
   .hero-cta { flex-direction:column; align-items:center; }
