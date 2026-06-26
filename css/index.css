@@ -308,7 +308,7 @@ nav {
   background: #fff; border-radius: 22px; overflow: hidden;
   box-shadow: 0 4px 28px rgba(20,18,14,.09);
   transition: transform .35s cubic-bezier(.34,1.56,.64,1), box-shadow .35s;
-  cursor: pointer;
+  cursor: pointer; text-decoration: none; color: inherit; display: block;
 }
 .card:hover {
   transform: translateY(-10px);
