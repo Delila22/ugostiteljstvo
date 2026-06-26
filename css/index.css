@@ -252,7 +252,7 @@ nav {
 .feat h3 { font-size: 1.05rem; font-weight: 700; color: #e8f5ee; margin-bottom: 10px; letter-spacing: -.01em; }
 .feat p  { font-size: .86rem; color: rgba(200,240,220,.45); line-height: 1.7; max-width: 220px; }
 .feat-btn {
-  margin-top: auto; padding: 9px 22px; border-radius: 8px;
+  margin-top: 20px; padding: 9px 22px; border-radius: 8px;
   font-size: .8rem; font-weight: 600; text-decoration: none;
   transition: opacity .2s, transform .2s; cursor: pointer;
   display: inline-flex; align-items: center; gap: 6px;
