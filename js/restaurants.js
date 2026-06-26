@@ -10,6 +10,13 @@ document.querySelectorAll('.card, .info-item, .savjet').forEach(el => {
   observer.observe(el);
 });
 
+/* card click → open Google search */
+document.querySelectorAll('.card[data-url]').forEach(card => {
+  card.addEventListener('click', () => {
+    window.open(card.dataset.url, '_blank', 'noopener');
+  });
+});
+
 /* filter tabs */
 function filterCards(cat, btn) {
   document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
