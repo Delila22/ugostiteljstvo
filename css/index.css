@@ -54,6 +54,8 @@ nav {
 }
 .nav-links a:hover { color: var(--meadow); }
 .nav-links a:hover::after { width: 100%; }
+.nav-links a.active { color: var(--meadow); }
+.nav-links a.active::after { width: 100%; }
 
 /* ─── HERO ─── */
 #hero {
